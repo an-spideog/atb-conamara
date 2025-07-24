@@ -15,7 +15,7 @@
 - [Numbers](./numbers.md)
 - [Pronouns](./pronouns.md)
 - [Simple Prepositions](./simple_prepositions.md)
-- [Compound Prepositions](./simple_prepositions.md)
+- [Compound Prepositions](./compound_prepositions.md)
 - [Question Words](./question_words.md)
 - [Regular Verbs](./regular_verbs.md)
 - [Irregular Verbs](./irregular_verbs.md)
