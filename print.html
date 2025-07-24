@@ -1,0 +1,2100 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>The Living Language - Conamara</title>
+        <meta name="robots" content="noindex">
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "";
+            const default_light_theme = "light";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">The Living Language - Conamara</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="translators-note"><a class="header" href="#translators-note">Translator's Note</a></h1>
+<p>I translated this book because I think access to dialectal information is very helpful to those just beginning to learn Irish, if you only start learning about dialectal traits when you're able to read books like this in Irish, I think you're starting too late.</p>
+<p>The author of this book makes some statements I don't agree with. Specifically he repeats the idea that learners shouldn't use certain dialectal traits, which I entirely disagree with. Learners should speak the language as it's spoken, including <em>is mú</em>, <em>leob</em>, and <em>tádar</em>. I have, however, included these statements in the book for the sake of a faithful translation.</p>
+<p>It's likely I've made typos and mistakes throughout the translation, please let me know if you see any. I often tried to maintain the original formatting of the book however messy that may have been, keep that in mind.</p>
+<p>The original is available in Irish under the name <em>An Teanga Bheo - Gaeilge Chonamara</em> written by Séamas Ó Murchú, it's an amazing resource and I'd highly recommend it if you can read Irish.</p>
+<hr />
+<p>I apologise for the guerilla nature of this translation, if anyone involved in the making of the book would like me to take this down, just let me know and I will.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="introduction"><a class="header" href="#introduction">Introduction</a></h1>
+<p>This is a short account of Conamara Irish as it's spoken today, especially among middle aged and older speakers. Not much attention is given to ancient tendencies nor new tendencies which are emerging. This is only basic information about the dialect, the amount a student would want, studying the living language. It's taken that the reader has experience with standard grammar and some understanding of phonetics.</p>
+<p>Since this is the dialect most heard on the radio, every learner can benefit from having some knowledge of it. On the other hand, it has to be said that there are some traits of the dialect that aren't advisable for a learner to mimic, because they're too local or too far from the written form. For example of those tendencies the following ones could be mentioned: elision of /h/ in the middle of words (e.g. saying <em>láthair</em> as <em>láir</em>); pronouncing <em>ó</em> as /u:/ beside nasal consonants (e.g. saying <em>mó</em> as <em>mú</em>); Putting /b/ with pronouns ending in the 3rd person plural (e.g. saying <em>acu</em> as <em>acab</em>). Those are natural developments of course, that go back hundreds of years. IT doesn't need to be said that there is no fault to be found in their use by native speakers of the dialect.</p>
+<p>This small word is based in fair part on the writings of Tomás de Bhaldraithe (1917-1996), a big scholar of this dialect. Most of the samples I heard them in conversation or on the radio.</p>
+<p>I am obliged to Dónall Ó Baoill for the trouble he took with the writing and for the edits he suggested. I'm grateful to Áine Ní Chonghaile for doing the typesetting so neatly.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="pronunciation-symbols"><a class="header" href="#pronunciation-symbols">Pronunciation Symbols</a></h1>
+<p>Here de Bhaldraithe's (1945) system of symbols is maintained, except for the following simplifications:</p>
+<ul>
+<li>/a/ instead of /a:/ or /æ:/,</li>
+<li>/a:/ instead of /ɑ:/,</li>
+<li>/l/, /n/ instead of /L/, /N/,</li>
+<li>/v/ instead of /w/.</li>
+</ul>
+<p>Vowels</p>
+<div class="table-wrapper"><table><thead><tr><th>short</th><th>long</th></tr></thead><tbody>
+<tr><td>/a/ <em>cas</em></td><td>/a:/ <em>cás</em></td></tr>
+<tr><td>/e/ <em>deis</em></td><td>/e:/ <em>céim</em></td></tr>
+<tr><td>/i/ <em>sin</em></td><td>/i:/ <em>sín</em></td></tr>
+<tr><td>/o/ <em>bog</em></td><td>/o:/ <em>mór</em></td></tr>
+<tr><td>/u/ <em>cur</em></td><td>/u:/ <em>cúr</em></td></tr>
+<tr><td>/ə/ the last vowel in <em>póca</em> or <em>píce</em></td><td></td></tr>
+</tbody></table>
+</div>
+<p>N.B. /a:/ is a low back unrounded vowel, as normally in the Irish English <em>all, cord, law,</em> etc.</p>
+<p>Diphthongs</p>
+<ul>
+<li>/ai/ <em>aghaidh</em></li>
+<li>/au/ <em>togha</em></li>
+<li>/iə/ <em>bia</em></li>
+<li>/uə/ <em>bua</em></li>
+</ul>
+<p>Consonants</p>
+<div class="table-wrapper"><table><thead><tr><th>broad</th><th>slender</th></tr></thead><tbody>
+<tr><td>/b/ <em>bó</em></td><td>/b´/ <em>beo</em></td></tr>
+<tr><td>/d/ <em>dó</em></td><td>/d´/ <em>deo</em></td></tr>
+<tr><td>/f/ <em>fáth</em></td><td>/f´/ <em>fearr</em></td></tr>
+<tr><td>/g/ <em>gann</em></td><td>/g´/ <em>gearr</em></td></tr>
+<tr><td>/h/ <em>thug</em></td><td></td></tr>
+<tr><td>/ɣ/ <em>dhá</em></td><td>/j/ <em>ghearr</em></td></tr>
+<tr><td>/k/ <em>cóir</em></td><td>/k´/ <em>ceo</em></td></tr>
+<tr><td>/l/ <em>lá</em></td><td>/L´/ <em>leas</em></td></tr>
+<tr><td></td><td>/l´/ <em>cáil</em></td></tr>
+<tr><td>/m/ <em>má</em></td><td>/m´/ <em>meá</em></td></tr>
+<tr><td>/n/ <em>naoi</em></td><td>/n´/ <em>cáin</em></td></tr>
+<tr><td>/p/ <em>páirt</em></td><td>/p´/ <em>peann</em></td></tr>
+<tr><td>/r/ <em>rá</em></td><td>/r´/ <em>cóir</em></td></tr>
+<tr><td>/s/ <em>suí</em></td><td>/ʃ/ <em>sí</em></td></tr>
+<tr><td>/t/ <em>tuí</em></td><td>/t´/ <em>tí</em></td></tr>
+<tr><td>/v/ <em>bhain</em></td><td>/v´/ <em>bhí</em></td></tr>
+<tr><td>/x/ <em>chas</em></td><td>/x´/ <em>cheap</em></td></tr>
+</tbody></table>
+</div>
+<p>In slender groups the slender mark is only added to the second consonant: <em>breá</em> /br´a:/, <em>dlí</em> /dl´i:/, <em>baint</em> /bant´/, <em>ceilt</em> /k´elt´/. IT should be noted that <em>r</em> is always broad before <em>d, l, n, s, t:</em> <em>aird</em> /a:rd´/ (broad <em>r</em>, slender <em>d</em>). <em>ch</em> is broad before slender <em>t</em>: <em>níos boichte</em> /boxd´ə/.
+Borrowed consonants</p>
+<ul>
+<li>/ḍ/ <em>lad</em> /l´aḍ/</li>
+<li>/ṭ/ <em>tea</em> /ṭe:/</li>
+<li>/dʒ/ <em>job</em> /dʒab/</li>
+<li>/tʃ/ <em>watch</em> /vatʃ/</li>
+</ul>
+<p>These function as slender consonants.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="spelling"><a class="header" href="#spelling">Spelling</a></h1>
+<p>To give examples from the dialect, the standard spelling is used as far as is possible. For example the spelling <em>samhradh</em> is accepted although <em>samhra</em> is what's said, i.e. the <em>dh</em> is silent. A simple rule can be given that <em>dh</em> is silent at the end of nouns in this dialect. In the same way the spelling <em>talamh</em> can be accepted even though <em>tala</em> is what's said: <em>mh</em> is regularly silent at the end of two syllable words. Another example: <em>ag</em> is written before verbal nouns even though it's just said <em>a</em> before consonants; e.g. in <em>ag fáil</em>.</p>
+<p>When the dialectal spelling needs to be shown the phonetic spelling is given in parentheses: <em>samhradh (samhra), talamh (tala), ag fáil (a' fáil).</em></p>
+<p>Sometimes phonetic spelling needs to be used to make a point about inflection. For example, <em>deireadh</em> can be written (like <em>samhradh</em> above), but in the phrase <em>chun deire</em> the phonetic spelling has to be used. <em>chun deiridh</em> would have it understood that the noun is declined in the genitive, and <em>chun deireadh</em> would look incorrect.</p>
+<p>In the case of a single word which has a special form in the dialect the normal spelling with corresponds to that form is used, dialectal spelling as it could be called: <em>dúin</em> instead of <em>dún</em> (verb), <em>dreithiúr</em> instead of <em>deirfiúr, dríoball</em> instead of <em>eireaball,</em> and so on. There's a list of these words in Chapter 4. Most of the samples of dialectal spelling are found in Connacht texts; e.g. in the writings of Máirtín Ó Cadhain and in folklore stories.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="1-the-dialect"><a class="header" href="#1-the-dialect">1. The Dialect</a></h1>
+<h2 id="11-connemara"><a class="header" href="#11-connemara">1.1 Connemara</a></h2>
+<p>This is the name usually given to the part of County Galway which is west of Lough Corrib. Long ago, the name only meant the west side of that area, but now it's usually means the whole area.</p>
+<p>The name Connemara comes from the old tribal name <em>Conmaicne Mara</em>. Another old name for this area is <em>Iar-Chonnacht</em> (or <em>Iarthar Chonnacht</em>), but that name isn't used much now.</p>
+<h2 id="12-the-gaeltacht"><a class="header" href="#12-the-gaeltacht">1.2 The Gaeltacht</a></h2>
+<p>From a language perspective, modern day Conamara is split into two parts. On the south side, by the sea, is the Gaeltacht: from Barna, on the outskirts of Galway City, over to Bertraghboy Bay (Roundstone Bay). English has long been dominant on the North side, as far as the main road from Galway to Cloghaun. But the bigger community is on the south side. Even so, there are some Irish speakers still on the north side, specifically around Recess.</p>
+<h2 id="13-areas"><a class="header" href="#13-areas">1.3 Areas</a></h2>
+<p>South Connemara is split into various areas at the bays and there are small dialectal differences between them to note.
+Here are the areas most often mentioned:</p>
+<ul>
+<li><em>Cois Fharraige</em>: From Barna, west to Cashla Bay</li>
+<li><em>An Cheathrú Rua</em> (Carrowroe): The Peninsula between Cashla Bay and Greatman's Bay</li>
+<li><em>Na hOileáin</em> (The Islands): the islands in Greatman's Bay, particularly Gorumna, and Lettermullan.</li>
+<li><em>Ros Muc</em> (Rosmuck): a long peninsula in Greatman's Bay</li>
+<li><em>Cill Chiaráin</em> (Kilkieran): The western shore of Greatman's Bay</li>
+<li><em>Carna</em>: The costal area around Carna village (the old name is <em>Iorras Aithneach</em>)</li>
+</ul>
+<h2 id="14-the-community"><a class="header" href="#14-the-community">1.4 The Community</a></h2>
+<p>The Flahertys (<em>na Flaitheartaigh</em>) were the strongest tribe in Connemara in ancient times. The English got control of the area in the 17th century but it seems not many of them settled there. Even so, these most common connacht surnames in the community are: <em>Ó Conaire</em>, <em>Ó Conaola</em> (or <em>Mac Conaola</em>), <em>Mac Donncha, Ó Fathartaigh, Ó Flaitheartaigh, Ó Maolchiaráin</em>, etc. There are some common Norman surnames too: <em>Bairéad, Breathnach, de Búrca, Seoige.</em> There used to be some amount of people moving into the region, as is clear from the Munster surnames like <em>Ó Briain, Ó Gríofa, Ó Súilleabháin,</em> and Ulster surnames like <em>Ó Dónaill, Ó Griallais (Mac Niallais), Mac Suibhne.</em></p>
+<h2 id="15-the-dialect"><a class="header" href="#15-the-dialect">1.5 The Dialect</a></h2>
+<p>The dialect is a part of Connacht Irish and accordingly it has traits like these: the stress on the first syllable in words like <em>caipín, bacach;</em> the long vowel /i:/ in words like <em>caol, saor;</em> <em>rinne</em> in the past tense of the verb <em>déan;</em> <em>muid</em> instead of <em>sinn.</em></p>
+<p>But there are some traits in the dialect which link it with Munster Irish. Among those are:</p>
+<ul>
+<li>silent <em>dh</em> at the end of nouns, e.g. <em>samhradh</em> said as <em>samhra;</em></li>
+<li>the word <em>arán</em> said as <em>rán;</em></li>
+<li>the suffix <em>-adar</em> in the 3rd person plural past tense of the verb (<em>bhíodar, bhuaileadar</em>).</li>
+</ul>
+<h2 id="16-special-traits"><a class="header" href="#16-special-traits">1.6 Special Traits</a></h2>
+<p>There are some traits which are specific to this dialect. Among those are:</p>
+<ul>
+<li>silent <em>mh</em> at the end of two syllable words, e.g. <em>talamh</em> said as <em>tala;</em></li>
+<li>the diphthong /ai/ in some words like <em>oibre</em> (genitive), <em>poiblí;</em></li>
+<li>/b/ at the end of <em>acu, orthu, etc.;</em></li>
+<li><em>tádar</em> sometimes, instead of <em>tá siad.</em></li>
+</ul>
+<p>There are some words in the dialect which aren't used much in any other region; a common example is <em>múr</em>, the local word for <em>cith</em>.</p>
+<h2 id="17-varation"><a class="header" href="#17-varation">1.7 Varation</a></h2>
+<p>Like every other dialect there's a significant amount of variation to note here, i.e. two versions or more of the same word or phrase. In some cases, the two cases are found widely, e.g. the option of the synthetic or analytic forms in the 3rd person plural past (<em>bhíodar, bhí siad</em>). <em>uilig</em> and <em>uiliug</em> (7.7) are both found across the region, sometimes both by the same person.</p>
+<p>Often one version relates to one specific area. There's a good few differences especially between the east side (Cois Fharraige) and the west side (Carna, Ros Muc, etc.). The most notable ones of them relate to /h/ between two vowels. That /h/ is dropped usually in Cois Fharraige, but it's preserved in the other dialects. A lot of words appear quite different because of that; e.g. <em>droichead</em>, it's said as /drohəd/ in Carna but as /dre:d/ in Cois Fharraige.</p>
+<h2 id="18-writers-of-the-dialect"><a class="header" href="#18-writers-of-the-dialect">1.8 Writers of the Dialect</a></h2>
+<p>Since the cultivation of new Irish language literature started, a good few writers have come out of Connemara. Amongst the most famous ones were:</p>
+<ul>
+<li><em>Mícheál Breathnach (1881-1908), Cois Fharraige;</em></li>
+<li><em>Máirtín Ó Cadhain (1905-1970), Cois Fharraige;</em></li>
+<li><em>Pádraic Ó Conaire (1882-1928), Ros Muc;</em></li>
+<li><em>Pádraic Óg Ó Conaire (1893-1971), Ros Muc;</em></li>
+<li><em>Séamus Mac Con Iomare (1891-1967), Carna;</em></li>
+<li><em>Colm Ó Gaora (1887-1954), Ros Muc.</em></li>
+</ul>
+<p>We shouldn't forget to mention <em>Pádraic Mac Piarais (1879-1916)</em> here too. Although he was from Dublin, he learned Connemara Irish in Ros Muc, his stories are mostly written in it.</p>
+<p>Information about these authors and their work can be found in Breathnach and Ní Mhurchú (1986).</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="2-pronunciation-of-vowels"><a class="header" href="#2-pronunciation-of-vowels">2. Pronunciation of Vowels</a></h1>
+<h2 id="21-short-a"><a class="header" href="#21-short-a">2.1 Short <em>a</em></a></h2>
+<p>Short <em>a</em> = /a/. A vowel can be back or front depending on the environment: back /a/ in <em>baile</em>, front /a/ in <em>aire</em>.<br />
+<em>ea-</em> = back /a/ usually: <em>eala, eangach.</em></p>
+<p>In some places (Carna) the front /a/ is used in words like <em>asal, hata tada.</em></p>
+<p>Often the /a/ in this dialect is long. But there's always a difference between /a/ and /a:/: e.g. between <em>cas</em> and <em>cás.</em></p>
+<h2 id="22-short-o"><a class="header" href="#22-short-o">2.2 Short <em>o</em></a></h2>
+<p>Short <em>o</em> = /o/ usually: <em>bog.</em> /u/ before <em>m, n: dom, dona, ronnach.</em> Also /u/ in <em>bosca, cnoc, ocras.</em></p>
+<p>o = /a/ in a few words: <em>boladh, folach, folamh, foscadh.</em></p>
+<h2 id="23-short-u"><a class="header" href="#23-short-u">2.3 Short <em>u</em></a></h2>
+<p>Short <em>u</em> = /u/ usually: <em>rud.</em> /o/ before <em>ch: luch, lucht, ucht.</em> Also /o/ in <em>anuraidh, culaith, curach</em> and in the loans <em>club, pub, rubar</em>.</p>
+<h2 id="24-io-in-spelling"><a class="header" href="#24-io-in-spelling">2.4 <em>io</em> in Spelling</a></h2>
+<p><em>io</em> = /u/ usually: <em>giobal, iomarca, piocadh.</em></p>
+<p>/i/ before <em>r, s, t: bior, ciotach, fios.</em> Also /i/ in <em>pionsúr, pionta, Stiofán.</em> /o/ in <em>Iorras</em> (a place name), <em>riocht, sliocht.</em></p>
+<h2 id="25-oi-in-spelling"><a class="header" href="#25-oi-in-spelling">2.5 <em>oi</em> in Spelling</a></h2>
+<p><em>oi</em> = /e/ usually: <em>soir.</em> /o/ before <em>cht, rt: boichte</em> (céim), <em>goirt.</em> /o/ usually in <em>cois, loisc, scoil.</em> /i/ before <em>m, n, ng</em> and in a few other words: <em>coinnigh, coir, gloine, oileán, sloig, soiléir, toil, troime (céim).</em> /i:/ in <em>droim.</em> /a/ in <em>goimh, croith.</em></p>
+<h2 id="26-long-é"><a class="header" href="#26-long-é">2.6 Long <em>é</em></a></h2>
+<p><em>é</em> = /e:/ usually: <em>éan, féar, léine.</em> /iə/in <em>béadán, féasóg, préachán.</em> /ai/ in <em>éirigh, téire.</em></p>
+<h2 id="27-long-ó"><a class="header" href="#27-long-ó">2.7 Long <em>ó</em></a></h2>
+<p><em>ó</em> = /o:/ usually: <em>bó, cóir, ól.</em> /u:/ in some words beside <em>m, n:</em> <em>cónaí, móin, nó, nóiméad,</em> etc. But /o:/ in <em>mór, mórán.</em></p>
+<h2 id="28-ao"><a class="header" href="#28-ao">2.8 <em>ao</em></a></h2>
+<p><em>ao</em> = back /i:/: <em>aonach, caol, taobh.</em> /e:/ in <em>aon</em> (aidiacht), <em>aonraic, aontú.</em><br />
+<em>aoi</em> = /i:/: <em>aois, caoi, naoi.</em></p>
+<h2 id="29-abh-obh-etc"><a class="header" href="#29-abh-obh-etc">2.9 <em>abh, obh,</em> etc.</a></h2>
+<p><em>abh</em> = /au/: <em>abhainn, gabhar, leabhar.</em> /av/ in <em>fabhar</em>, /o:/ in <em>tabhair.</em></p>
+<p>Also <em>obh, odh, ogh, omh</em> = /au/: <em>bodhar, domhan, lobhadh, togha.</em> /o:/ in <em>comhrá, foghlaim;</em> /u:/ in <em>comhaireamh, comharsa, Domhnach;</em> /o/ in <em>chomh.</em></p>
+<h2 id="210-amh"><a class="header" href="#210-amh">2.10 <em>amh</em></a></h2>
+<p><em>amh</em> = /au/ usually in Cois Fharraige, /av/ in Carna: <em>cleamhnas, ramhar, samhradh.</em> /av/ everywhere in <em>amh, amhas, neamh, scamhóg.</em> /u:/ in <em>deamhan, leamhan, leamhnacht.</em> /o:/ in <em>amhrán.</em> <em>mh</em> in silent in <em>neamhshuim.</em></p>
+<p>There are three pronunciations of <em>damhsa:</em> /daunsə/, /davsə/, /damsə/.</p>
+<p>/av/ is nasalised in some places (especially Carna).</p>
+<h2 id="211-adh-agh-etc"><a class="header" href="#211-adh-agh-etc">2.11 <em>adh, agh, etc.</em></a></h2>
+<p><em>adh</em> = /ai/: <em>adharc, gadhar.</em> /a:/ <em>adhmad.</em> Also /ai/ in <em>aghaidh, foighid, laghad, leigheas, righin, saighead, taghd.</em> /i:/ in <em>maidhm</em> (i.e. a big wave),
+<em>snaidhm.</em></p>
+<h2 id="212-vowels-before-ll-m-nn-rr"><a class="header" href="#212-vowels-before-ll-m-nn-rr">2.12 Vowels before <em>ll, m, nn, rr</em></a></h2>
+<p>It's normal to have a long vowel or diphthong before <em>ll, m, nn, rr:</em></p>
+<ul>
+<li>/a:/ in <em>am, caill, ceann, gearr;</em></li>
+<li>/i:/ in <em>binn, cill, im, roinn;</em></li>
+<li>/u:/ in <em>fonn,</em> /u:/ or /u/ in <em>lom, trom;</em></li>
+<li>/ai/ in <em>coill, moill;</em></li>
+<li>/au/ in <em>corr, donn, poll.</em></li>
+</ul>
+<p>But the short vowel is preserved when there's another vowel after the consonant: /a/ in <em>ama</em> (genitive), /i/ in <em>binne</em> (comparative), /o/ in <em>polladh</em> (verbal noun).</p>
+<h2 id="213-vowels-before-rd-rl-rn"><a class="header" href="#213-vowels-before-rd-rl-rn">2.13 Vowels before <em>rd, rl, rn</em></a></h2>
+<p>The vowel before <em>rd, rl, rn</em> is long:</p>
+<ul>
+<li>/a:/ in <em>ard, tairne, tharla;</em></li>
+<li>/o:/ in <em>eorna, scornach;</em></li>
+<li>/u:/ in <em>duirling, tuirne;</em></li>
+<li>/ai/ in <em>ceird;</em></li>
+<li>/au/ in <em>bord, coirnéal</em> (i.e. corner), <em>dorna, orlach, urlár, urnaí.</em></li>
+</ul>
+<p>N.B. /ai/ in <em>airde</em> (comparative), <em>airde</em> (abstract noun), <em>aird</em> (genitive of <em>ard</em>, i.e., a hill); /a:/ in <em>aird</em> (i.e. care), <em>in airde</em> (adverb).</p>
+<h2 id="214-vowels-before-mp-ms-nd-ns-nt"><a class="header" href="#214-vowels-before-mp-ms-nd-ns-nt">2.14 Vowels before <em>mp, ms, nd, ns, nt</em></a></h2>
+<p>Often the vowel before <em>mp, ms, nd, ns, nt</em> is long:</p>
+<ul>
+<li>/a:/ in <em>ceantar, teampall;</em></li>
+<li>/i:/ in <em>cuimse, inseacht, muintir, simplí;</em></li>
+<li>/u:/ in <em>condae, cuntas, iompar, ionsaí, Londain.</em></li>
+</ul>
+<p>N.B. But sometimes there is a a short vowel in words like this; e.g. /u/ or /u:/ in <em>punt</em>, /i/ in <em>pinsean.</em></p>
+<h2 id="215-vowels-before-bl-br-dr-gl-gr"><a class="header" href="#215-vowels-before-bl-br-dr-gl-gr">2.15 Vowels before <em>bl, br, dr, gl, gr</em></a></h2>
+<p>In certain words there is a long vowel or diphthong before <em>bl, br, dr, gl, gr:</em></p>
+<ul>
+<li>/a:/ in <em>eaglais, madraí</em> (plural of <em>madadh</em>), <em>paidrín;</em></li>
+<li>/ai/ in <em>Aibreán, oibleagáid, oibre</em> (genitive), <em>poiblí, toibreachaí</em> (plural of <em>tobar</em>).</li>
+</ul>
+<h2 id="216-epenthetic-vowels"><a class="header" href="#216-epenthetic-vowels">2.16 Epenthetic Vowels</a></h2>
+<p>An epenthetic vowel goes into certain groups of consonants, as in every dialect; e.g. /ə/ between <em>r</em> and <em>g</em> in <em>dearg,</em> /i/ between <em>l</em> and <em>m</em> in <em>feilm.</em></p>
+<p>Here are the main groups: <em>lb (Albain), lbh (balbhán), lg (bolg), lm (feilm), nb (leanbaí), nbh (canbhás), nch (seanchas), nm (ainm), nmh (ainmhí), rb (borb), rbh (tairbhe), rch (dorcha), rf (dearfa), rg (dearg), rm (arm).</em></p>
+<p>There is also an epenthetic vowel in <em>colpa (calapa)</em> (i.e. calf of the leg).</p>
+<h2 id="217-syncopation"><a class="header" href="#217-syncopation">2.17 <em>Syncopation</em></a></h2>
+<p>The first syllable is syncopated in a few words: <em>biorán (breán), bolgam (blogam), coróin (cróin), foláir (fleár), furasta (frusta).</em></p>
+<p><em>arán</em> is said as <em>rá</em>. But the article still puts <em>t</em> before it in the nominative: <em>an t-rán.</em></p>
+<p>There is syncopation in <em>coláiste, paráiste</em> in some places.</p>
+<h2 id="218-stress"><a class="header" href="#218-stress">2.18 Stress</a></h2>
+<p>The stress is usually on the first syllable of the word. But it's on the second syllable in a few words: <em>dáiríre, Déardaoin, rosamh</em> (i.e. type of fog), <em>tobac, tráthnóna, uilig.</em> Along with in some new loans: <em>cáirdín</em> ('accordion'), <em>hotel, meaisín, perfum, tornapa.</em> But in the first syllable in <em>muisteais</em> ('moustache').</p>
+<p>Instead of <em>éigin</em> (adjective), you get <em>icínt</em> (or <em>icín</em>) (unstressed); e.g. <em>fear-icínt</em> instead of <em>fear éigin.</em></p>
+<h2 id="219-camán-and-words-like-it"><a class="header" href="#219-camán-and-words-like-it">2.19 <em>camán</em> and Words like it</a></h2>
+<p>/u/ is the vowel in the first syllable of <em>camán</em> /ˈkuma:n/, and in other words of that shape: <em>bradán, cosán, gabáiste, paráiste, scadán, sparán.</em></p>
+<p>In the same way /i/ in the first syllable of <em>caisleán, geadán, gearán.</em> But /o/ in <em>beagán, ceachrán,</em> /u/ in <em>seangán.</em></p>
+<h2 id="220-exceptional-words"><a class="header" href="#220-exceptional-words">2.20 Exceptional Words</a></h2>
+<p>There are pronunciation exceptions with the vowels in some words. Here are some of the most common examples (the vowel in the first syllable is meant in two syllable words): <em>cat</em> /u/ (normally), <em>cait</em> (plural) /i/, <em>claí</em> /ai/, <em>coicís</em> /ai/, <em>deimhin</em> /i/, <em>doirt</em> /o:/, <em>faoileán</em> /ai/, <em>geimhreadh</em> /i:/, <em>ionann</em> /a/, <em>iontach</em> /i:/, <em>luí</em> /ai/, <em>nua</em> /u:/, <em>saibhir</em> /e/, <em>saibhreas</em> /ai/, <em>taibhse</em> /ai/.</p>
+<h2 id="221-vowel-elision"><a class="header" href="#221-vowel-elision">2.21 Vowel Elision</a></h2>
+<p>A notable trait in the dialect is the elision of the neutral vowel /ə/. This happens regularly when another vowel comes before or after it. Here are some examples (the apostrophe shows the place where the elided vowel is):</p>
+<ul>
+<li><em>deoch 'ól</em></li>
+<li><em>rud a 'fháil</em></li>
+<li><em>ceann eil' acu</em></li>
+<li><em>bhí hat' air</em></li>
+<li><em>daoin' óga</em></li>
+<li><em>tá 'dóthain aici</em></li>
+<li><em>'bhfuil tusa 'g iarr' ubh?</em></li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="3-pronunciation-of-consonants"><a class="header" href="#3-pronunciation-of-consonants">3. Pronunciation of Consonants</a></h1>
+<h2 id="31-broad-bh"><a class="header" href="#31-broad-bh">3.1 Broad <em>bh</em></a></h2>
+<p>Broad <em>bh</em> = /v/ usually: <em>ábhar, bhuail, taobh.</em> There's very little friction except before consonants (<em>bhraith</em>) or at the end of a word (<em>sliabh</em>); outside of those two places it's almost identical to the English /w/ in <em>woe.</em></p>
+<p>/u:/ is common in place of an epenthetic vowel + /v/: <em>banbh (banú</em> nó <em>banabh)</em>, <em>garbh, marbh, tarbh.</em> <em>leanbh</em> is said as <em>leana.</em></p>
+<p><em>-bha-</em> = /u:/: <em>arbhar (arúr), colbha, gealbhan, mearbhall</em></p>
+<h2 id="32-slender-bh"><a class="header" href="#32-slender-bh">3.2 Slender <em>bh</em></a></h2>
+<p>Slender <em>bh</em> = /v´/: <em>bhí, sléibhe</em> (genitive), <em>bainbh (bainibh)</em> (plural). There's a silent <em>bh</em> in <em>scríbhneoir.</em> /b´/ usually in <em>libh, sibh</em> etc.</p>
+<h2 id="33-broad-ch"><a class="header" href="#33-broad-ch">3.3 Broad <em>ch</em></a></h2>
+<p>Broad <em>ch</em> = /x/ in every position: <em>achar, bealach, chas, locht.</em> /h/ in <em>chuig, chugam, etc.</em></p>
+<h2 id="34-slender-ch"><a class="header" href="#34-slender-ch">3.4 Slender <em>ch</em></a></h2>
+<p>Slender <em>ch</em> = /x´/ at the start of a word: <em>cheap, chreid.</em> But /h/ in <em>cheana.</em></p>
+<p>/h/ in the middle of a word usually: <em>dícheall, droichead</em> (3.20). But /x´/ sometimes in <em>fiche, oíche.</em> /f´/ in <em>cluiche, doicheall.</em> The <em>ch</em> is silent in <em>deich.</em></p>
+<h2 id="35-broad-dh"><a class="header" href="#35-broad-dh">3.5 Broad <em>dh</em></a></h2>
+<p>Broad <em>dh</em> = /y/ at the start of a word: <em>dhúin.</em></p>
+<p><em>dh</em> is silent at the end of a noun: *briseadh (brise), casadh (casa), samhradh (samhra).</p>
+<p>Regarding broad <em>-dh</em> in verbs see 13.2.</p>
+<h2 id="36-slender-dh"><a class="header" href="#36-slender-dh">3.6 Slender <em>dh</em></a></h2>
+<p>Slender <em>dh</em> = /j/ at the start of a word: <em>dhíol.</em> There's no friction except before a consonant: <em>mo dhream.</em></p>
+<p>Slender <em>dh</em> is silent at the end of a word: <em>anuraidh (anura), imeoidh (imeo), réidh (ré), ó thuaidh (ó thua).</em></p>
+<h2 id="37-broad-f"><a class="header" href="#37-broad-f">3.7 Broad <em>f</em></a></h2>
+<p>Broad <em>f</em> = /f/ usually: <em>fuar, lofa.</em> Silent or = /h/  in <em>fiafraí (fiarthaí)</em></p>
+<p><em>-fa-</em> = /u:/ in <em>méanfach (méanúch).</em></p>
+<h2 id="38-slender-f"><a class="header" href="#38-slender-f">3.8 Slender <em>f</em></a></h2>
+<p>Slender <em>f</em> = /f´/: <em>fíor, deifir, geaif.</em> /h/ in <em>féin</em> normally, but /p´/  sometimes following *m: liom féin (liom péin), táim féin (táim péin).</p>
+<p>Regarding <em>-f-</em> in verbs see 13.4-6.</p>
+<h2 id="broad-gh"><a class="header" href="#broad-gh">Broad <em>gh</em></a></h2>
+<p>Broad <em>gh</em> = /y/ at the start of a word: <em>ghoid.</em> Regarding <em>gh</em> in the middle of a word see 2.9, 2.11.</p>
+<p><em>-gha-</em> = /i:/ <em>carghas (caraíos).</em></p>
+<h2 id="slender-gh"><a class="header" href="#slender-gh">Slender <em>gh</em></a></h2>
+<p>Slender <em>gh</em> = /j/ at the start of a word: <em>ghearr.</em> There's little friction except before a consonant: <em>ghread.</em></p>
+<p>Slender <em>gh</em> is silent at the end of a word: <em>bealaigh (beala)</em> (genitive), <em>imigh (ime), uaigh (ua).</em></p>
+<p>/h/ is used at the end of <em>amuigh, istigh</em> before vowel: <em>amuigh ann (amuth ann).</em> Sometimes those two words have /x´/ (especially in Carna): <em>amuich, istich</em> are said.</p>
+<h2 id="311-broad-l"><a class="header" href="#311-broad-l">3.11 Broad <em>l</em></a></h2>
+<p>Broad <em>l</em> = dental /l/ in all positions normally: <em>balla, geall, lá, slán.</em> But alveolar /l/ sometimes in Carna in words like <em>glan, seol, talamh.</em> Usually /h/ follows the alveolar /l/ in Carna and in other places in words like <em>boladh, folamh, talamh.</em></p>
+<h2 id="312-slender-l"><a class="header" href="#312-slender-l">3.12 Slender <em>l</em></a></h2>
+<p>Slender <em>l</em> = Palatal /L´/ in the following positions usually: at the start of a word <em>(leas),</em> following <em>s (sliabh),</em> before <em>t (ceilt)</em>, where <em>ll</em> is in the spelling <em>(buille).</em> Alveolar /l´/ in other positions: <em>buile, cáil, cleas.</em> /l´/ in <em>le</em> (<em>liom,</em> etc), <em>tuilleadh (tile),</em> and in loans like <em>lad.</em></p>
+<h2 id="313-broad-mh"><a class="header" href="#313-broad-mh">3.13 Broad <em>mh</em></a></h2>
+<p>Broad <em>mh</em> = /v/: <em>mhair, fómhar, lámh.</em> There is little friction except before a consonant: <em>samhradh</em> /savrə/ (2.10).</p>
+<p>Silent <em>mh</em> in <em>clúmhach (clúch), cumha (cú), cumhachta (cúchta).</em> Also in <em>slachtmhar (slachtar).</em></p>
+<p><em>-mha-</em> = /u:/ in <em>greannmhar (greannúr).</em></p>
+<p>Silent <em>mh</em> at the end of two syllable words normally: <em>annamh (anna), gaineamh (gaine), talamh (tala).</em></p>
+<h2 id="314-slender-mh"><a class="header" href="#314-slender-mh">3.14 Slender <em>mh</em></a></h2>
+<p>Slender <em>mh</em> = /v´/: <em>mheas, deimhin, láimh.</em></p>
+<p>Silent <em>mh</em> in <em>Gaillimh (Gaille)</em> but it's preserved in the genitive <em>(Gaillimhe).</em> The <em>mh</em> is dropped in <em>Muimhneach (Muíneach),</em> and sometimes in <em>cuimhne (cuíne).</em></p>
+<h2 id="315-broad-n"><a class="header" href="#315-broad-n">3.15 Broad <em>n</em></a></h2>
+<p>Broad <em>n</em> = dental /n/ in every position normally: <em>annamh, gann, nós, snámh.</em> But alveolar /n/ someitimes (especially in Carna) in words like <em>anam, bán, scanradh, scian.</em> Also in loans like <em>nobby, nurse.</em></p>
+<p><em>n</em> = /r/ usually in words like <em>cnoc, gnaíúil, mná;</em> but /n/ in <em>gnás, gnáth.</em></p>
+<h2 id="316-slender-n"><a class="header" href="#316-slender-n">3.16 Slender <em>n</em></a></h2>
+<p>Slender <em>n</em> = Palatal /N´/ in the following positions: at the start of a word <em>(neart),</em> following <em>s (sneachta),</em> before <em>t, (caint),</em> where <em>nn</em> is in the spelling <em>(rinne).</em></p>
+<p>Alveolar /n´/ in other positions: <em>cáin, duine, léine.</em> /n´/ also in <em>anois.</em></p>
+<p><em>n</em> = /r´/ usually in words like <em>cneasta, cniteáil, imní.</em></p>
+<h2 id="317-ng"><a class="header" href="#317-ng">3.17 <em>ng</em></a></h2>
+<p>Broad <em>ng</em> = /ŋ/ at the start of a word (<em>i ngarraí</em>), /ŋg/ usually in the middle of a word (<em>ceangal</em>) and at the end of a word (<em>rang</em>).</p>
+<p>The same way with slender <em>ng</em> = /ŋ´/ at the start of a word (<em>i ngleann</em>), /ŋg´/ in the middle of a word (<em>daingean</em>) and at the end of a word (<em>moing</em>). <em>pingin</em> is said as <em>pínn.</em></p>
+<p><em>ng</em> = /N´/ in <em>fairsing, tarraing.</em></p>
+<h2 id="318-r"><a class="header" href="#318-r">3.18 <em>r</em></a></h2>
+<p><em>r</em> = Broad /r/ at the start of a word: <em>reo, rí, rith.</em> Slender /r´/ in <em>ariamh, aríst;</em> but broad /r/ in the first <em>r</em> of <em>aréir.</em> <em>r</em> is always broad before <em>d, l, n, s, t: aird, airneán, beirt, comhairle, tuirse.</em> Broad <em>r</em> also in <em>beirthe, faraoir (faríor), uirthi (orha).</em></p>
+<h2 id="319-s"><a class="header" href="#319-s">3.19 <em>s</em></a></h2>
+<p>/ʃ/ is in the group <em>sr-</em> in some places (Carna): <em>sráid, srian.</em> But /s/ in that group in other places. Always /s/ in <em>sm-, sp-: smig, speal.</em> /ʃ/ normally in <em>sc-</em> (<em>scéal, scil</em>), but /s/ sometimes in Cois Fharraige.</p>
+<h2 id="320-th"><a class="header" href="#320-th">3.20 <em>th</em></a></h2>
+<p><em>th</em> = /h/ at the start of a word: <em>theann</em> /ha:n/, <em>theastaigh, thit.</em> /x´/ before /u:/ in <em>thiúrfadh</em> (14.10).</p>
+<p>/h/ in the middle of a word too usually: <em>athair, bóthar, láthair.</em> But in Cois Fharraige the /h/ is dropped often. Sometimes the vowel is changed become of that: <em>cathaoir</em> /kair´/, <em>droichead</em> /dre:d/.</p>
+<p>In words like <em>aithne, athrú</em>, the /h/ comes after the <em>n, r: aithne (ainthe).</em> The /h/ is usually dropped in Cois Fharraige.</p>
+<p>The /h/ normally isn't audible at the end of a word: <em>(tá go) maith.</em>
+But it is usually audible if a vowel follows it: <em>is maith é.</em></p>
+<ul>
+<li><em>th</em> = /x´/ sometimes in <em>ar bith, d'ith, rith</em> (Carna).</li>
+<li><em>th</em> = /f/ in <em>sraothartach,</em> sometimes in <em>leathuair.</em></li>
+<li><em>th</em> = /f´/ in <em>tuathal (tuaifeal).</em></li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="4-pronunciation-various-words"><a class="header" href="#4-pronunciation-various-words">4. Pronunciation: Various Words</a></h1>
+<h2 id="41"><a class="header" href="#41">4.1</a></h2>
+<p>The pronunciation of words in this dialect isn't always represented by the standard spelling. Sometimes it's just a matter of a different consonant quality: slender <em>n</em> instead of broad <em>n</em> in <em>dúin</em> (verb). In other cases there's a change of consonant: <em>t</em> instead of <em>d</em> in <em>tada</em>. In other cases again there's a different form of the word: <em>cisteanach</em> instead of <em>cistin.</em></p>
+<p>In the lists below the standard is given first, then the dialectal version.</p>
+<h2 id="42-difference-of-quality"><a class="header" href="#42-difference-of-quality">4.2 Difference of Quality</a></h2>
+<p><em>amárach : amáireach; amhras : aimhreas; clú : cliú; cosain : coisin; daid : deaide; damhsóir : daimhseoir; dún : dúin, Meiriceá : Meireacá, spórt : spóirt; stuif : stuf; ticéad : tuicéad; tiomáin : tomáin; tobann : toibeann; tóg : tóig; tuig : tig.</em></p>
+<h2 id="4-3-change-of-consonant"><a class="header" href="#4-3-change-of-consonant">4. 3 Change of Consonant</a></h2>
+<p><em>cabáiste : gabáiste; contae : condae; cuardaigh : cuartaigh; dada : tada; feirm : feilm; priontáil : priondáil; taoide : taoille.</em></p>
+<p>As well as <em>glaoch</em>, <em>blaoch</em> is said (especially in Carna).</p>
+<h2 id="44--separate-form"><a class="header" href="#44--separate-form">4.4  Separate Form</a></h2>
+<p><em>áirithe : áirid; béile : béilí; captaen : caiptín; cé : céibh; cistin : cisteanach; claíomh : claimhe ; coiscéim : coisméig; deartháir : driotháir; deirfiúr : dreithiúr; diabhal : deabhal; eireaball : drioball; foighne : foighid; galar : galra; guí : guibhe; leithéid : leithide; pá : páí; práta : fata, spéaclaí : spéacláirí; stró : stróbh; suaimhneas : suimneas; taispeáin : spáin</em> (or <em>tuspáin</em>).</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="5-initial-mutations"><a class="header" href="#5-initial-mutations">5. Initial Mutations</a></h1>
+<h2 id="51"><a class="header" href="#51">5.1</a></h2>
+<p>Through and through the rules pertaining to initial mutations in this dialect are similar to the rules of the standard. But there are a few small differences which are worth drawing attention to.</p>
+<h2 id="52-lenition-of-f"><a class="header" href="#52-lenition-of-f">5.2 Lenition of <em>f</em></a></h2>
+<p><em>f</em> is sometimes left unlenited, especially when the lenition could make the word hard to recognise. Here are a couple of examples from Carna:</p>
+<ul>
+<li><em>cuid den foireann</em></li>
+<li><em>Bhí sé 'na file mhaith.</em></li>
+<li><em>Tá sí an-fearúil</em> (i.e. an-teanntásach).</li>
+</ul>
+<p>(Lenition could be found in cases like those as well.)</p>
+<h2 id="53-lenition-of-s"><a class="header" href="#53-lenition-of-s">5.3 Lenition of <em>s</em></a></h2>
+<p>When slender <em>s</em> is lenited, it changed to /x´/ before a back vowel: <em>shiúil</em> /x´u:l´/. Before a front vowel it changes to /h/: <em>sheas</em> /has/. /x/ in <em>ó shin</em> often.</p>
+<p><em>s</em> isn't lenited in english names: <em>a Sarah, Micil Saile.</em></p>
+<h2 id="54-eclipsis-following-sa"><a class="header" href="#54-eclipsis-following-sa">5.4 Eclipsis following <em>sa</em></a></h2>
+<p><em>sa</em> (i.e. <em>ins an</em>) is followed by eclipsis: <em>sa mbaile, sa gcarr, sa bhfarraige.</em> Because of that, <em>m</em> isn't mutated: <em>sa mála, sa mí.</em> This eclipsis doesn't affect <em>d, t: sa doras, sa tine.</em></p>
+<p><em>t</em> is prefixed to <em>s</em> in a feminine noun: <em>sa tsráid</em> (ach <em>sa saol</em>).</p>
+<h2 id="55-lenition-following-den-don"><a class="header" href="#55-lenition-following-den-don">5.5 Lenition following <em>den, don</em></a></h2>
+<p><em>den, don</em> are followed by lenition: <em>den chapall, don fhear.</em> <em>d, t</em> don't get any mutation: <em>den tart, don duine.</em> But <em>t</em> is put before <em>s</em> usually: <em>den tsaol, don tsagart.</em></p>
+<h2 id="56-lenition-following-ba"><a class="header" href="#56-lenition-following-ba">5.6 Lenition following <em>ba</em></a></h2>
+<p>Often lenition doesn't follow <em>ba</em> (the historic form of the copula): <em>ba col ceathar dó é; ba fear maith é; ba gránna é; an fear ba boichte san áit.</em> But there usually is lenition on specific adjectives: <em>ba bhreá, ba cheart, b'fhurasta, ba mhaith, ba mhór.</em></p>
+<h2 id="57-the-autonomous-verb"><a class="header" href="#57-the-autonomous-verb">5.7 The autonomous verb</a></h2>
+<p>The past tense autonomous verb isn't lenited normally: <em>baineadh é, níor tosaíodh é.</em> Often there isn't lenition on the autonomous verb in other tenses either (especially in Carna):</p>
+<ul>
+<li><em>Ma cailltear é.</em></li>
+<li><em>Ní déanfaí anois é.</em></li>
+<li><em>Cuirtí amach iad.</em></li>
+</ul>
+<p>But there's always lenition on <em>bheifí, bhítí.</em> Often there's a h before a verb in the past tense autonomous verb especially if there's a particle before it:</p>
+<ul>
+<li><em>Híocadh an t-airgead.</em></li>
+<li><em>Níor hathraíodh é ní ba mhó.</em></li>
+<li><em>Nuair a hairíodh é.</em></li>
+</ul>
+<h2 id="58-following-the-verbal-noun"><a class="header" href="#58-following-the-verbal-noun">5.8 Following the verbal noun</a></h2>
+<p>There is lenition on a nouns following a verbal noun in common phrases like <em>ag baint fheamainne, ag baint fhéir, ag cuir fhataí, ag díol mhóna.</em> Sometimes in other phrases too.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="6-nouns"><a class="header" href="#6-nouns">6. Nouns</a></h1>
+<h2 id="61-formation"><a class="header" href="#61-formation">6.1 Formation</a></h2>
+<p>There's a couple of points to mention regarding the formation of the noun in the dialect.</p>
+<p><em>-a</em> /ə/ at the end of some words ending in a consonant in the standard: <em>dorna, posta, rása, rotha, úlla.</em></p>
+<p>Broad <em>-r</em> in <em>dochtúr, saighdiúr, táilliúr.</em></p>
+<p><em>-éara</em> instead of <em>-éir</em> in nouns for types of people: <em>feilméara, siúinéara, strainséara.</em></p>
+<p>The last consonant is often slender in the second declensions: <em>bois, bróig, cluais, cois, cnáimh, cuinneoig, gail inín, láimh, méir, muic.</em> (Broad consonants sometimes in some of those examples.)</p>
+<h2 id="62-gender"><a class="header" href="#62-gender">6.2 Gender</a></h2>
+<p><em>céibh, loch, páí</em> are feminine: <em>ceann na céibhe, timpeall na locha, an pháí.</em></p>
+<p><em>curach, foireann</em> are sometimes masculine: <em>an curach, an foireann.</em> (But a feminine pronoun with <em>curach</em> like <em>bád</em>.)</p>
+<p><em>cleachtadh</em> lenites adjectives following it: <em>Tá cleachtadh mhaith agam air.</em></p>
+<h2 id="63-genitive-without-declension"><a class="header" href="#63-genitive-without-declension">6.3 Genitive without declension</a></h2>
+<p>There's a lot of adjectives which aren't declined in the genitive: in the dialect these are in the 4th declention. Amongst them are nouns ending in <em>-a (feilméara, posta), -adh (samhradh), -amh (scaitheamh), -acht (cosúlacht), -ú (athrú).</em> And these common nouns: <em>blas, cead, cion, culaith (cola), dream, neart, pian, rud.</em></p>
+<p><em>ceann</em> ('one') isn't declined: <em>luach an cheann seo.</em></p>
+<h2 id="64-nouns-ending-in--ach"><a class="header" href="#64-nouns-ending-in--ach">6.4 Nouns ending in <em>-ach</em></a></h2>
+<p>In masculine nouns ending in <em>-ach</em>, the <em>-ach</em> is dropped in the genitive: <em>bealacht, leath bealaigh (beala)</em> (3.10). Other examples: <em>aonach, cladach, éadach.</em> <em>iascach</em> isn't declined: <em>bád iascach</em> is what's said.</p>
+<p>In feminine nouns the <em>-ach</em> changes to <em>-aí: gealach, solas na gealaí.</em> Other examples: <em>báisteach, cisteanach, toirneach.</em></p>
+<h2 id="65-irregular-nouns"><a class="header" href="#65-irregular-nouns">6.5 Irregular Nouns</a></h2>
+<p><em>bean: cainteoir mná,</em> but normally it's not declined (<em>togha bean</em>).<br />
+<em>deoch:</em> not declined (<em>luach deoch</em>)<br />
+<em>dreithiúr</em> (4.4): <em>fear mo dhreifire</em><br />
+<em>lá:</em> ar feadh an lae.<br />
+<em>talamh: tiarna talúna,</em><br />
+<em>teach: bean tí,</em> but often it's not declined (<em>ag déanamh teach</em>).</p>
+<h2 id="66-usage-of-the-genitive"><a class="header" href="#66-usage-of-the-genitive">6.6 Usage of the Genitive</a></h2>
+<p>It's typical to leave the the noun undeclined after <em>sórt: cén sórt lá a bhí agat?</em> Often also after <em>ar nós, beagán, mórán:</em></p>
+<ul>
+<li><em>ar nós an seancharr</em> (Cois Fharraige)</li>
+<li><em>Tá beagán obaire tosaithe ann.</em> (Carna)</li>
+<li><em>Ní raibh mórán eolas acu air.</em> (Ros Muc)</li>
+</ul>
+<p>Sometimes nouns are left undeclined in various other cases.</p>
+<h2 id="67-plural-slenderisation"><a class="header" href="#67-plural-slenderisation">6.7 Plural: slenderisation</a></h2>
+<p>In the case of a lot of nouns of the of the first declensions, the final consonant is slenderised in the  plural: <em>an t-asal, na hasail.</em> Other examples: <em>bád, cat</em> (2.20), <em>cnoc, gasúr, oileán, páipéar, sagart.</em></p>
+<p>There is a few nouns that are slenderised in the standard but which have a different formation in this dialect. Among those are: <em>clár, clárachaí</em> (uaireanta cláir); <em>crann, crainnte (craínnte); éan, éanachaí; focal, focla; leabhar, leabhra.</em></p>
+<h2 id="68-nouns-ending-in--ach"><a class="header" href="#68-nouns-ending-in--ach">6.8 Nouns ending in <em>-ach</em></a></h2>
+<p>There are 3 plural formations found among nouns ending in <em>-ach.</em></p>
+<ul>
+<li>(a) <em>-ch</em> in the middle: <em>an bacach, na bacaigh (baca).</em>
+<ul>
+<li>Other examples: <em>bairneach, coileach, gliomach, ronnach.</em></li>
+</ul>
+</li>
+<li>(b) <em>-aí</em> instead of <em>-ach: an bealach, na bealaí.</em>
+<ul>
+<li>Other examples: <em>cladach, éadach, portach, ualach</em></li>
+</ul>
+</li>
+<li>(c) <em>-aí</em> as a suffix: <em>an bhaintreach, na baintreachaí.</em>
+<ul>
+<li>Other examples: <em>cailleach, curach, eangach, girseach.</em> Often <em>gliomach, ronnach</em> also have the (c) formation.</li>
+</ul>
+</li>
+</ul>
+<p>(b) Formation is most common in nouns for people from certain countries: <em>Éireannach, Meireacánach, Sasanach.</em> But <em>Francach</em> has formation (a).</p>
+<h2 id="69-the-suffix--anna"><a class="header" href="#69-the-suffix--anna">6.9 The suffix <em>-anna</em></a></h2>
+<p><em>-í</em> is added to the suffix <em>-anna</em> in this dialect: <em>ceisteannaí.</em> Many monosyllabic nouns have this plural formation: <em>bláth, carr, deis, dream, loch, scoil.</em> It's what most monosyllabic loans have as well: <em>aint, bus, farc, mug, pleainc, seans.</em> The English plural is kept in <em>lads, sweets</em>.</p>
+<h2 id="610-the-suffix--acha"><a class="header" href="#610-the-suffix--acha">6.10 The suffix <em>-acha</em></a></h2>
+<p><em>-í</em> is added to the suffix <em>-acha</em> usually: <em>cineálachaí.</em> This is the plural formation that some monosyllabic words: <em>áit, braon, méar, tír, tom.</em> along with some two syllable nouns: <em>nóiméad, seachtain, tinneas, tuairim, turas.</em> It's what most polysyllabic loans take: <em>cráifisc, sásar, uncail, engine.</em> The English pural is kept in a couple of cases: <em>bicycles, punctures, trawlers.</em></p>
+<h2 id="611-the-suffix--a"><a class="header" href="#611-the-suffix--a">6.11 The suffix <em>-a</em></a></h2>
+<p>Some monosyllabic nouns of the second declension have the plural suffix <em>-a</em> /ə/: <em>bróg, bróga.</em> Other examples: <em>cearc, cloch, cos, lámh, muc, sceach.</em> But nouns ending <em>-eog, -óg</em> have the suffix <em>-aí: fuinneogaí, neantógaí.</em></p>
+<h2 id="612-irregular-plurals"><a class="header" href="#612-irregular-plurals">6.12 Irregular Plurals</a></h2>
+<p>A good few nouns have irregular plurals. Among those are the following:</p>
+<p><em>aill, álltrachaí; bó, beithí</em> (or <em>ba</em>); <em>bóthar, bóithrí; capall, caiple</em> (or <em>capaill</em>); <em>drioball, drible; garraí, garrantaí; gé géabha</em> (nó <em>géabhaí</em>); <em>léine, léintreachaí; meall, mealltrachaí, nead, neadrachaí; tonn, tonntrachaí.</em></p>
+<p>There's a couple of plural forms for <em>teach</em>: <em>tí</em> (Cois Fharraige), <em>titheabhaí</em> (Carna) are the two most common.</p>
+<h2 id="613-genitive-plural"><a class="header" href="#613-genitive-plural">6.13 Genitive plural</a></h2>
+<p>The genitive plural is only used in set phrases like <em>geallta bád, beirt bhan, péire bróg, rástaí capall, teach na gcearc, clann inín, clann mhac, ag ceannach muc, ag iascach ronnach, radharc na súl.</em> (There are a lot of those phrases.)</p>
+<p>In other cases the noun is left in the nominative plural normally: <em>togha na namhráin, ag déanamh báid, trasna na gnoic, go leor portáin óga.</em></p>
+<p>The article in the genitive plural is followed by eclipsis normally, but sometimes it's left out: <em>le hais na fir a bhí an t-am sin ann</em> (Carna) instead of <em>le hais na bhfir ...</em></p>
+<h2 id="614-the-vocative-case"><a class="header" href="#614-the-vocative-case">6.14 The vocative case</a></h2>
+<p>The last consonant is slenderised at the end of mens' names in the vocative: <em>a Choilm, a Mhaitéis, a Sheáin.</em> But <em>a Liam</em> without slenderisation.</p>
+<p>A couple of other normal nouns are slenderised too: <em>' amadáin, a dheabhail.</em> But <em>mac</em> is left without slenderisation usually: <em>a mhac.</em></p>
+<p><em>fear</em> has a vocative form in the plural: <em>'fheara.</em></p>
+<h2 id="615-the-dative-case"><a class="header" href="#615-the-dative-case">6.15 The dative case</a></h2>
+<p>A special form in the dative singular is found in a couple of phrases:</p>
+<p><em>Tá sé 'na bháistigh (bháiste).</em><br />
+<em>Tá sé as a chéill.</em></p>
+<p><em>'na bháisteach, as a chiall</em> can be said as well.</p>
+<p><em>bróig, cois,</em> etc are dative (and dual) forms originally (6.1): <em>ar an mbróig, dhá bhróig.</em> But they're also used in the nominative now.</p>
+<p><em>Éirinn</em> is used in both the nominative and the dative.</p>
+<h2 id="616-tigh"><a class="header" href="#616-tigh">6.16 <em>tigh</em></a></h2>
+<p><em>tigh</em> (<em>tí</em> or <em>ti</em>) is an old dative form. It's used in phrases like <em>tigh Chiaráin, tigh Mháire, tigh Mhicil.</em> It can be used for movement or position:</p>
+<ul>
+<li><em>Bhí mé thiar tigh Chiaráin,</em> i.e. in Ciarán's house.</li>
+<li><em>Chuaigh mé siar tigh Chiaráin,</em> i.e. to Ciarán's house.</li>
+</ul>
+<p><em>tigh</em> is always used in the names of shops and pubs: <em>tigh Mhoran</em> (in Carna), <em>tigh Chlarke</em> (in Ros Muc), <em>tigh Mháirtín Mhóir</em> (in Galway).</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="7-adjectives"><a class="header" href="#7-adjectives">7. Adjectives</a></h1>
+<h2 id="71-lenition-of-adjectives"><a class="header" href="#71-lenition-of-adjectives">7.1 Lenition of adjectives</a></h2>
+<p>Adjectives are lenited according to the normal rules: <em>aimsir bhreá, áit mhór dhomhain, bliain thirim, saol an bhaile mhóir, cinn bheaga.</em></p>
+<p>Sometimes the adjective is heard without lenition after a feminine noun: <em>Gaeilge maith, roinnt maith, timpiste mór</em> (examples from Carna).</p>
+<p>The emphatic adjective <em>beo</em> doesn't get lenited: <em>chuile oíchce beo, aon áit beo.</em></p>
+<h2 id="72-genitive-singular"><a class="header" href="#72-genitive-singular">7.2 Genitive singular</a></h2>
+<p>The genitive adjective is mostly in set phraes, place names and people's names:</p>
+<ul>
+<li><em>muintir na Trá Báine</em></li>
+<li><em>ar feadh scaitheamh bhig</em></li>
+<li><em>scoil an Turlaigh Bhig</em></li>
+<li><em>clann an duine bhoicht</em></li>
+<li><em>ar fud an domhain mhóir</em></li>
+<li><em>Páraic Stiofáin Mhóir</em></li>
+</ul>
+<p>Adjectives ending in <em>-ach</em> normally aren't declined: <em>aimsir an chogadh deireanach.</em></p>
+<h2 id="73-plural"><a class="header" href="#73-plural">7.3 Plural</a></h2>
+<p>Usually adjectives are put in the plural as well as the noun: <em>báid bheaga, daoine bochta, na báid seoil dehireanacha, cait fhiáine, mangaigh mhóra, daoine uaisle.</em></p>
+<p>But sometimes two syllable adjectives are left in the singular: <em>rudaí aisteach, scéalta álainn, daoine saibhir.</em></p>
+<h2 id="74-adjective-degrees"><a class="header" href="#74-adjective-degrees">7.4 Adjective Degrees</a></h2>
+<p>The adjective degrees are formed in the normal ways:</p>
+<ul>
+<li><em>bán : níos báine</em></li>
+<li><em>bréagach : níos bréagaí</em></li>
+<li><em>misniúil : níos mísniúla</em></li>
+</ul>
+<p>The vowel /a/ changes to</p>
+<ul>
+<li>/e/ in <em>deas, deise; gar, gaire; glas, glaise; laig, laige</em></li>
+<li>/i/ in <em>ceart, cirte; geal, gile; glan, glaine; sean, sine</em></li>
+<li>/e/ or /i/ in <em>fada, faide.</em></li>
+</ul>
+<p>These irregular compositions should be noticed: <em>ard, airde /aird´ə/; breá, breácha; domhain, doimhne /daivN´ə/; fliuch, fleithí; minic, minicí; moch, mothaí; saibhir, saibhre /saivr´ə/; te, teocha; tirim, trioma.</em></p>
+<h2 id="75-qualification-of-adjectives"><a class="header" href="#75-qualification-of-adjectives">7.5 Qualification of Adjectives</a></h2>
+<ul>
+<li><em>an- : an-mhaith</em></li>
+<li><em>breá : breá milis</em></li>
+<li><em>chomh (cho)</em> (unstressed) <em>: chomh hard leatsa</em></li>
+<li><em>fíor : fíorghnaíúil</em></li>
+<li><em>go leor : luath go leor</em></li>
+<li><em>réasúnta : réasúnta láidir</em></li>
+<li><em>ró- (ro)</em> (normally unstressed) <em>: ró-fhliuch</em> /rə ˈl´ox/</li>
+<li><em>roinnt : roinnt bacach</em></li>
+<li><em>sách : sách luath</em></li>
+<li><em>uafásach : uafásach láidir</em></li>
+</ul>
+<h2 id="76-compound-adjectives"><a class="header" href="#76-compound-adjectives">7.6 Compound adjectives</a></h2>
+<p>These are the most common compound adjectives:</p>
+<ul>
+<li><em>corr- : corrdhuine, corruair</em></li>
+<li><em>dea- (deá-) : dea-shampla, dea-scéal</em></li>
+<li><em>dearg- : deargphleidhce</em></li>
+<li><em>droch : drochaimsir, drochsheans</em></li>
+<li><em>sean- : seancharr, seanteach</em></li>
+</ul>
+<p>In the case of <em>corr-</em> and <em>droch-</em> the stress is on the adjective or on both the adjective and the noun. In the case of <em>dea-</em> and <em>sean-</em> the stress is only on the adjective.</p>
+<p>In the case of of <em>dearg-</em> the stress is on both the adjective and the noun. <em>dea-, dearg-</em> have very limited usage.</p>
+<h2 id="various-adectives"><a class="header" href="#various-adectives">Various Adectives</a></h2>
+<p><em>aon.</em> - <em>t</em> (or <em>n</em>) is slender before it: <em>an t-aon áit (a 't-éan áit</em>). In <em>aon duine</em> the <em>d</em> is elided: <em>éanuine.</em></p>
+<p><em>cibé, pé. - pé ar bith (péibí, féibí)</em> is what's used the most in this dialect: <em>pé ar bith fear a rinne é, pé ar bith cé a dúirt é, pé ar bith cé hé féin. cé ar bith (céibí)</em> exists too.</p>
+<p><em>éigin. - icínt</em> (or <em>icín</em>) is the version in this dialect: <em>áit icínt, caoi 'cínt.</em> the stress is always on the noun (2.18).</p>
+<p><em>gach, gachuile.</em> -  <em>chuile</em> is what is most said: <em>chuile dhuine, chuil' áit.</em> The preposition <em>i</em> is made into <em>sa</em> before it: <em>sa chuil' áit</em> (from <em>ins gach uile áit</em>). Sometimes <em>míle</em> is put after <em>chuile</em> emphasising it: <em>chuile mhíle ceann acu.</em> When it's referring to two things <em>chaon</em> /xe:n/ (from <em>gach aon</em>) is used: <em>chaon cheann acu.</em> <em>gach</em> is used by itself with the relative pronoun: <em>gach a bhfaca mise de.</em></p>
+<p><em>iomaí.</em> - <em>iomú</em> is what's most said, but <em>iomaí</em> is in speech too: <em>is iomú áit a raibh mé, is iomú bliain ó shin é.</em></p>
+<p><em>uilig.</em> - There are two versions, <em>uilig</em> and <em>uiliug</em> (stress on the second syllable in both): <em>an tír uilig, iad uilig, orthu uilig tá siad millte uilig.</em> Sometimes <em>go léir</em> is added to it: <em>iad uilig go léir.</em> (<em>uilig</em> is a shortening of <em>uile go léir</em>)</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="8-numbers"><a class="header" href="#8-numbers">8. Numbers</a></h1>
+<h2 id="81-basic-numbers"><a class="header" href="#81-basic-numbers">8.1 Basic numbers</a></h2>
+<p>The numbers are as they are in the standard: <em>punt amháin, dhá phunt, trí phunt, ceithre (cheire) phunt, cúig phunt, sé phunt, seacht bpunt, ocht bpunt, naoi bpunt, deich bpunt, aon phunt déag, dhá phunt déag,</em> etc.</p>
+<p>With the article: <em>an dá phunt, na trí phunt,</em> etc.</p>
+<h2 id="82-singular-or-plural"><a class="header" href="#82-singular-or-plural">8.2 Singular or plural</a></h2>
+<p>The singular always follows <em>dhá: dhá lá, dhá bhliain, dhá cheann.</em> And the singular normally follows the other numbers. But plural in the case of the words <em>bliain, ceann, orlach, pingin (pínn), scór, seachtain, slat, troigh (tro), uair</em> (i.e. babhta): <em>trí bliana, trí cinn, trí horlaí, trí pingne, trí scóir, trí seachtainí, trí slata, trí troithe, trí huaire.</em> <em>bliain, pingin, scór, uair</em> have a special plural. The normal plural of those words are: <em>blianta, pingneachaí, scórtha, uaireanta.</em></p>
+<h2 id="83-choice-between-two-numbers"><a class="header" href="#83-choice-between-two-numbers">8.3 Choice between two numbers</a></h2>
+<p>When there's uncertainty about the number it's put like this: <em>bliain nó dhó, dó nó trí de bhlianta, trí nó ceathair de bhlianta,</em> and so on.</p>
+<p>In this case, <em>ceann, cuairt</em> (i.e. babhta) have a special plural: <em>dó nó trí de cheanna, dó nó trí de chuarta.</em></p>
+<h2 id="84-ceann"><a class="header" href="#84-ceann">8.4 <em>ceann</em></a></h2>
+<p><em>ceann</em> is used for counting things: <em>ceann, dhá cheann, trí cinn,</em> etc.</p>
+<p>Instead of <em>dhá cheann</em>, often <em>péire</em> is said: <em>níl fagtha ach péire, toram péir' eile.</em></p>
+<p>Sometimes <em>cinn</em> is used to mention the number of things: <em>seacht gcinn d'uibheacha</em> instead of <em>seacht n-ubh, deich gcinn fhichead de bháid</em> inistead of <em>deich mbád is fiche.</em></p>
+<h2 id="85-cúpla"><a class="header" href="#85-cúpla">8.5 <em>cúpla</em></a></h2>
+<p>There are two versions of this word: <em>cupla</em> (/u/) and <em>cúpla</em> (/u:/).</p>
+<p><em>cupla</em> is the same as a small uncertain number: <em>cupla lá ó shin,</em> i.e. two or three days. <em>cupla</em> can't be used on its own, because of that <em>ceann</em> is put with it in cases like this: <em>níl uaim ach cupla ceann, cupla ceann de na cinn mhóra.</em></p>
+<p><em>cúpla</em> is normally the same as two people, especially twins. One of them would be called <em>leathcheann cúpla</em>.</p>
+<h2 id="86-fiche"><a class="header" href="#86-fiche">8.6 <em>fiche</em></a></h2>
+<p>The singular follows <em>fiche: fiche bliain, fiche míle.</em> Here are some examples of the numbers which are based on <em>fiche:</em></p>
+<ul>
+<li>21 : <em>bliain is fiche</em></li>
+<li>30 : <em>deich mbliana fichead</em></li>
+<li>35 : <em>cúig bliana déag is fiche</em></li>
+<li>40 : <em>dhá fhichead bliain</em></li>
+<li>45 : <em>cúig bliana is dá fhichead</em></li>
+<li>50 : <em>deich mbliana is dá fhichead</em></li>
+</ul>
+<p>The new numbers <em>tríocha, daichead</em> (dathad), <em>caoga,</em> etc. are in use now too. Instead of <em>deich is dá fhichead</em> or <em>caoga</em> often <em>leathchéad</em> is said: <em>leathchéad bliain ó shin.</em></p>
+<p>There is a simple way as well to mention numbers above 20: <em>fiche cúig punt, tríocha cúig punt,</em> and so on.</p>
+<h2 id="87-scór"><a class="header" href="#87-scór">8.7 <em>scór</em></a></h2>
+<p><em>scór</em> is often used instead of <em>fiche: scór blianta, scór daoine, scór mílte.</em> Normally it's followed by the plural, or the genitive plural if the word has that form: <em>scór fear, scór punt.</em></p>
+<p>High numbers can be based on <em>scór</em> as well: <em>dhá scór, trí scóir, ceithre scóir.</em> Those are used especially when someone's age is being mentioned: <em>tá sé na ceithre scóir.</em></p>
+<h2 id="88-personal-numbers"><a class="header" href="#88-personal-numbers">8.8 Personal Numbers</a></h2>
+<p>To count people, <em>duine, beirt, triúr, ceathrar (ceathar),</em> etc. are said. Instead of <em>seachtar</em>, sometimes <em>mórsheisear</em> is said.</p>
+<p>These personal numbers are also used along with nouns: <em>triúr iascairí.</em> They're normally followed by the plural: <em>beirt bhuachaillí, triúr lads, triúr mná, seachtar cailíní.</em> The old genitive plural is used in <em>beirt bhan, beirt dhriothár.</em> In some cases it could be the genitive plural or the nominative singular: <em>beirt dheithiúr, beirt fhear, beirt inín, beirt mhac.</em></p>
+<p>Sometimes <em>dhá</em> is used instead of <em>beirt: dhá bhean, dhá chailín, dhá mhac.</em></p>
+<h2 id="89-what-time-is-it"><a class="header" href="#89-what-time-is-it">8.9 What time is it?</a></h2>
+<p>The time is told as follows:</p>
+<ul>
+<li><em>Tá sé an dó a chlog, an trí a chlog, etc.</em></li>
+<li><em>Tá sé cúig nóiméad tar éis a dó.</em></li>
+<li><em>Tá sé ceathrú tar éis a dó.</em></li>
+<li><em>Tá sé leathuair tar éis a dó.</em></li>
+<li><em>Tá sé cúig nóiméad don dó.</em></li>
+<li><em>Tá sé ceathrú don dó.</em></li>
+</ul>
+<p>Some turns of phrase relating to the time:</p>
+<ul>
+<li><em>Tá sé i bhoisceacht cupla nóiméad don dó</em> (<em>i bhfoisceacht</em> is said as <em>úiceacht;</em> it is the same as <em>i ngiorracht</em>).</li>
+<li><em>Tá sé ag goil suas chuig a dó a chlog</em> (i.e. approaching two).</li>
+<li><em>Tá sé an dó a chlog caite</em> (i.e. it's after two).</li>
+<li><em>An bhfuil sé taobh leis an am sin?</em> ('Is that all the time it is?')</li>
+<li><em>Tá an t-am caite.</em> ('The time is up.')</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="9-pronouns"><a class="header" href="#9-pronouns">9. Pronouns</a></h1>
+<h2 id="91-muid"><a class="header" href="#91-muid">9.1 <em>muid</em></a></h2>
+<p>The personal pronouns in this dialect are the same as the standard except for <em>muid</em> in the first person plural in place of <em>sinn:</em></p>
+<ul>
+<li><em>Is as Gaillimh muid.</em></li>
+<li><em>Chuala sé muid.</em></li>
+<li><em>Muid féin a rinne é.</em></li>
+</ul>
+<p><em>muid</em> is put with the verb too, where the synthetic form would be in the standard: <em>tá muid, rinne muid, bheadh muid,</em> etc.</p>
+<ul>
+<li><em>muide</em> is the emphatic form: <em>Is as Gaillimh muide.</em></li>
+</ul>
+<p><em>sinn</em> is found in prayers like <em>go sábhála Dia sinn, Dia idir sinn agus an t-olc.</em> And <em>sinne</em> is the emphatic (9.6) : <em>lena linn sinne</em> (i.e. lenár linn-ne).</p>
+<h2 id="92-tú"><a class="header" href="#92-tú">9.2 <em>tú</em></a></h2>
+<p>In the 2nd singular there are the two forms , <em>tú</em> and <em>thú</em>, in the dialect. <em>tú</em> comes after verbs as a subject and following the copula: <em>d'imigh tú, is tú a bhí ann; thú</em> in other situations: <em>is as Gaillimh thú, chonaic mé thú.</em></p>
+<p>In the same way <em>tusa and thusa: chonaic tusa mise, chonaic mise thusa. Thusa</em> is normally in the second singular imperative: <em>bí thusa anseo, déan thusa é.</em></p>
+<h2 id="93-dor"><a class="header" href="#93-dor">9.3 <em>dor</em></a></h2>
+<p>In places some people have a tendency to use <em>dor</em> instead of <em>siad</em> following verbs: <em>bíonn dor anseo go minic, nuair a thiocfas dor arís.</em> <em>tá dor</em> (instead of <em>tá siad</em>) is very common.</p>
+<p>Many people look at this tendency as a corruption, and learners shouldn't imitate it.</p>
+<h2 id="94-the-gender-of-pronouns"><a class="header" href="#94-the-gender-of-pronouns">9.4 The gender of pronouns</a></h2>
+<p>In the case of people, the gender follows the meaning: <em>is maith an cainteoir é, is maith an cainteoir í.</em></p>
+<p>In the case of animals, the pronoun agrees with the gender of the noun normally: <em>is deas an cat é, is breá an bhó í.</em> But a feminine pronoun is used for <em>capall: is breá an capall í.</em></p>
+<p>In the case of inanimate things, the pronoun agrees with the gender of the noun normally: feminine pronoun with <em>feamainn, móin, trá,</em> masculine pronoun <em>gaineamh, portach, uisce.</em></p>
+<p>Feminine pronouns are used to refer to boats, and often to cars; also often referring to books and newspapers.</p>
+<p>Masculine pronouns are used with <em>áit (is deas an áit é), barúil (sin é mo bharúil féin), caoi (sin é an chaoi), uair (sin é an uair a d'imigh sé).</em></p>
+<h2 id="95-the-possessive-adjective"><a class="header" href="#95-the-possessive-adjective">9.5 The possessive adjective</a></h2>
+<p>In the 1st singular <em>(mo)</em> the vowel is elided before a noun beginning with a vowel: <em>m'ainm, m'fhear, m'inín.</em></p>
+<p>In the 2nd singular <em>(do)</em> the vowel is ellided and the <em>d</em> is turned into a <em>t: t'ainm, t'fhear, t'inín.</em></p>
+<p>In the plural, every person has <em>a</em> /ə/ normally:</p>
+<ul>
+<li>Is ann a bhí muid 'na gcónaí</li>
+<li>Tá sibh 'na gcodladh</li>
+<li>Tá siad 'na gcónaí i nGaillimh</li>
+</ul>
+<h2 id="96-emphasis"><a class="header" href="#96-emphasis">9.6 Emphasis</a></h2>
+<p>To emphasise the possessive adjective the emphatic particle <em>-sa</em> is put after the noun in the 1st singular and the 2nd singular: <em>mo cheannsa, do cheannsa.</em></p>
+<p>In the 3rd singular it's typical to use the emphatic pronoun: <em>a cheann seisean, a ceann sise</em> (stress on the emphatic pronoun).  That's how it is in the plural too normally: <em>a gcuid bealaí sinne, 'na n-áit sibhse, a gcuid Gaeilge siadsan.</em></p>
+<p>Instead of <em>ár dteachna</em>, <em>an teach seo againne</em> or <em>an teach sin againne</em> is said. In the same way, <em>an teach sin agaibhse.</em> Other nouns which take that formation are: <em>baile, dream, muintir, tír.</em></p>
+<h2 id="97-cuid"><a class="header" href="#97-cuid">9.7 <em>cuid</em></a></h2>
+<p><em>cuid</em> follows the possessive adjective in certain cases.</p>
+<p>Before nouns in the plural: <em>mo chuid beithí, driothárachaí, leabhra, paidreachaí.</em></p>
+<p>Before nouns that don't have plurals: <em>mo chuid airgid, anró, cainte, móna, oibre.</em></p>
+<p>But <em>cuid</em> isn't always put before nouns in the plural: <em>mo chosa, mo lámha, mo shúile,</em> etc. are what's mostly said.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="10-simple-prepositions"><a class="header" href="#10-simple-prepositions">10. Simple prepositions</a></h1>
+<h2 id="101-personal-forms"><a class="header" href="#101-personal-forms">10.1 Personal forms</a></h2>
+<p>The following points should be noted about personal forms of prepositions.</p>
+<p>/ə/ is the suffix in the 3rd feminine singular: <em>aici (eice), léithe.</em></p>
+<p>/b´/ is the suffix in the 2nd plural in monosyllabic forms, /i:/ in two syllable forms: <em>libh (lib), agaibh (agaí).</em></p>
+<p>/əb/ is the suffix in the 3rd plural normally: <em>acu (acab).</em> But sometimes /u:/ or /əv/.</p>
+<h2 id="102-ag-eig"><a class="header" href="#102-ag-eig">10.2 <em>ag (eig)</em></a></h2>
+<p>Forms: <em>agam, agad, aige (eige), aici (eice), againn, agaibh, acu.</em></p>
+<p>Often the /g/ is dropped in <em>agam, agad, againn: a'm, a'd, a'inn.</em></p>
+<h2 id="103-ar-eir"><a class="header" href="#103-ar-eir">10.3 <em>ar (eir)</em></a></h2>
+<p>Broad <em>r</em> in <em>ar</em> before <em>d, l, n, r, s, t: ar dtús, ar deireadh, ar tí.</em></p>
+<p>Forms: <em>orm, ort, air (eir), uirthi (ortha), orainn, oraibh, orthu (orthab).</em></p>
+<p><em>ar ndóigh</em> is said as <em>arnú</em> (one word).</p>
+<h2 id="104-as"><a class="header" href="#104-as">10.4 <em>as</em></a></h2>
+<p>Forms: <em>asam, asad, as, aisti, asainn, asaibh, astu.</em></p>
+<h2 id="105-chuig-heig"><a class="header" href="#105-chuig-heig">10.5 <em>chuig (heig)</em></a></h2>
+<p><em>eig</em> is what's often said, so that <em>chuig</em> and <em>ag</em> are the same.</p>
+<p>Forms: <em>chugam, chugad, chuige, chuici, chugainn, chugaibh, chucu.</em> <em>ch</em> = /h/ in these forms.</p>
+<p>In Cois Fharraige, <em>agam,</em> etc. are used instead of <em>chugam,</em> etc.: <em>chuir sí litir agam, sín agam é.</em> But <em>chugainn</em> in <em>an bhliain seo chugainn</em> and the like.</p>
+<h2 id="106-de-go"><a class="header" href="#106-de-go">10.6 <em>de (go)</em></a></h2>
+<p>The /ə/ is elided before a vowel: <em>bliain d'aois (g'aois).</em></p>
+<p>Forms: <em>díom, díot, de, di, dínn, díbh, díobh.</em> The <em>d</em> is usually lenited: <em>dhíom,</em> etc. *dhíobh is said as <em>dhíob</em> or <em>dhíothab.</em></p>
+<p><em>de + a</em> (possessive adjective) = <em>dá (gá) : ceann dá chuid scéalta.</em></p>
+<p>Often the <em>do</em> forms are used instead of the <em>de</em> forms: <em>bhain mé dó é.</em></p>
+<h2 id="107-do-go"><a class="header" href="#107-do-go">10.7 <em>do (go)</em></a></h2>
+<p>The /ə/ is elided before a vowel: <em>d'aon duine (g'aonuine).</em> Forms: <em>dom, duit, dó, di, dúinn</em> (or <em>duinn</em>), <em>daoibh, dóibh.</em> The <em>d</em> is lenited usually: <em>dhom,</em> etc. Sometimes the /ɣ/ is dropped: <em>ná hinis 'ó.</em> <em>tabhair dom</em> is said as <em>toram.</em></p>
+<p><em>do + a</em> (possessive adjective) = <em>dá (gá) : thug sé dá mhac é.</em></p>
+<h2 id="108-faoi"><a class="header" href="#108-faoi">10.8 <em>faoi</em></a></h2>
+<p>Forms: <em>fúm, fút, faoi, fúithi (fútha), fúinn, fúibh, fúthu.</em></p>
+<p><em>faoi + a</em> (possessive adjective) = <em>faoina: faoina bhun.</em></p>
+<h2 id="109-i-ə"><a class="header" href="#109-i-ə">10.9 <em>i</em> /ə/</a></h2>
+<p><em>in (an)</em> often comes before proper nouns: <em>oileán a bhí in Muínis, ní raibh aon dochar in Seán. In</em> sometimes before <em>mo, do: ó tháinic meabhair in mo cheann</em> (Carna).</p>
+<p>Forms: <em>ionam, ionad, ann, inti, ionainn, ionaibh, iontu. io</em> = /u/ in these forms.</p>
+<p><em>i + a</em> (possessive adjective) = <em>'na: tá siad 'na gcodladh.</em></p>
+<h2 id="1010-idir-eidir"><a class="header" href="#1010-idir-eidir">10.10 <em>idir (eidir)</em></a></h2>
+<p>Forms (plural): <em>eadrainn, eadraibh, eatarthu.</em></p>
+<p><em>idir</em> + pronoun is common instead of the personal forms: <em>bheadh sé 'na throid idir muid, ní raibh blas idir iad.</em></p>
+<h2 id="1011-le-lé"><a class="header" href="#1011-le-lé">10.11 <em>le (lé)</em></a></h2>
+<p>Forms: <em>liom, leat, leis, léithe, linn libh, leo</em> (or <em>leothu</em>). <em>l</em> = /l´/ in these forms. /i:/ in <em>libh</em> in Cois Fharraige.</p>
+<p><em>le + a</em> (possessive adjective) = <em>lena: ag uidiú lena mhac.</em></p>
+<h2 id="1012-ó"><a class="header" href="#1012-ó">10.12 <em>ó</em></a></h2>
+<p><em>uaidh</em> /vai/ is used instead of <em>ó</em> soemtimes (especially in Cois Fharraige): <em>uaidh Sheán</em></p>
+<p>Forms: <em>uaim, uait, uaidh, uaithi (uatha), uainn, uaibh, uathu (uathab).</em> <em>uai</em> = /ve/ in <em>uaim, uait, uainn, uaibh</em>. <em>uaithi</em> is said as /vo:/ in Cois Fharraige.</p>
+<p><em>ó + a</em> (possessive adjective) = <em>óna: fuair sí litir óna máthair.</em></p>
+<h2 id="1013-roimh-ruimh"><a class="header" href="#1013-roimh-ruimh">10.13 <em>roimh (ruimh)</em></a></h2>
+<p>Forms: <em>romham, romhat, roimhe, roimpi, romhainn, romhaibh, rompu.</em> <em>omha</em> = /u:/ in these forms. Sometimes <em>rútha</em> is said instead of <em>roimpi</em> in Carna.</p>
+<h2 id="1014-thar"><a class="header" href="#1014-thar">10.14 <em>thar</em></a></h2>
+<p>Sometimes <em>thair</em> is said.</p>
+<p>Forms: <em>tharam, tharad, thairis, thairti, tharainn, tharaibh, thartu.</em></p>
+<h2 id="1015-trí-hri"><a class="header" href="#1015-trí-hri">10.15 <em>trí</em> /hri:/</a></h2>
+<p>Forms: <em>tríom, tríot, tríd, tríthi, trínn, tríbh, tríothu.</em> <em>tr</em> = /hr/ in these forms.</p>
+<p><em>trí + a</em> (possessive adjective) = <em>trína: trína chéile.</em></p>
+<h2 id="1016-emphatic-forms"><a class="header" href="#1016-emphatic-forms">10.16 Emphatic forms</a></h2>
+<p>The personal forms are emphasised as they are in the standard: <em>liomsa, leatsa, leis-sean, léithese, linne, libhse, leosan.</em></p>
+<h2 id="1017-other-prepositions"><a class="header" href="#1017-other-prepositions">10.17 Other prepositions</a></h2>
+<p>Among the simple prepositions which don't have personal forms are the following.</p>
+<p><em>gan (gun): gan faitíos, gan é.</em> <em>i nganfhios (ngunas)</em> is one word: <em>d'imigh sé i nganfhos.</em></p>
+<p><em>go: go deireadh, go hÁrainn.</em><br />
+<em>go dtí: go dtí barr an chnoic, go dtína bharr, go dtí é.</em><br />
+<em>mar: mar bharr an mí-ádh, duine mar é.</em><br />
+<em>seachas: seachas an méid sin, seachas iad sin.</em></p>
+<p>In Cois Fharraige, the preposition <em>go</em> is often dropped before <em>Gaillimh: chuaigh sé 'Gaillimh ar maidin.</em> Sometimes that happens before other placenames too.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="11--compound-prepositions"><a class="header" href="#11--compound-prepositions">11.  Compound prepositions</a></h1>
+<h2 id="111-explanation"><a class="header" href="#111-explanation">11.1 Explanation</a></h2>
+<p>What's meant here, is prepositions which are followed by the genitive: <em>de bharr, os cionn,</em> etc. Because of that, prepositions like <em>timpeall</em> are included which aren't compound from an etymological perspective.</p>
+<p>When one of these prepositions is governing a pronoun, it's normally in the possessive form: <em>dá bharr, os a chionn.</em> But the possessive form can't be put with some of them.</p>
+<p>Only the most common compound prepositions are given here.</p>
+<h2 id="112-ar-feadh-er-fa"><a class="header" href="#112-ar-feadh-er-fa">11.2 <em>ar feadh</em> /er´ f´a/</a></h2>
+<p>Example: <em>bhí mé ag obair ar feadh an lae.</em><br />
+A possessive adjective can't be added to it.</p>
+<h2 id="113-ar-fud"><a class="header" href="#113-ar-fud">11.3 <em>ar fud</em></a></h2>
+<p>Example: <em>tá siad ar fud na háite.</em><br />
+It's rare for the possessive adjective to be added to it.</p>
+<h2 id="114-ar-nós"><a class="header" href="#114-ar-nós">11.4 <em>ar nós</em></a></h2>
+<p>Often the <em>ar</em> is left out.<br />
+Example: <em>d'imigh sé (ar) nós na gaoithe.</em></p>
+<p>It's rare for the possessive adjective to be added to it; <em>(ar) nós mé féin</em> is said instead of <em>ar mo nós féin</em>.</p>
+<h2 id="115-chun-ən"><a class="header" href="#115-chun-ən">11.5 <em>chun</em> /ən/</a></h2>
+<p>Example: <em>chuir mé an litir chun bealaigh.</em><br />
+<em>chun</em> is mostly found in adverbial phrases like <em>chun bealaigh: chun chinn, chun deire, chun tosaigh,</em> etc. In some places, <em>ag goil chun na scoile (a' goil 'na scoile);</em> but <em>ag goil chuig an scoil</em> is what's said most. In Carna, <em>ag goil chun an Chlocháin (a' goil 'na Chlocháin)</em> is said.</p>
+<h2 id="116-de-bharr"><a class="header" href="#116-de-bharr">11.6 <em>de bharr</em></a></h2>
+<p>Examples: <em>bhí tuirse air de bharr an lae; sin a raibh dá bharr acu.</em></p>
+<h2 id="117-de-réir"><a class="header" href="#117-de-réir">11.7 <em>de réir</em></a></h2>
+<p>The <em>de</em> is often dropped: <em>'réir. léir, léar</em> are said in some places.<br />
+Examples:<em>ag obair de réir an chloig, agus mar sin dá réir.</em></p>
+<h2 id="118-faoi-cheann"><a class="header" href="#118-faoi-cheann">11.8 <em>faoi cheann</em></a></h2>
+<p>Example: <em>tiocfaidh sé faoi cheann seachtaine arís.</em><br />
+The possessive adjective can't be added to it.</p>
+<h2 id="119-go-ceann"><a class="header" href="#119-go-ceann">11.9 <em>go ceann</em></a></h2>
+<p>Example: <em>ní thiocfaidh sé go ceann seachtaine eile.</em><br />
+The possessive adjective can't be added to it.</p>
+<h2 id="1110-i-ndiaidh-ə-niə"><a class="header" href="#1110-i-ndiaidh-ə-niə">11.10 <em>i ndiaidh</em> /ə n´iə/</a></h2>
+<p>Examples: <em>bhí sé ag rith i ndiaidh an chairr; rith sé i mo dhiaidh.</em></p>
+<h2 id="1111-in-aghaidh-ə-nai"><a class="header" href="#1111-in-aghaidh-ə-nai">11.11 <em>in aghaidh</em> /ə nai/</a></h2>
+<p>Examples: <em>bhí mé ag siúl an aghaidh an aird; bhíodh daoine 'na n-aghaidh</em></p>
+<h2 id="1112-le-haghaidh"><a class="header" href="#1112-le-haghaidh">11.12 <em>le haghaidh</em></a></h2>
+<p>/l´ai/ is usually said in Cois Fharraige, /l´ehi:/ in Carna.<br />
+Examples: <em>áit mhaith le haghaidh ronnach; is len' aghaidh sin é. Cé le haghaidh é</em> is said (i.e. cad chuige é).</p>
+<h2 id="1113-os-cionn-as-cíonn"><a class="header" href="#1113-os-cionn-as-cíonn">11.13 <em>os cionn (as cíonn)</em></a></h2>
+<p>Examples: <em>bhí sé scríofa os cionn an doiris; le scór blianta nó as a chionn.</em></p>
+<h2 id="1114-tar-éis"><a class="header" href="#1114-tar-éis">11.14 <em>tar éis</em></a></h2>
+<p><em>Théis</em> is what's said the most, but <em>léis</em> in some places. There are other versions as well.<br />
+Example: <em>bhí muid tuirseach tar éis an lae.</em><br />
+The possessive adjective can't be added to it.</p>
+<h2 id="1115-timpeall"><a class="header" href="#1115-timpeall">11.15 <em>timpeall</em></a></h2>
+<p>Often /h/ at the start: <em>thimpeall.</em><br />
+Example: <em>sheol sé timpeall an oileáin.</em></p>
+<p>To add a possessive adjective, the simple preposition <em>i</em> is put before it: <em>bhí slua 'na thimpeall</em>. <em>timpeall air</em> can be said too.</p>
+<h2 id="1116-trasna"><a class="header" href="#1116-trasna">11.16 <em>trasna</em></a></h2>
+<p>Example: <em>Shiúil sé trasna an bhóthair.</em><br />
+The possessive adjective can't be added to it except in sentences like <em>ghearr sé ar a thrasna é.</em></p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="12-question-words"><a class="header" href="#12-question-words">12. Question words</a></h1>
+<h2 id="121"><a class="header" href="#121">12.1</a></h2>
+<p>There are a lot of differences between the dialects from the perspective of question words. It should be noted especially that the words <em>cad, cathain, conas</em> aren't found natively in this dialect, although people know them from school.</p>
+<p>Below are the most common question words in this dialect and samples of their usage.</p>
+<h2 id="122-person"><a class="header" href="#122-person">12.2 Person</a></h2>
+<ul>
+<li><em>Cé hé féin? Cé thú féin</em></li>
+<li><em>Cé rinne é</em></li>
+<li><em>Cé air a bhfuil an locht</em></li>
+<li><em>Cé leis a bhfuil sé pósta?</em></li>
+<li><em>Cé leis caoi a chur air?</em> (i.e. who has to fix it)</li>
+</ul>
+<h2 id="123-thing"><a class="header" href="#123-thing">12.3 Thing</a></h2>
+<ul>
+<li><em>Cén rud é sin? Céard é sin?</em></li>
+<li><em>Céart tá ort?</em> (i.e. what's wrong with you?)</li>
+<li><em>Céard dúirt tú?</em></li>
+<li><em>Cé air a bhfuil tú ag breathnú?</em> (A person or a thing depending on the context.)</li>
+<li><em>Cén bád í sin?</em></li>
+<li><em>Cé na báid iad sin?</em></li>
+<li><em>Cé acu is fearr leat?</em></li>
+</ul>
+<h2 id="124-name"><a class="header" href="#124-name">12.4 Name</a></h2>
+<ul>
+<li><em>Cén t-ainm atá ort?</em></li>
+<li><em>Cé leis thú?</em> This would be most said to a child. The child would say something like <em>Le Seán Mhaitiú,</em> i.e. the name of their mother or father.</li>
+</ul>
+<h2 id="125-place"><a class="header" href="#125-place">12.5 Place</a></h2>
+<ul>
+<li><em>Cé raibh tú? Cé ndeachaigh sé?</em></li>
+<li><em>Cén áit ar tharla sé?</em></li>
+<li><em>Cé as thú? Céarb as thú? Cén áit arb as thú?</em></li>
+<li><em>Cá bhfuil tú ag fanacht?</em> <em>cá bhfuil</em> is said as <em>cáil.</em> <em>cá</em> is rarely used in any other case.</li>
+</ul>
+<h2 id="126-time"><a class="header" href="#126-time">12.6 Time</a></h2>
+<ul>
+<li><em>Cén uair a d'imigh sé?</em></li>
+<li><em>Cé chomh minic is a bhí tú ann?</em></li>
+<li><em>Cáide go dtiocfaidh tú arís?</em> (i.e. when will you come again)</li>
+<li><em>Cáideó tháinic tú?</em> <em>cáideó</em> comes from <em>cá fhaid ó.</em> It can be used as one word on its own: <em>cáideó?</em></li>
+</ul>
+<h2 id="127-way"><a class="header" href="#127-way">12.7 Way</a></h2>
+<ul>
+<li><em>Cén chaoi bhfuil tú?</em></li>
+<li><em>Cé mar tá tú?</em></li>
+<li><em>Cén chaoi ar tharla sé?</em></li>
+<li><em>Cé mar d'éirigh leat?</em></li>
+<li><em>Cén bealach a ndéantar é?</em></li>
+<li><em>Cá bhfios domsa é? cá bhfios</em> is said as /kaus/ normally.</li>
+</ul>
+<h2 id="128-reason"><a class="header" href="#128-reason">12.8 Reason</a></h2>
+<ul>
+<li><em>Cén fáth gur imigh tú?</em></li>
+<li><em>Cén fáth a bhí leis? Cén t-údar a bhí leis?</em></li>
+<li><em>Tuige nár inis tú dom é?</em> <em>tuige</em> comes from <em>cad chuige;</em> sometimes <em>go tuige</em> is said.</li>
+</ul>
+<h2 id="129-amount"><a class="header" href="#129-amount">12.9 amount</a></h2>
+<ul>
+<li><em>Cé mhéad a bhí air?</em> (i.e. what was the price of it)</li>
+<li><em>Cé mhéad míle as seo go Gaillimh?</em></li>
+<li><em>Cé mhéad acu atá ann?</em> <em>cé méad</em> is said as welll as <em>cé mhéad</em>. <em>an mó</em> isn't in the dialect.</li>
+<li><em>Cén méid atá ann?</em> (i.e. how big is it?)</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="13-regular-verbs"><a class="header" href="#13-regular-verbs">13. Regular verbs</a></h1>
+<h2 id="131-the-suffix--idh"><a class="header" href="#131-the-suffix--idh">13.1 The suffix <em>-idh</em></a></h2>
+<p><em>-idh</em> = /ə/ in the 3rd singular future, conjugation 1: <em>brisfidh</em> is said as <em>brise,</em> <em>caithfidh</em> as <em>caithe,</em> and so on.</p>
+<p><em>-idh</em> is silent in the 3rd singular future, conjugation 2: <em>ceannóidh</em> is said as <em>ceannó, imeoidh</em> as <em>imeó,</em> and so on.</p>
+<h2 id="132-the-suffix--igh"><a class="header" href="#132-the-suffix--igh">13.2 The suffix <em>-igh</em></a></h2>
+<p><em>-igh</em> = /ə/ in the 3rd singular past (and 2nd singular imperative), conjugation 2: <em>cheannaigh</em> is said as <em>cheanna,</em> <em>d'imigh</em> as <em>d'ime,</em> and so on.</p>
+<p><em>-igh</em> is silent in <em>dóigh, léigh,</em> etc. (first conjugation). <em>suigh</em> is pronounced as /si/ normally.</p>
+<h2 id="133-the-suffix--adh-3rd-singular"><a class="header" href="#133-the-suffix--adh-3rd-singular">13.3 The suffix <em>-adh</em> (3rd singular)</a></h2>
+<p><em>-adh</em> = /əx/ in the 3rd singular conditional: <em>bhrisfeadh</em> is said as <em>bhriseach</em>, <em>chaithfeadh</em> as <em>chaitheach,</em> and so on. It's the same with the habitual past and in the imperative.</p>
+<p>In conjugation 2 <em>-dh</em> = /x/: <em>cheannódh</em> is said as <em>cheannóch,</em> <em>cheannaíodh</em> as <em>cheannaíoch,</em> and so on.</p>
+<p>It's typical to have /t´/ instead of /x/ in those forms before the proonouns <em>sé, sí, sibh, siad;</em> e.g. <em>chasfadh sé</em> is said as <em>chasat sé,</em> <em>bheadh sé</em> as <em>bheit sé.</em> This is the same /t´/ as in <em>thit sé;</em> it could also be written as /t̝/. Sometimes the /x/ is kept in this position.</p>
+<h2 id="134-the-suffix--adh-autonomous"><a class="header" href="#134-the-suffix--adh-autonomous">13.4 The suffix <em>-adh</em> (autonomous)</a></h2>
+<p><em>-adh</em> = /u:/ normally in the past autonomous, conjugation 1: <em>casadh (orm é)</em> is said as <em>casú, briseadh (é)</em> as <em>brisiú,</em> and so on. Sometimes -/əv/ is used instead of -/u:/ in Cois Fharraige.</p>
+<p>In conjugation 2 <em>-dh</em> = /v/: <em>ceannaíodh</em> is said as <em>ceannaíobh.</em></p>
+<h2 id="135-f-in-the-3rd-singular-future"><a class="header" href="#135-f-in-the-3rd-singular-future">13.5 <em>f</em> in the 3rd singular future</a></h2>
+<p>In the 3rd singular future, conjugation 1, <em>f</em> is pronounced as follows:</p>
+<ul>
+<li>/h/ after <em>l, m, n, r: ólfaidh (ótha);</em></li>
+<li>/h/ after vowels: <em>suífidh (suíthe);</em></li>
+</ul>
+<p>devoicing on <em>b, bh, d, g, mh: féadfaidh (féata), ligfidh (lice), scuabfaidh (scuapa);</em><br />
+silent after <em>c, ch, p, s, t, th: caithfidh (caithe), ceapfaidh (ceapa), feicfidh (feice).</em></p>
+<p>the /h/ is often dropped, especially in Cois Fharraige; e.g. <em>ólfaidh</em> is said as /o:lə/ not as /o:lhə/ But the devoicing (on <em>b, bh</em> etc.) always occurs.</p>
+<h2 id="136-f-in-the-autonomous-future"><a class="header" href="#136-f-in-the-autonomous-future">13.6 <em>f</em> in the autonomous future</a></h2>
+<p>In Carna <em>f</em> = /f´/ normally in the autonomous future, conjugation 1; e.g. in <em>brisfear, ligfear</em> (no devoicing), <em>ólfar.</em> Sometimes it's a broad /f/</p>
+<p>In Cois Fharraige the <em>f</em> is often pronounced as in the 3rd singular; i.e. <em>brisfear</em> is said as <em>brisear, ligfear</em> as <em>licear</em> and so on. Sometimes there's a /a:/ in the suffix: <em>briseár, liceár.</em></p>
+<p>In conjugation 2 <em>f</em> = /f´/ in Carna: <em>ceannófar</em> is said as <em>ceannóifear.</em> In Cois Fharraige the form without <em>f</em> is most common: <em>ceannár.</em></p>
+<h2 id="137-f-in-the-conditional"><a class="header" href="#137-f-in-the-conditional">13.7 <em>f</em> in the conditional</a></h2>
+<p><em>f</em> in the conditional is pronounced like in the future.</p>
+<p>3rd singular: <em>bhrisfeadh (bhriseach), d'ólfadh (d'ólthach), ligfeadh (liceach).</em></p>
+<p>autonomous: <em>bhrisfí (bhrisfí</em> or <em>bhrisí), ligfí (ligfí</em> or <em>licí), cheannófaí (cheannóifí</em> or <em>cheannaí).</em></p>
+<p>(The autonomous isn't always lenited)</p>
+<h2 id="138-synthetic-forms"><a class="header" href="#138-synthetic-forms">13.8 Synthetic forms</a></h2>
+<p>Usually the analytic forms are used in the 1st plural: <em>ólann muid, d'ól muid, d'óladh muid</em> (9.1).</p>
+<p>There's a synthetic form in the 3rd plural past, conditional, past habitual: <em>d'óladar, d'ólfaidís, d'ólaidís</em></p>
+<p>There is a synthetic form in the 1st singular future, but it's not used normally except in response to a question or such:</p>
+<ul>
+<li><em>An ólfaidh tú cupán tae? Ólfad.</em></li>
+</ul>
+<p>The same with the 1st singular past:</p>
+<ul>
+<li><em>Ar ól tú fuisce ariamh? Níor ólas.</em></li>
+</ul>
+<p>The synthetic forms in the 1st singular future, past are mostly found in conjugation 1.</p>
+<h2 id="139-answering-questions"><a class="header" href="#139-answering-questions">13.9 Answering questions</a></h2>
+<p>There are three ways to give a simple answer to a question like <em>an ólfaidh tú cupán tae:</em></p>
+<ul>
+<li>(a) <em>ólfaidh</em> (the 3rd singular)</li>
+<li>(b) <em>ólfad</em> (the 1st singular synthetic)</li>
+<li>(c) <em>ólfaidh mé</em> (the 1st singular analytic)</li>
+</ul>
+<p>(a) and (b) are more or less the same in terms of meaning. (c) is an emphatic answer: both the verb and the pronoun are stressed in it.</p>
+<h2 id="1310-the-relative-form"><a class="header" href="#1310-the-relative-form">13.10 The relative form</a></h2>
+<p>There is a relative form in the present and future. It's the same as the 3rd person singular except it is lenited and it has /s/ at the end:</p>
+<ul>
+<li>present <em>chuireanns, bhíonns</em></li>
+<li>future <em>chuirfeas, bheas.</em></li>
+</ul>
+<p>This form is used in the positive direct relative structure:</p>
+<ul>
+<li><em>Céard a bheas agad?</em></li>
+<li><em>Céard a cheapanns tusa?</em></li>
+<li><em>Nuair imeos na strainséaraí.</em></li>
+</ul>
+<p>The /s/ is elided before <em>sé, sí,</em> etc.</p>
+<h2 id="1311-subjunctive"><a class="header" href="#1311-subjunctive">13.11 Subjunctive</a></h2>
+<p>There's no clear difference between the present subjunctive and the subjunctive except in the case of verbs ending in <em>b, d, g</em> and verbs in conjugation 2:</p>
+<ul>
+<li>future <em>tóigfidh (tóice), ceannóidh (ceannó)</em></li>
+<li>subjunctive <em>go dtóige, go gceannaí</em></li>
+</ul>
+<p>The present subjunctive is used in wishes and sometimes following the conjunctions <em>go, mara:</em></p>
+<ul>
+<li><em>Nár laga Dia thú.</em> (wish)</li>
+<li><em>Go n-éirí an saol leis.</em> (wish)</li>
+<li><em>Fan go n-insí mé dhuit.</em></li>
+<li><em>Mara dtoige tú mo chomhairle.</em></li>
+</ul>
+<p>Often the future is used after the conjunctions now: <em>fan go n-inseoidh mé dhuit.</em></p>
+<p>Thee past subjunctive and the past habitual use the same form. It's used sometimes after the conjunctions <em>dá (gá), mara:</em></p>
+<ul>
+<li><em>Dá n-éiríodh leis.</em></li>
+<li><em>Mara dtaithníodh an áit liom</em> (Carna).</li>
+</ul>
+<p>But often the conditional is used after those prepositions: <em>dá n-éiroedh, mara dtaithneodh.</em> It's always the conditional in the case of the verb <em>bí: dá mbeadh, mara mbeadh.</em></p>
+<h2 id="1312-verbal-adjectives-conjugation-1"><a class="header" href="#1312-verbal-adjectives-conjugation-1">13.12 Verbal adjectives, conjugation 1</a></h2>
+<p>These samples show the formation of verbal adjectives in conjugation 1:</p>
+<ul>
+<li><em>ólta, bainte</em> (verbs ending in <em>l, m, n</em>)</li>
+<li><em>curtha</em> (<em>r</em>)</li>
+<li><em>fágtha (fácaí)</em> (<em>b, d, g</em>)</li>
+<li><em>ceaptha (ceapaí)</em>, (<em>c, p, t</em>)</li>
+<li><em>casta, briste</em> (<em>s</em>)</li>
+<li><em>dóite, suite</em> (vowel)</li>
+</ul>
+<p>As well as <em>curtha</em>, the version <em>curta</em> exists. Instead of -/i:/, -/i:hə/ is usually used in Carna: <em>ceaptha</em> is said as <em>ceapaíthe</em>, <em>fágtha</em> as <em>fácaíthe.</em></p>
+<h2 id="1313-verbal-adjectives-conjugation-2"><a class="header" href="#1313-verbal-adjectives-conjugation-2">13.13 Verbal adjectives, conjugation 2</a></h2>
+<p>These samples show the formation of verbal adjectives in conjugation 2:</p>
+<ul>
+<li><em>ceannaithe (ceannaí)</em></li>
+<li><em>osclaithe (osclaí)</em></li>
+</ul>
+<p>-/i:hə/ is used instead of -/i:/ in Carna normally: <em>ceannaithe</em> is said as <em>ceannaíthe.</em> As well as <em>osclaithe</em> the version <em>oscailte</em> exists; in the same way, <em>ceangailte</em> as well as <em>ceanglaithe.</em> Broad <em>t</em> in <em>foghlamta</em> (<em>fólamta</em> or <em>feolamta</em>).</p>
+<h2 id="1314-verbal-nouns"><a class="header" href="#1314-verbal-nouns">13.14 Verbal Nouns</a></h2>
+<p>There's a good few verbal nouns in the dialect which have a different form than in the standard. Here are some of the most common samples:</p>
+<ul>
+<li><em>aithin: aithneachtáil</em> (but <em>is furasta aithint é</em> 'easily known')</li>
+<li><em>ceannaigh: ceannacht</em></li>
+<li><em>creid: creistiúint</em> or <em>creistint</em> (Carna)</li>
+<li><em>fág: fágál</em> (broad <em>l</em> also in <em>coinneál, tóigeál</em>)</li>
+<li><em>inis: inseacht</em></li>
+<li><em>lag: lagan</em> (conjugation 1)</li>
+<li><em>lean: leanacht</em> or <em>leanúint</em> (Carna)</li>
+<li><em>nigh: níochán</em></li>
+<li><em>taithin: taithneachtáil</em></li>
+<li><em>tosaigh: tosaí</em></li>
+</ul>
+<p>In a couple of cases there are two nouns for one verb with different uses. For example, <em>casadh (casa)</em> is the normal noun for <em>cas: an roth a chasadh.</em> But <em>castáil</em> or <em>casachtáil</em> in sentences like <em>ba mhaith liom castáil leis,</em> i.e. I would like to meet him.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="14-irregular-verbs"><a class="header" href="#14-irregular-verbs">14. Irregular Verbs</a></h1>
+<h2 id="141"><a class="header" href="#141">14.1</a></h2>
+<p>Only example forms are given here for each verb, particularly the forms which don't agree with the standard. There are several alternative versions of some of the forms; only the most common alternatives are given.</p>
+<h2 id="142-abair"><a class="header" href="#142-abair">14.2 <em>Abair</em></a></h2>
+<p>Present <em>deir</em> or <em>deireann</em>. Sometimes <em>abraíonn</em> in sentences like <em>abraíonn siad paidreachaí.</em></p>
+<p>Present <em>déarfaidh</em> or <em>abróidh</em>.</p>
+<p>Past <em>dúirt</em> (The most appropriate spelling is <em>d'úirt</em>), <em>gur úirt, níor úirt.</em></p>
+<p>Past, autonomous <em>dúradh (dúrú)</em> or <em>húradh.</em></p>
+<h2 id="143-beir"><a class="header" href="#143-beir">14.3 <em>Beir</em></a></h2>
+<p>Future <em>béarfaidh.</em><br />
+Future, autonomous <em>béarfar</em>.<br />
+Past <em>rug</em>.<br />
+Adjective <em>beirthe</em> (broad <em>r</em>).</p>
+<h2 id="144-bí"><a class="header" href="#144-bí">14.4 <em>Bí</em></a></h2>
+<p>Future <em>beidh</em>. Usually <em>beidh</em> has the diphthong /ai/ (a narrow version of it): /b´ai/. But /e/ before a pronoun: <em>be mé ann.</em></p>
+<p>Future, relative <em>bheas</em> /v´es/.</p>
+<p>Past <em>bhí, go raibh</em> /ro/, <em>ní raibh</em>. The vowel in /ro/ is elided before other vowels; e.g. in <em>ní raibh aon mhaith leis (ní r'aon...).</em> <em>Nár</em> (not <em>nach</em>) is what's used most before <em>raibh</em>.</p>
+<p>Past habitual <em>bhíodh (bhíoch).</em><br />
+Past habitual, 2nd singular <em>bhítheá.</em><br />
+Conditional <em>bheadh</em> /v´ex/<br />
+Conditional, 2nd singular <em>bheifeá (bheitheá).</em><br />
+Conditional, autonomous <em>bheifí (bheifí</em> or <em>bheithí).</em></p>
+<h2 id="145-clois"><a class="header" href="#145-clois">14.5 <em>Clois</em></a></h2>
+<p>Past, <em>chuala</em>.<br />
+Past, autonomous <em>cloiseadh (cloisiú).</em><br />
+Noun <em>cloisteáil</em>.<br />
+There are (or there used to be) a couple of forms from the root <em>cluin</em> found as variants; e.g. the 2nd singular conditional <em>chluinfeá</em> in <em>ní mórán Gaeilge a chluinfeá ann</em> (Carna). Normally <em>chloisfeá (chloiseá)</em> is said.</p>
+<p><em>airigh</em> is used often instead of <em>clois</em>.</p>
+<h2 id="146-déan"><a class="header" href="#146-déan">14.6 <em>Déan</em></a></h2>
+<p>Present <em>déanann (díonann).</em> Often the root <em>déan</em> has a short vowel /i/.</p>
+<p>Past <em>rinne, gur rinne</em> or <em>go ndearna, níor rinne</em> or <em>ní dhearna</em>. <em>gur rinne, níor rinne</em> are the most common.</p>
+<p>Past, autonomous <em>déanadh (díonú)</em> or <em>rinneadh</em> or <em>dearnadh</em>. The dependent and independent are the same in the autonomous; There's a choice between <em>gur déanadh, gur rinneadh, gur dearnadh</em>.</p>
+<p>There are a couple of forms from the root <em>ní</em> found as variants; e.g. 1st singular present in <em>an rud a nímse</em> (Carna), 3rd singular past habitual in <em>ní níodh sí dhíom ach greann</em> (an old song).</p>
+<p>Future is used in the common phrase <em>déanfaidh sin</em> (a polite response to a request or command).</p>
+<h2 id="147-faigh"><a class="header" href="#147-faigh">14.7 <em>Faigh</em></a></h2>
+<p>Present <em>fánn</em>.<br />
+Future <em>gheobhaidh</em> /jau/ (Cois Fharraige), /jehə/ (Carna), /jofə/.<br />
+Future, dependent <em>go bhfuighidh</em> /vi:/ or <em>go bhfaighidh</em> /vai/, <em>ní bhfuighidh</em> or <em>ní bhfaighidh.</em><br />
+Subjunctive present <em>go bhfá, nár fhá.</em><br />
+Past <em>fuair, go bhfuair, ní bhfuair.</em><br />
+Past autonomous <em>frítheadh (fríú)</em> or <em>fuaireadh.</em><br />
+Conditional <em>gheobhadh</em> /jaux/, /jehəx/, /jofəx/,<br />
+Conditional, dependent <em>go bhfuigheadh, go bhfaigheadh.</em><br />
+Past habitual <em>d'fhádh</em>.<br />
+Imperative, 2nd singular <em>fáigh (fá).</em><br />
+Adjective <em>fáite.</em><br />
+Noun <em>fáil</em> or <em>fáilt.</em></p>
+<h2 id="148-feic"><a class="header" href="#148-feic">14.8 <em>Feic</em></a></h2>
+<p>Past <em>choinic.</em> <em>chainic</em> sometimes in Cois Fharraige.<br />
+Past, dependent <em>go bhfaca, ní fhaca.</em>
+Past, autonomous <em>facas, gur facas, níor facas. B'fhacas dom</em> instead of <em>facas dom</em> (i.e. I thought) often.</p>
+<p>Noun <em>feiceál</em>.</p>
+<h2 id="149-ith"><a class="header" href="#149-ith">14.9 <em>Ith</em></a></h2>
+<p>Present <em>itheann,</em> sometimes <em>íosann.</em><br />
+Future <em>íosfaidh.</em><br />
+Noun <em>ithe</em> /ihə/, /ix´ə/. /i:/ sometimes in Cois Fharraige.</p>
+<h2 id="1410-tabhair"><a class="header" href="#1410-tabhair">14.10 <em>Tabhair</em></a></h2>
+<p>Future <em>tiúrfaidh.</em><br />
+Past <em>thug, níor thug, gur thug</em> (sometimes <em>go dtug</em>).<br />
+Conditional <em>thiúrfadh</em>.<br />
+Imperative, 2nd singular <em>tabhair (tóir)</em>, sometimes <em>tug</em>.<br />
+Imperative, 2nd plural <em>tugaí</em> or <em>tugaigí</em>.<br />
+Adjective <em>tugtha (tucaí).</em><br />
+Noun <em>tabhairt (tóirt)</em> or <em>tiúirt.</em></p>
+<h2 id="1411-tar"><a class="header" href="#1411-tar">14.11 <em>Tar</em></a></h2>
+<p>Present <em>teagann</em>.<br />
+Future <em>tiocfaidh (tiuca).</em><br />
+Past <em>tháinic, níor tháinic, gur tháinic</em> (<em>go dtáinic</em> sometimes).<br />
+Imperative, 2nd singular <em>teara.</em><br />
+Imperative, 2nd plural <em>teagaí.</em><br />
+Adjective <em>teagtha (teacaí).</em><br />
+Noun <em>tíocht</em> or <em>teacht</em>. It's usually lenited (and has <em>a</em> before it) except in <em>ag tíocht: caithfidh sé a thíocht anseo, tá siad ag tíocht.</em></p>
+<p>There are forms from the root <em>tig</em> found in the present and past habitual: <em>tigeann, thigeadh.</em></p>
+<h2 id="1412-téigh"><a class="header" href="#1412-téigh">14.12 <em>Téigh</em></a></h2>
+<p>Present <em>téann.</em> The root <em>téigh</em> usually has the diphthong /ai/.<br />
+Future <em>gabhfaidh (gotha).</em> /go:/ in Cois Fharraige. But often <em>tiocfaidh</em> is used instead of <em>gabhfaidh</em> in Cois Fharraige: <em>sula dtiocfaidh tú a chodladh.</em> <em>rachaidh</em> is found too, but it's not common.<br />
+Past <em>chuaigh (chua), go ndeachaigh (ndeacha), ní dheachaigh (dheacha).</em><br />
+Conditional <em>ghabhfadh (ghothach).</em><br />
+Imperative, 2nd singular <em>téire</em> or <em>gabh</em> /go/.
+Imperative, 2nd plural <em>téigí.</em><br />
+Adjective <em>goite</em>.<br />
+Noun <em>goil</em>. It tends to be lenited, like <em>tíocht</em>: caithfidh muid a ghoil ann* but <em>tá sé ag goil ann.</em></p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="15-the-copula"><a class="header" href="#15-the-copula">15. The Copula</a></h1>
+<h2 id="151"><a class="header" href="#151">15.1</a></h2>
+<p>Only the main forms of the copula are given here. There are several variants for some of the forms; normally only the most common version is given.</p>
+<h2 id="152-present"><a class="header" href="#152-present">15.2 Present</a></h2>
+<p><em>is</em> /əs/, /s/: <em>is fíor é, is maith an scéal é.</em> Slender <em>s</em> usually in <em>is deacair, is gearr.</em></p>
+<p><em>is</em> and the pronouns <em>é, í, iad, ea</em> go together as <em>sé, sí, siad, sea: sé tá ann, siad a rinne é, má sea.</em></p>
+<p>Often the <em>is</em> is dropped in classification sentences like <em>fear maith é, daoine bochta iad.</em> Sometimes <em>is</em> is also dropped in phrases like <em>fíor dhuit, cuma liom beo.</em></p>
+<h2 id="153-present-negative"><a class="header" href="#153-present-negative">15.3 Present negative</a></h2>
+<p><em>ní:</em> /N´i:/ <em>ní fiú é, ní deas an rud é.</em> <em>h</em> after it before <em>é, í, iad, ea.: ní hé</em> etc. <em>h</em> also in <em>ní heod é</em> (negative form of <em>seod é</em>), <em>ní hin é</em> (negataive form of <em>sin é</em>), <em>ní hionann.</em> (As well as <em>seod é</em>, <em>seobh é</em> is said; short <em>o</em> /o/ in <em>seo, seod, seobh.</em>)</p>
+<h2 id="154-present-question"><a class="header" href="#154-present-question">15.4 Present question</a></h2>
+<p><em>ar</em> /ər/: <em>ar fíor é, ar áit dheas é</em>.<br />
+<em>ab</em> /əb´/ before <em>é, í,</em> etc.: <em>ab é (a b'é), ab iad, ab ea, ab in é</em> (i.e. <em>an é sin é</em>).</p>
+<h2 id="155-present-with-go"><a class="header" href="#155-present-with-go">15.5 Present with <em>go</em></a></h2>
+<p><em>gur</em> /gər/: <em>creidim gur fíor é, creidim gur ann.</em><br />
+<em>gurb</em> before <em>é, í</em> etc.: <em>creidim gurb é (gur b'é)</em>.<br />
+Often the /r/ is droped: <em>go b'é.</em></p>
+<h2 id="156-present-with-nach"><a class="header" href="#156-present-with-nach">15.6 Present with <em>nach</em></a></h2>
+<p><em>nach</em> /nax/: <em>nach fíor dom é?</em><br />
+<em>nach</em> before <em>é, í,</em> etc. too: <em>m'anam nach é.</em><br />
+Sometimes <em>nach b'é, nach b'iad</em> etc. is said.</p>
+<h2 id="157-past"><a class="header" href="#157-past">15.7 Past</a></h2>
+<p><em>ba</em> /bə/: <em>ba mhaith é.</em> Often it doesn't lenite (5.6).</p>
+<p>/j/ before <em>é, í,</em> etc.: <em>ba é (ba dh'é) ba ea (ba dh'ea), ba in é (ba dh'in é)</em> (i.e <em>ba é sin é</em>). The vowel is elided in other cases: <em>b'fhíor é, b'as Gaillimh é, b'álainn an rud é, b'fhiú é.</em></p>
+<h2 id="158-past-negative"><a class="header" href="#158-past-negative">15.8 Past Negative</a></h2>
+<p><em>níor</em> /N´i:r/ <em>níor cheart é a dhéanamh.</em><br />
+<em>níorbh</em> before a vowel: <em>níorbh é (níor bh'é), níorbh fhiú, níorbh ionann.</em><br />
+Instead of <em>níor</em>, often <em>ní ba</em> or <em>ní mba</em> is said: <em>na mba drochfear é</em>.</p>
+<h2 id="159-past-question"><a class="header" href="#159-past-question">15.9 Past Question</a></h2>
+<p><em>ar</em> /ər/: <em>ar mhiste leat fanacht.</em><br />
+<em>arbh</em> /ərv´/ before vowels: <em>arbh é (ar bh'é)</em>. The present form is what's used most: <em>ab é.</em></p>
+<h2 id="1510-past-with-go"><a class="header" href="#1510-past-with-go">15.10 Past with <em>go</em></a></h2>
+<p><em>go mba: creidim go mba cheart</em>. Sometimes <em>gur</em> (+ lenition): <em>creidim gur cheart</em>.</p>
+<p>/j/ roimh <em>é, í</em>, etc.: <em>creidim go mba ea (mba dh'ea).</em> In other cases the vowel is elided: <em>feictear dom go mb'álainn an rud é.</em></p>
+<h2 id="1511-past-with-nach"><a class="header" href="#1511-past-with-nach">15.11 Past with <em>nach</em></a></h2>
+<p><em>nár: nár bhreá an rud é.</em><br />
+<em>nárbh</em> before vowels: <em>m'anam nárbh é (nár bh'é), nárbh fhíor dom é.</em></p>
+<h2 id="1512-wishing"><a class="header" href="#1512-wishing">15.12 Wishing</a></h2>
+<p><em>go mba: go mba slán an scéalaí</em>. <em>h</em> before vowels: <em>go mba hé dhuit, go mba hamhlaidh dhuit</em> (these two phrases mean the same thing, the first one is the most common.)<br />
+<em>nár ba: nár ba fada nó go bhfeice mé...</em> (song)</p>
+<h2 id="1513-emphasis-with-the-copula"><a class="header" href="#1513-emphasis-with-the-copula">15.13 Emphasis with the copula</a></h2>
+<p>The primary form of the copula is what's used most in emphatic sentences like these:</p>
+<ul>
+<li><em>Is ann a bhí chuile dhuine ag teacht</em> (Carna).</li>
+<li><em>Ní fear an-ard a bhí ann.</em></li>
+<li><em>Siad muintir Ros Muc a bhí ann.</em></li>
+<li><em>Nach deas a bhreathnódh sé.</em></li>
+</ul>
+<p>But sometimes the historical form is used: <em>ba fear maith a bhí ann.</em></p>
+<h2 id="1514-classification-sentences"><a class="header" href="#1514-classification-sentences">15.14 Classification Sentences</a></h2>
+<p>The basic structure of classification sentences is common:</p>
+<ul>
+<li><em>Is fear maith é.</em></li>
+<li><em>Ní strainséara thú.</em></li>
+<li><em>Ba driotháir dó é.</em></li>
+</ul>
+<p>The emphatic structure <em>(is) fear maith atá ann</em> is very common too:</p>
+<ul>
+<li><em>Sagart maith a bhí ann.</em></li>
+<li><em>Sasanach a bhí ann.</em></li>
+<li><em>Fear mór trom a bhí ann.</em></li>
+</ul>
+<p>There's barely any emphasis intended with these sorts of sentences. A name or noun can be used with this structure too:</p>
+<ul>
+<li><em>Fear maith a bhí in Greene</em> (Carna).</li>
+<li><em>Gabha a bhí in driotháir leis</em> (Carna).</li>
+<li><em>Bean an-saibhir a bhí in bean Tommy Réamainn (Cois Fharraige).</em></li>
+</ul>
+<p>Note that the preposition <em>i</em> becomes <em>in</em> in this case.</p>
+<p>In the case of trade, profession, or the like, the third structure is available:</p>
+<ul>
+<li><em>Tá sé 'na cheoltóir.</em></li>
+<li><em>Bhí sé 'na thogha seanachaí</em>.</li>
+<li><em>Bhí sé 'na shagart mhaith.</em></li>
+</ul>
+<p>The adjective in this structure is normally lenited. This structure is also used for these sorts of sentences:</p>
+<ul>
+<li><em>Nuair a bhí sé 'na fhear óg.</em></li>
+<li><em>Nuair a bhí muide 'na ngasúir.</em></li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="16-compound-tenses"><a class="header" href="#16-compound-tenses">16. Compound Tenses</a></h1>
+<h2 id="161-types"><a class="header" href="#161-types">16.1 Types</a></h2>
+<p>There are three main types of compound tenses in the dialect:
+continuous: <em>tá sé ag imeacht;</em><br />
+perfect: <em>tá sé imithe;</em><br />
+purposive: <em>tá sé ag goil</em></p>
+<h2 id="162-continous-intransitive"><a class="header" href="#162-continous-intransitive">16.2 Continous Intransitive</a></h2>
+<p>Example: <em>tá Seán ag tíocht.</em><br />
+The particle is pronounced as follows:<br />
+/ə/ before a consonant: <em>a' tíocht</em><br />
+/ə g/ before a back vowel: <em>ag ól</em><br />
+/ə g´/ before a front vowel: <em>ag ithe.</em></p>
+<p>The vowel is elided following a vowel, so there's no trace of the particle <em>ag</em> normally in a sentence like <em>tá sé ag tíocht.</em></p>
+<h3 id="163-continous-transitive"><a class="header" href="#163-continous-transitive">16.3 Continous transitive</a></h3>
+<p>Example: <em>tá siad ag gearradh feamainne</em>. The object (<em>feamainn</em>) is in the genitive case, governed by the verbal noun. Other examples: <em>ag baint fhéir, ag casadh ceoil, ag díol móna, ag iarraidh ronnach, ago tóigeál an phota, ag inseacht na fírinne, ag baint na bhfataí.</em> But the noun is sometimes left undeclined, especially when there's an adjective with it: <em>ag déanamh teach nua, ag déanamh an-obair.</em></p>
+<h2 id="164-continuous-transitive-with-a-pronoun"><a class="header" href="#164-continuous-transitive-with-a-pronoun">16.4 Continuous transitive with a pronoun</a></h2>
+<p>When the object is a pronoun, the possessive adjective is used, and <em>do (go)</em> is used instead of <em>ag</em>.</p>
+<ul>
+<li><em>Bhí mé do mo níochán féin.</em></li>
+</ul>
+<p>In the 3rd singular and in the plural <em>do</em> and <em>a</em> combine into <em>dá (gá</em> or <em>á):</em></p>
+<ul>
+<li><em>Níl siad dá baint</em> (an mhóin).</li>
+<li><em>Bhíodh sé ag ceannach muc agus dá ndíol.</em></li>
+</ul>
+<h2 id="165-continuous-relative"><a class="header" href="#165-continuous-relative">16.5 Continuous relative</a></h2>
+<p>Examples: <em>céard tá tú a dhéanamh?; sin é an ceann atá mé a iarraidh.</em></p>
+<p>In this relative structure, <em>a</em> /ə/ replaces <em>ag</em> and the verbal noun is lenited. In the two examples above the <em>a</em> would be elided.</p>
+<h2 id="166-continuous-passive"><a class="header" href="#166-continuous-passive">16.6 Continuous Passive</a></h2>
+<p>Examples: <em>bhíodh pórtar dá dhíol ann; bhí an aimsir dá caitheamh.</em></p>
+<p>In this structure <em>dá</em> (<em>gá</em> or <em>á</em>) is before the verbal noun. The word after <em>dá</em> is lenited if the noun being talked about is masculine; it isn't lenited if it's feminine. For plurals its eclipsed: <em>bhí tithe dá dtóigeál ann.</em><br />
+The actor can be mentioned by using the preposition <em>ag: bhíodh cíos dá bhaint amach acu.</em><br />
+But usually the active structure would be used if the actor needed mentioning: <em>bhídís ag baint cíos amach.</em></p>
+<h2 id="167-continuous-passive-with-a-pronoun"><a class="header" href="#167-continuous-passive-with-a-pronoun">16.7 Continuous passive with a pronoun</a></h2>
+<p>Examples: <em>bhí mé do m'ithe; bhíodh sé dá dhíol ann.</em></p>
+<p>The first sample means that something (fleas, maybe) were eating me. The second sample is ambiguous without the context. It could be active (i.e. he used to be selling something there) or passive (i.e. something used to be sold there).</p>
+<h2 id="168-perfect-intransitive"><a class="header" href="#168-perfect-intransitive">16.8 Perfect intransitive</a></h2>
+<p>Examples: <em>tá na daoine goite soir; tá an saol athraithe; níl cuma ar bith fanta ar an áit</em> (i.e. the place is in a bad state now).</p>
+<h2 id="169--perfect-transitive"><a class="header" href="#169--perfect-transitive">16.9  Perfect transitive</a></h2>
+<p>Examples: <em>bhí an seol ligthe anuas; ní raibh mórán déanta orthu.</em></p>
+<p>This is a passive structure. An actor can be mentioned using the preposition <em>ag: ní raibh tada déanta agam; bhí na potaí curtha ag Peadar ann.</em></p>
+<p>The perfect structure <em>tar éis (théis)</em> + verbal noun isn't used much, but it is heard sometimes: <em>tá cara liom théis fear a bhualadh ar an mbóthar</em> (referring to a car accident) (Cois Fharraige).</p>
+<h2 id="1610-purposive-intransitive"><a class="header" href="#1610-purposive-intransitive">16.10 Purposive intransitive</a></h2>
+<p>Examples: <em>bhí sé ag goil ag imeacht; tá obair ag goil ag tosaí ann; níl mé ag goil ag fanacht níos faide.</em></p>
+<p>This matches the English structure 'going to...', i.e. about to do something. Note that <em>bheith, goil, tíocht</em> can't be used after <em>ag goil</em>. In cases like that the future must be used: 'We are going to be late' - <em>beidh muid mall.</em></p>
+<h2 id="1611-purposive-transitive"><a class="header" href="#1611-purposive-transitive">16.11 Purposive transitive</a></h2>
+<p>Examples: <em>tá mé ag goil ag rá an méid seo; níl aon áit eile ag goil dá shású; níl sé ag goil ag déanamh blas ar bith ort.</em></p>
+<p>Again this corresponds to the English structure 'going to...'. It's almost the same as the future tense often. Sometimes it conveys a general truth:<br />
+<em>Tá chuile Yank ag goil ag ól coffee ar maidin</em> (Carna), i.e. it's a strong tendency of every American.</p>
+<p>There's a passive structure in this compound tense too:<br />
+<em>Tá smidiríní ag goil dá dhéanamh dhe</em> (Carna) i.e. it going to be made into smithereens.</p>
+<h2 id="1612-purposive-another-structure"><a class="header" href="#1612-purposive-another-structure">16.12 Purposive: another structure</a></h2>
+<p>There's a special type of purposive structure in the following examples:<br />
+<em>ní raibh sé lé bheith agad níos faide,</em> i.e. you were not fated to have it;<br />
+<em>an bhfuil mé lé ghoil abhaile</em>: i.e. am I fated to leave?;<br />
+<em>bhí sé lé thíocht anseo aréir,</em> i.e. he had decided to come;<br />
+<em>bhí sé leis na beithí a dhíol,</em> i.e. he intended to sell them.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="17-vocabulary"><a class="header" href="#17-vocabulary">17. Vocabulary</a></h1>
+<h2 id="171"><a class="header" href="#171">17.1</a></h2>
+<p>To briefly describe the vocabulary of the dialect, reference can be made to these classes:</p>
+<ul>
+<li>local words</li>
+<li>missing words</li>
+<li>loan words from English</li>
+</ul>
+<h2 id="172-local-words"><a class="header" href="#172-local-words">17.2 Local Words</a></h2>
+<p>There's a lot of words in this dialect which aren't found much, or perhaps at all, in other dialects. It's hard to be sure about specific examples, but the following can be mentioned:<br />
+<em>breathnú</em> (<em>féachaint</em> in Munster, <em>amharc</em> in Ulster)<br />
+<em>go hiondúil</em> (<em>de ghnáth</em> in other dialects)<br />
+<em>in ann</em> (<em>ábalta</em> etc. in other dialects).<br />
+<em>múr</em> (<em>cith</em> in other dialects).</p>
+<p>All of the words mentioned there from other dialects are found in Conamara too; for example, <em>féachaint</em> exists, but it's not nearly as commmon as <em>breathnú</em>, and <em>amharc</em> exists as a noun. On the other hand, it can't be said with certainty that the words from Conamara don't turn up in Munster and Ulster as well. They all turn up in other places in Connacht, although it's rare that <em>múr</em> is used outside of South Conamara and the Aran Islands.</p>
+<p>There's a list of local words and local meanings in the Mini-dictionary below.</p>
+<h2 id="173-internal-differences"><a class="header" href="#173-internal-differences">17.3 Internal differences</a></h2>
+<p>It should be noted that there are a few small differences in vocabulary within the region of the dialect. Differences of frequency mostly; for example it seems like <em>gadhar</em> is what's said most in Carna, and <em>mada</em> in Cois Fharraige, but both words are used in both places. It seems that there are a few words restricted to certain areas; for examples, <em>sall</em> (i.e. <em>anonn</em>) is common in Cois Fharraige, but it's barely used at all on the west side. <em>(Tá an ghrian) ag scaladh</em> is said in Carna, but <em>ag scairteadh</em> in Cois Fharraige. There are at least 3 words for 'fast' in the dialect: <em>sciobtha, scafánta, tréan</em>. It seems like <em>sciobtha (sciupaí)</em> is most said in Cois Fharraige, the two others in Carna.</p>
+<h2 id="174-missing-words"><a class="header" href="#174-missing-words">17.4 Missing words</a></h2>
+<p>There are many words common in the written language and in other dialects that aren't in this dialect. Some of them used to be but they died out; e.g. <em>gol</em> (in <em>ná bí ag gol</em>) <em>caoineadh</em> /ki:n´ə/ took its place. (People would know <em>gol</em> of course, and perhaps they would use it occasionally).</p>
+<p>Here are some examples of other words that don't come up in this dialect seemingly; after are the words most used in their place:</p>
+<ul>
+<li><em>blúire: ruainne</em></li>
+<li><em>can amhrán: abair amhrán</em></li>
+<li><em>clós: sráid</em> (around the house) <em>geárd</em> (at the back of a shop)</li>
+<li><em>fearthainn: báisteach</em></li>
+<li><em>ní fheadar: níl a fhios agam</em></li>
+<li><em>sáith: dóthain</em> (but <em>sách</em> does exist)</li>
+<li><em>seinn (ceol): cas (ceol)</em></li>
+<li><em>slí: bealach</em> (<em>slí</em> in <em>slí mhaireachtála</em>).</li>
+</ul>
+<h2 id="175-loans-from-english"><a class="header" href="#175-loans-from-english">17.5 Loans from English</a></h2>
+<p>There are many English words in use in the dialect. Most of them relate to modern things, like <em>ambulance, bicycle, factory, fridge,</em> etc. People know a few new Irish terms for these, but it's rare that they use them in normal speech: <em>otharcharr, monarcha, rothar</em> and the like. There's some new terms found which came about in the Gaeltacht itself; among those are <em>bád aeir</em> 'aeroplane', <em>bosca ceoil</em> 'meoldeon', <em>dochtúr na gcos</em> 'chiropodist', <em>leasú siopa</em> 'artificial fertilizer', <em>teach an phosta</em> 'the post-office'.</p>
+<p>Some English words have been in the dialect for a long time and it could be said that they're a part of the spoken language now, though they wouldn't be accepted in written language. Here are some examples:</p>
+<p><em>blade; family</em> (in the two senses, <em>clann</em> and <em>teaghlach</em>); <em>green</em> (the colour); <em>hospital</em> (said as <em>easpaicil</em>); <em>job; kettle</em> (<em>túlán</em> is known too); <em>lad</em> (plural <em>lads</em>); <em>teapot; watch</em> (feminine noun - <em>is deas an watch í</em>).</p>
+<p>The suffix <em>-áil</em> is added to English verbs to make an Irish version of them: <em>jumpáil, landáil, missáil, startáil,</em> and so on.</p>
+<p>The suffix <em>-áilte</em> is added to english verbal adjectives: <em>hireáilte, landáilte, taráilte.</em> Also to some normal English adjectives: <em>smartáilte, squareáilte, stubbornáilte.</em> Often these words have a funny sound to them. But some of them are well established and they're accepted even in the written language: <em>contráilte</em> (i.e. wrong), <em>féaráilte, siúráilte</em> and others.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="mini-dictionary"><a class="header" href="#mini-dictionary">Mini-Dictionary</a></h1>
+<p>This is a small collection of words and phrases that specifically pertain to this dialect, or which have separate meaning in this dialect. Most of them are found in other places in Connacht as well, and perhaps some of them in other provinces.</p>
+<p>In some cases, a dialectal spelling is accepted for the headword; e.g. <em>fascadh</em> instead of <em>foscadh, chaon</em> instead of  <em>gach aon.</em></p>
+<p>"b." is added to feminine nouns; it's understood that all other nouns are masculine.</p>
+<ul>
+<li>aiteall
+<ul>
+<li>'Lull, clearance' (especially about rain). <em>Tá aiteall ann</em> 'The rain has stopped'.</li>
+</ul>
+</li>
+<li>airdeall
+<ul>
+<li>'Watching, looking out'. <em>duine a chur ar an airdeall</em> 'to alert someone'.</li>
+</ul>
+</li>
+<li>airdeallach
+<ul>
+<li>'Alert, watchful'.</li>
+</ul>
+</li>
+<li>baileach
+<ul>
+<li>'Complete, quite'. <em>Ní baileach é</em> 'Not quite'. <em>Níl mé baileach réidh</em> 'I am not quite ready'.</li>
+</ul>
+</li>
+<li>bailithe
+<ul>
+<li>'Gone'. <em>Tá sé bailithe a chodladh</em> 'He has gone to bed'. [Especially in An Chearthrú Rua]</li>
+</ul>
+</li>
+<li>barriall
+<ul>
+<li>/bariəl/ 'Shoe-lace', plural <em>barriallachaí.</em></li>
+</ul>
+</li>
+<li>barrúil
+<ul>
+<li>Funny (a person or a thing). [Pronounced the same as <em>barúil</em> 'opinion']</li>
+</ul>
+</li>
+<li>bearrán
+<ul>
+<li>/b´ira:n/ 'Annoyance'. <em>Fanfaidh muid anseo le bearrán air</em> '..... to annoy him'.</li>
+</ul>
+</li>
+<li>beatha b.
+<ul>
+<li>'Food'. <em>Bhí an bheatha go maith</em> 'The food was good'.</li>
+</ul>
+</li>
+<li>beo
+<ul>
+<li>'Alive'. Emphatic word in <em>Níl a fhios agam beo, Is cuma liom beo, chuile rud beo.</em></li>
+</ul>
+</li>
+<li>blas
+<ul>
+<li>'Taste'. But 'anything' in negative sentences like <em>ní raibh blas dá bharr aige</em> 'he had nothing to show for it'.</li>
+</ul>
+</li>
+<li>bligh
+<ul>
+<li>'Milk', verbal noun <em>bleán</em>.</li>
+</ul>
+</li>
+<li>blogam
+<ul>
+<li>'Sup'. <em>Ól blogam tae</em> 'Have a sup of tea'. [The standard spelling is <em>bolgam</em>]</li>
+</ul>
+</li>
+<li>breathnaigh
+<ul>
+<li>'To look at/watch' <em>ag breathnú ar an teilí</em> 'watching television'. <em>Tá tú ag breathnú go maith</em> ' You are looking well'. [The second example is an Anglicism, but it's well founded in the dialect.]</li>
+</ul>
+</li>
+<li>brocach
+<ul>
+<li>'Dirty'. [More common than <em>salach</em> in places]</li>
+</ul>
+</li>
+<li>builín
+<ul>
+<li>'Loaf'.</li>
+</ul>
+</li>
+<li>cailleadh
+<ul>
+<li>/kaL´ə/ 'Loss'. <em>Níl cailleadh ar bith air</em> 'It is not bad' (i.e. tá sé go maith).</li>
+</ul>
+</li>
+<li>caith
+<ul>
+<li>'Throw, etc.'. One of the meanings is 'shoot': <em>Chaith sé an coinín</em> 'He shot the rabbit'. Another meaning is 'smoke': <em>An gcaitheann tú?</em> 'Do you smoke?'</li>
+</ul>
+</li>
+<li>cantal
+<ul>
+<li>'Bad humour'. <em>Chuir sé cantal orm</em> 'It annoyed me'.</li>
+</ul>
+</li>
+<li>cantalach
+<ul>
+<li>'Cranky'.</li>
+</ul>
+</li>
+<li>caoi b.
+<ul>
+<li>'Way, state'. <em>Tá droch-chaoi air</em> 'It is in a bad state (of repair)'. <em>caoi a chur ar rud</em> 'to repair something'. <em>Tá caoi le ghoil air</em> 'It is to be repaired'.</li>
+</ul>
+</li>
+<li>caoin
+<ul>
+<li>'Cry'. <em>Thosaigh sí ag caoineadh</em> 'She started to cry'. [Also <em>caoineachán</em> as a verbal noun.]</li>
+</ul>
+</li>
+<li>ceap
+<ul>
+<li>'Think'. <em>Tá mé ag ceapadh go bhfuil</em> 'I think so'. (<em>Tá mé a cheapadh</em> sometimes). <em>Tá sé ceaptha a bheith anseo</em> 'He is supposed to be here'.</li>
+</ul>
+</li>
+<li>ceo
+<ul>
+<li>'Fog'. But 'anything' in negative sentences like <em>Ní fhaca mé aon cheo</em> 'I did not see anything'.</li>
+</ul>
+</li>
+<li>cés moite de
+<ul>
+<li>'Except for'. <em>Beidh sé tirim cés moite de chorrmhúr</em> '... apart from the odd shower'.</li>
+</ul>
+</li>
+<li>chaon
+<ul>
+<li>/xe:n/ 'each'. <em>chaon cheann acu</em> 'both of them'.</li>
+</ul>
+</li>
+<li>chuile
+<ul>
+<li>'Every'. <em>chuile dhuine</em> 'everyone'.</li>
+</ul>
+</li>
+<li>cinn
+<ul>
+<li>'Surpass'. <em>Chinn sé orm</em> (or <em>chinn orm</em>) 'I failed to do it'. <em>Tá sé cinnte orm é a thuiscint</em> 'I have failed to understand it'. [It's hard to say sometimes whether <em>cinnte</em> or <em>cinnt</em> (verbal noun) is in those sentences.]</li>
+</ul>
+</li>
+<li>cneasta
+<ul>
+<li>'Honest'.</li>
+</ul>
+</li>
+<li>croch
+<ul>
+<li>'Raise, lift'. <em>Croch leat é</em> 'Take it away with you'.</li>
+</ul>
+</li>
+<li>crúógach
+<ul>
+<li>'Busy'</li>
+</ul>
+</li>
+<li>cuimse b.
+<ul>
+<li>'Large amount'. <em>an-chuimse airgid</em> 'a great amount of money'. <em>cuimse go deo beithígh</em> 'a huge number of cattle'.</li>
+</ul>
+</li>
+<li>cuisliméara
+<ul>
+<li>'Customer'. [The standard form is <em>custaiméir</em>.]</li>
+</ul>
+</li>
+<li>cuma b.
+<ul>
+<li>'Appearance'. <em>Níl mórán cuma air</em> 'It's not very good'. <em>Níl cuma ná caoi air</em> 'It is very bad'.</li>
+</ul>
+</li>
+<li>daigheachaí
+<ul>
+<li>In the phrase <em>daigheachaí fiacal</em> 'toothache'.</li>
+</ul>
+</li>
+<li>deabhal
+<ul>
+<li>'Devil'. A strong negative word: <em>Deabhal maith a bhí ann, Deabhal fhios agam, Deabhal mo chos a chuaigh ann</em> (i.e. I didn't bother going there).</li>
+</ul>
+</li>
+<li>dearg
+<ul>
+<li>'Light' (a pipe, cigarette). <em>Dhearg sé an píopa</em> 'He lit his pipe'. Also as a noun: <em>Toram dearg</em> 'Give me a light'.</li>
+</ul>
+</li>
+<li>dheamhan
+<ul>
+<li>Said /ju:n/. Negative word like <em>deabhal</em>, but not as strong.</li>
+</ul>
+</li>
+<li>drochúinte
+<ul>
+<li>'Cross'. <em>Bhí sé an-drochúinte</em> 'He was very bad-tempered' (a school master). [It seems like a version of <em>drochmhúinte</em>.]</li>
+</ul>
+</li>
+<li>éadan
+<ul>
+<li>'Face'. 'Impudence, cheek' in sentences like <em>Nach air a bhí an t-éadan.</em></li>
+</ul>
+</li>
+<li>éist
+<ul>
+<li>'Listen'. <em>éist le</em> means 'leave alone' in sentences like <em>B'fhearr duit éisteacht leis</em> 'You had better leave him alone', <em>D'éist mé uilig leis</em> 'I gave it up altogether'.</li>
+</ul>
+</li>
+<li>fainic
+<ul>
+<li>'Look out, mind' <em>Fainic thú féin</em> 'Watch out'. As a noun too: <em>Chuir mé fainic air</em> 'I warned him'.</li>
+</ul>
+</li>
+<li>fascadh
+<ul>
+<li>'Shelter'. <em>Chuaigh sé ar fascadh</em> 'He took shelter'.</li>
+</ul>
+</li>
+<li>fascúil
+<ul>
+<li>'Sheltered'.</li>
+</ul>
+</li>
+<li>faríor
+<ul>
+<li>/fari:r/ 'Unfortunately'. <em>D'fhan mé anseo faríor. Faríor gan muid óg arís</em> 'It is a pity we are not young again'.</li>
+</ul>
+</li>
+<li>feiceálach
+<ul>
+<li>'Conspicuous'.</li>
+</ul>
+</li>
+<li>fonnadóir
+<ul>
+<li>'A singer'.</li>
+</ul>
+</li>
+<li>gail b.
+<ul>
+<li>'Steam'. Also 'Tobacco-smoke'. <em>An gcaithfidh tú gail?</em> 'Will you have a smoke?'.  [The standard form is <em>gal</em>.]</li>
+</ul>
+</li>
+<li>gasúr
+<ul>
+<li>'A child', plural <em>gasúir</em>.</li>
+</ul>
+</li>
+<li>geábh
+<ul>
+<li>'Trip'. <em>Thug mé geábh siar</em> 'I took a trip west'. Also 'one (time)' in sentences like <em>Bhí mé geábh amháin ann</em> 'I was there once'.</li>
+</ul>
+</li>
+<li>gnaíúil
+<ul>
+<li>/gr´i:u:l´/ 'Generous'. Also as a general word of praise: <em>Lad gnaíúil é</em> 'He's a decent lad'.</li>
+</ul>
+</li>
+<li>gnóigh
+<ul>
+<li>/grũ:/ 'Win'. <em>Cé ghnóigh an cluiche?</em> 'Who won the match'. <em>Tá sé gnóite acu</em> 'They have won it'. [It's a version of <em>gnóthaigh</em>. <em>Go gnóthaí Dia dhuit</em>, said <em>Go núí Dia dhuit,</em> is a common blessing (saying goodbye to someone). <em>buach</em> is another word for 'win', a version of <em>buaigh</em>. In the case of a prize, etc. <em>bain amach</em> is what's said most: <em>Bhain sé céad punt amach</em> 'He won a hundred pounds'.]</li>
+</ul>
+</li>
+<li>gnotha
+<ul>
+<li>/grõthə/ 'Business'. <em>Níl aon ghnotha agam ann</em> 'I have no business there'. <em>Rinne muid na gnotha</em> 'We managed'. [<em>gnaithe</em> or <em>gnaithí</em> in Cois Fharraige. The standard version <em>gnó</em> is in use too.]</li>
+</ul>
+</li>
+<li>góil
+<ul>
+<li>(Verbal noun) in various phrases. <em>ag góil an bháid</em> 'steering the boat'. <em>ag góil fhoinn</em> 'singing a song'. <em>ag góil de mhaide air</em> 'striking him with a stick' [The dialect's form of <em>gabháil</em>.]</li>
+</ul>
+</li>
+<li>goille
+<ul>
+<li>'Come here', plural <em>goilligí</em>. [The standard forms are <em>gabh i leith, gabhaigí i leith</em>]</li>
+</ul>
+</li>
+<li>iarraidh
+<ul>
+<li>/iərə/ (verbal noun <em>iarr</em>) 'Wanting, seeking'. <em>Tá mé ag iarraidh deoch</em> 'I want a drink'. <em>Céard tá tú 'iarraidh?</em> 'What do you want?' <em>Chuaigh sé ag iarraidh uisce</em> 'He went for water'. <em>Tá mé ag iarraidh caoi a chur air</em> 'I'm trying to fix it'.</li>
+</ul>
+</li>
+<li>in ann
+<ul>
+<li>/ə nan/ 'Able'. <em>Níl mé in ann a rá</em> 'I can't say' [This isn't the same as <em>i ndán</em> 'in store'. <em>Céard tá i ndán dúinn</em> 'What's in store for us?' <em>Má tá i ndán is go dtiocfaidh sé</em> 'If he should come'.]</li>
+</ul>
+</li>
+<li>iondúil
+<ul>
+<li>'Usual'. <em>Is iondúil go mbíonn sé anseo</em> 'He is usually here'. <em>Bíonn sé anseo go hiondúil</em> 'He is here usually'. [<em>iondúil</em> can't be used to qualify an adjective.]</li>
+</ul>
+</li>
+<li>lá
+<ul>
+<li>'Day'. <em>Lá maith agad</em> Good day to you (leaving somebody).</li>
+</ul>
+</li>
+<li>leag
+<ul>
+<li>'Knock down, etc.' Among the meanings are 'place'. <em>Leag ar an mbord é</em> 'Put it on the table'.</li>
+</ul>
+</li>
+<li>meach b.
+<ul>
+<li>'Bee', plural <em>meachain.</em> [Local version of <em>beach</em>.]</li>
+</ul>
+</li>
+<li>meas
+<ul>
+<li>'Consider'. <em>Meas tú</em> 'Do you think'. <em>Meas tú an dtiocfaidh sí</em> 'Do you think she will come'. <em>Cé a bhí ann, meas tú?</em> 'Who was there, I wonder?'. [<em>meas tú</em> is a reduction of <em>an measann tú</em>.]</li>
+</ul>
+</li>
+<li>meirbh
+<ul>
+<li>'Warm, close' (about the weather).</li>
+</ul>
+</li>
+<li>meirfean
+<ul>
+<li>/m´er´if´ən/ 'Faintness'. <em>Tháinic meirfean uirthi</em> 'She fainted'.</li>
+</ul>
+</li>
+<li>mímhúinte
+<ul>
+<li>'Unmannerly, rude'</li>
+</ul>
+</li>
+<li>múr
+<ul>
+<li>'Shower', plural <em>múrannaí.</em></li>
+</ul>
+</li>
+<li>múraíl
+<ul>
+<li>'Raining in showers'. [In some places this functions as a plural for <em>múr</em>.]</li>
+</ul>
+</li>
+<li>neart
+<ul>
+<li>'Strength'. It means 'plenty' in phrases like <em>neart airgid, neart ama.</em> Also common in the phrase <em>Níl neart air</em> 'It can't be helped'.</li>
+</ul>
+</li>
+<li>oibleagáid b.
+<ul>
+<li>'Favour'. <em>An ndéanfaidh tú oibleagáid dom?</em> 'Will you do me a favour?'.</li>
+</ul>
+</li>
+<li>oibleagáideach
+<ul>
+<li>'Obliging'</li>
+</ul>
+</li>
+<li>olc
+<ul>
+<li>(As an adjective) 'Bad-tempered'.</li>
+</ul>
+</li>
+<li>olc
+<ul>
+<li>(As a noun) 'Anger'. <em>Bhí an-olc orm</em> 'I was very angry'</li>
+</ul>
+</li>
+<li>raca
+<ul>
+<li>'Comb' (this is the normal word for it, rather than <em>cíor</em>).</li>
+</ul>
+</li>
+<li>racán
+<ul>
+<li>/ruka:n/ 'rake' (for grass).</li>
+</ul>
+</li>
+<li>ráig
+<ul>
+<li>'Heavy shower'. <em>Beidh ráigeannaí báistí ann.</em></li>
+</ul>
+</li>
+<li>réasúnta
+<ul>
+<li>'Middling'. <em>Níl sé ach réasúnta. Tá sé réasúnta tirim</em> 'It is fairly dry'.</li>
+</ul>
+</li>
+<li>sách
+<ul>
+<li>(Before an adjective) 'Quite, enough.' <em>Tá tú sách óg fós</em> 'You're still young enough'.</li>
+</ul>
+</li>
+<li>sáraigh
+<ul>
+<li>'Overcome'. <em>rud a shárú ar dhuine</em> 'to try to persuade somebody of something'.</li>
+</ul>
+</li>
+<li>sáraíocht b.
+<ul>
+<li>'Arguing'. <em>Bíonn siad i gcónaí ag sáraíocht</em> 'They are always arguing'.</li>
+</ul>
+</li>
+<li>scafánta
+<ul>
+<li>/sgufa:ntə/ 'Fast'. <em>Labhraíonn sé an-scafánta</em> 'He talks very fast'. [<em>sciobtha</em> /ʃg´upi:/ is the most common word for 'fast'.]</li>
+</ul>
+</li>
+<li>scal
+<ul>
+<li>'Shine'. <em>Níor scal an ghrian ariamh ann</em> 'The sun never shone there'. [<em>scairt</em> is the word used in some places (Cois Fharraige).]</li>
+</ul>
+</li>
+<li>scil b.
+<ul>
+<li>Knowledge. <em>Níl aon scil agam i mbáid</em> 'I don't know anything about boats'.</li>
+</ul>
+</li>
+<li>seafóid b.
+<ul>
+<li>'Foolishness' <em>Níl ann ach seafóid</em> 'It is only nonsense'.</li>
+</ul>
+</li>
+<li>seafóideach
+<ul>
+<li>'Silly'.</li>
+</ul>
+</li>
+<li>seasta
+<ul>
+<li>'Constantly'. <em>Bíonn sé á rá sin seasta</em> 'He is always saying that'.</li>
+</ul>
+</li>
+<li>slám
+<ul>
+<li>'Handful'. <em>Bhain mé slám féir</em> 'I cut some hay'. <em>Fuair sé slám maith airgid air</em> 'He got a good lot of money for it'.</li>
+</ul>
+</li>
+<li>sórt
+<ul>
+<li>'Kind, sort'. <em>chuile shórt</em> 'everything'. <em>Cén sórt rud é sin?</em> 'What is that?'. [In some places <em>cén sórt</em> is said as <em>céardós</em>.]</li>
+</ul>
+</li>
+<li>spreacadh
+<ul>
+<li>'Strength'. <em>Tá an-spreacadh ann</em> 'He has great strength'.</li>
+</ul>
+</li>
+<li>sráid b.
+<ul>
+<li>'Yard' (around a house)</li>
+</ul>
+</li>
+<li>straois b.
+<ul>
+<li>'(Foolish) grin'. <em>Bhí straois go cluais air</em> 'He was smiling broadly'.</li>
+</ul>
+</li>
+<li>stuama
+<ul>
+<li>'Skilful'. <em>duine stuama</em> 'a handy person'.</li>
+</ul>
+</li>
+<li>suanaíocht b.
+<ul>
+<li>'Dozing'</li>
+</ul>
+</li>
+<li>suim b.
+<ul>
+<li>/si:m´/ 'Heed, attention'. <em>Níor chuir sé suim ar bith ann.</em> 'He took no notice of it'. <em>Ní raibh suim ar bith aige bás a fháil</em> 'He didn't mind dying'.</li>
+</ul>
+</li>
+<li>tada
+<ul>
+<li>'Anything' (in negative sentences or in questions). <em>Ná habair tada</em> 'Say nothing'. <em>Níl tada mícheart leis</em> 'There's nothing wrong with it'.</li>
+</ul>
+</li>
+<li>taghdach
+<ul>
+<li>'Quick-tempered'. <em>Ní fear taghdach é</em> 'He is not a man to lose is temper'.</li>
+</ul>
+</li>
+<li>taobhaigh
+<ul>
+<li>'Go near' (in negative sentences). <em>Ní thaobhaíonn sé Aifreann ar bith</em> 'He never goes to Mass'. <em>Ní thaobhaíonn siad muide ar chor ar bith</em> 'They never come near us'.</li>
+</ul>
+</li>
+<li>teach pobail
+<ul>
+<li>'Church'. <em>Cá bhfuil teach an phobail?</em> 'Where is the church?'. <em>Teach an phobail an Ghoirt Mhóir.</em></li>
+</ul>
+</li>
+<li>théis
+<ul>
+<li>'After' (about time). <em>théis an dinnéir</em> 'after dinner'. As a conjunction (with <em>go</em>) 'although'. <em>Théis go raibh an lá go breá ní dheachadar amach</em> 'Even though the day was fine they did not go out'. [A version of <em>tar éis</em>. <em>thréis, léis</em> are said too.]</li>
+</ul>
+</li>
+<li>togair
+<ul>
+<li>'Wish'. <em>Má thograíonn tú é</em> 'If you wish'. [This verb doesn't have a full conjugation.]</li>
+</ul>
+</li>
+<li>togha
+<ul>
+<li>'Choice'. <em>togha na bhfataí</em> 'the best of potatoes', <em>togha fir</em> 'good man'. As a predicative adjective 'excellent'. <em>Tá siad togha</em>. 'They're excellent'. [It seems that this adjectival useage isn't found except in some places like an <em>Cheathrú Rua.</em>]</li>
+</ul>
+</li>
+<li>tóir b.
+<ul>
+<li>'Pursuit'. <em>Tá an-tóir aige ar cheol</em> 'He is very fond of music'. <em>Tá an-tóir orthu</em> 'They are in great demand'.</li>
+</ul>
+</li>
+<li>tóraíocht
+<ul>
+<li>'Looking for', <em>Céard tá tú a thóraíocht?</em> 'What are you looking for?'.</li>
+</ul>
+</li>
+<li>tríáil b.
+<ul>
+<li>/tri:a:l´/ 'Time' (to do something). <em>Tá neart tríáil fós agad</em> 'You have plenty of time yet'.</li>
+</ul>
+</li>
+<li>trust
+<ul>
+<li>/trusd/ 'Trust'. <em>Ní thrustfainn é</em> 'I wouldn't trust him'. <em>Níl sé le trust</em> 'He is not to be trusted'. [This is an old borrowing from English.]</li>
+</ul>
+</li>
+<li>údar
+<ul>
+<li>'Reason'. <em>Cén t-údar a bhí leis?</em> 'What caused it?'. <em>gan fáth</em> <em>gan údar</em> 'for no reason at all'.</li>
+</ul>
+</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="appendix-a-verb-tables"><a class="header" href="#appendix-a-verb-tables">Appendix A: Verb Tables</a></h1>
+<p>Only the synthetic forms (1st singular, 2nd singular) used only in answers and other shortened sentences are mentioned; the 3rd singular can always be used instead of them (13.9). The relative forms are not mentioned either (13.10).</p>
+<p>The forms are given in this order:
+(a) the 3rd singular (the common form)<br />
+(b) obligatory synthetic forms, if there are any<br />
+(c) the autonomous</p>
+<p>In the case of the standard spelling not representing the dialectal form, a phonetic spelling is given in parentheses.</p>
+<h2 id="conjugation-1"><a class="header" href="#conjugation-1">Conjugation 1</a></h2>
+<p>There are two main classes in this conjugation:<br />
+1A verbs ending in consonants e.g. <em>buail</em><br />
+1B verbs ending in a verb, e.g. <em>léigh (lé).</em></p>
+<h3 id="1a-buail"><a class="header" href="#1a-buail">1A Buail</a></h3>
+<p><strong>Present:</strong> <em>buaileann</em></p>
+<ul>
+<li>1st singular <em>buailim</em></li>
+<li>autonomous <em>buailtear</em></li>
+</ul>
+<p>Note. Broad <em>t</em> after a broad consonant: <em>glantar</em>.</p>
+<p><strong>Fáistineach:</strong> <em>buailfidh (buailthe)</em></p>
+<ul>
+<li>autonomous <em>go mbuailtear</em></li>
+</ul>
+<p>Note. Regarding the pronunciation of <em>f</em> in the future, see 13.5, 13.6.</p>
+<p><strong>Present subjunctive:</strong> <em>go mbuaile</em></p>
+<ul>
+<li>autonomous <em>go mbuailtear.</em></li>
+</ul>
+<p><strong>Past:</strong> <em>bhuail</em></p>
+<ul>
+<li>3rd plural <em>bhuaileadar</em></li>
+<li>autonomous <em>buaileadh (buailiú)</em></li>
+</ul>
+<p>Notes. (a) <em>d'</em> before a vowel or <em>f: d'ól, d'fhan.</em> (b) <em>r</em> with particles: <em>níor bhuail, níor ól, níor fhan, gur bhuail,</em> etc. (c) Analytic form in the 3rd plural too: <em>bhuail siad</em>.</p>
+<p><strong>Past habitual:</strong> <em>bhuaileadh (bhuaileach)</em></p>
+<ul>
+<li>1st singular <em>bhuailinn</em></li>
+<li>3rd plural <em>bhuailidís</em></li>
+<li>autonomous <em>buailtí</em></li>
+</ul>
+<p>Notes. (a) <em>d'</em> before a vowel or <em>f: d'óladh, d'fhanadh</em> (but <em>ní óladh, ní fhanadh</em>). (b) Sometimes the autonomous is lenited.</p>
+<p><strong>Conditional:</strong> <em>bhuailfeadh (bhuailtheach)</em></p>
+<ul>
+<li>1st singular <em>bhuailfinn (bhuailthinn)</em></li>
+<li>2nd singular <em>bhuailfeá (bhuailtheá)</em></li>
+<li>3rd plural <em>bhuailfidís (bhuailthidís)</em></li>
+<li>Autonomous <em>buailfí</em></li>
+</ul>
+<p>Notes. (a) Regarding <em>f</em> in these forms see 13.7 (b) notes (a), (b) about the past habitual apply to the conditional too.</p>
+<p><strong>Ordaitheach:</strong> <em>buaileadh (buaileach)</em></p>
+<ul>
+<li>1st singular as in the present</li>
+<li>2nd singular <em>buail</em></li>
+<li>2nd plural <em>buailí</em> or <em>buailigí</em></li>
+<li>3rd plural <em>buailidís</em></li>
+<li>Autonomous as in the present.</li>
+</ul>
+<p>Note. <em>ná</em> is the negative particle: <em>ná buail, ná hól.</em></p>
+<h3 id="1b-léigh"><a class="header" href="#1b-léigh">1B Léigh</a></h3>
+<p><strong>Present:</strong> <em>léann</em></p>
+<ul>
+<li>1st singular <em>léim</em></li>
+<li>Autonomous <em>léitear</em></li>
+</ul>
+<p>Note. Always a slender <em>t</em> in the autonomous.</p>
+<p><strong>Future:</strong> <em>léifidh (léithe)</em></p>
+<ul>
+<li>Autonomous <em>léifear</em></li>
+</ul>
+<p><strong>Present subjunctive:</strong> <em>go lé</em></p>
+<ul>
+<li>autonomous <em>go léitear</em></li>
+</ul>
+<p>Note. When the /h/ in <em>léifidh</em> is elided, the distinction between the 3rd singular future and 3rd singular present subjunctive becomes unclear.</p>
+<p><strong>Past:</strong> <em>léigh (lé)</em></p>
+<ul>
+<li>3rd plural <em>léadar</em></li>
+<li>autonomous <em>léadh (léú)</em></li>
+</ul>
+<p>Note. Lenited <em>l</em>, /l´/ in <em>léigh, léadar</em>.</p>
+<p><strong>Habitual Past:</strong> <em>léadh (léach)</em></p>
+<ul>
+<li>1st singular <em>léifinn (léithinn)</em></li>
+<li>2nd singular <em>léifeá (léitheá)</em></li>
+<li>3rd plural <em>léifidís (léithidís)</em></li>
+<li>Autonomous <em>léifí</em></li>
+</ul>
+<p>Note. Because of the elision of /h/ often the conditional and past habitual are the same, except for the autonomous.</p>
+<p><strong>Imperative:</strong> <em>léadh (léach)</em></p>
+<ul>
+<li>1st singular as in present</li>
+<li>2nd singular <em>léigh (lé)</em></li>
+<li>2nd plural <em>léigí</em></li>
+<li>3rd plural <em>léidís</em></li>
+<li>Autonomous as in the present</li>
+</ul>
+<p>A few other verbs in 1B: <em>dóigh, glaoigh, leáigh, meáigh, reoigh, téigh</em> ('heat'), <em>tráigh.</em> There's a handful of verbs in this class with the short vowel /i/ in the 2nd imperative: <em>bligh, ligh, nigh, suigh.</em> They also have /i/ in the 3rd singular past  (<em>bhligh</em>) and in the adjective <em>(blite)</em>. The other forms have a long /i:/: <em>blíonn, blífigh (blíthe),</em> etc. The verb <em>luigh</em> is a little bit irregular. /o/ in the 3rd singular past, 2nd singular impeartive, adjective <em>(luite)</em>; but /ai/ in other forms, e.g. <em>luíonn, luífidh (luíthe).</em> (/ai/ in the past and in the imperative too in places.)</p>
+<h2 id="conjugation-2"><a class="header" href="#conjugation-2">Conjugation 2.</a></h2>
+<p>Two classes in this conjugation too:
+2A two syllable verbs ending in /ə/ (in this dialect), e.g. <em>ceannaigh (ceanna);</em></p>
+<p>2B two syllable verbs ending in <em>-il, -in</em> etc., e.g. <em>oscail.</em></p>
+<h3 id="2a-ceannaigh"><a class="header" href="#2a-ceannaigh">2A Ceannaigh</a></h3>
+<p><strong>Present:</strong> <em>ceannaíonn</em></p>
+<ul>
+<li>1st singular <em>ceannaím</em></li>
+<li>Autonomous <em>ceannaítear</em></li>
+</ul>
+<p><strong>Future:</strong> <em>ceannóidh (ceannó)</em></p>
+<ul>
+<li>Autonomous <em>ceannófar</em></li>
+</ul>
+<p>Note. Slender <em>f</em> in the autonomous usually: <em>ceannóifear</em>. <em>Ceannár</em> is what's said most in Cois Fharraige.</p>
+<p><strong>Present subjunctive:</strong> <em>go gceannaí</em></p>
+<ul>
+<li>Autonomous <em>go gceannaítear</em></li>
+</ul>
+<p><strong>Past:</strong> <em>cheannaíodh (cheannaíoch)</em></p>
+<ul>
+<li>1st singuar <em>cheannaínn</em></li>
+<li>3rd plural <em>cheannaídís</em></li>
+<li>Autonomous <em>ceannaíodh (ceannaíobh)</em></li>
+</ul>
+<p>Note. Analytic form also in the 3rd plural: <em>cheannaigh siad</em>.</p>
+<p><strong>Conditional:</strong> <em>cheannódh (cheannóch)</em></p>
+<ul>
+<li>1st singular  <em>cheannóinn</em></li>
+<li>2nd singular <em>cheannófá (cheanná)</em></li>
+<li>3rd plural <em>cheannóidís</em></li>
+<li>Autonomous <em>ceannófaí (ceannóifí)</em></li>
+</ul>
+<p>Note. In the autonomous, <em>ceannóithí</em> and <em>ceannaí</em> are said too. Sometimes it's lenited.</p>
+<p><strong>Imperative:</strong> <em>ceannaíodh (ceannaíoch)</em></p>
+<ul>
+<li>1st singular as in the present</li>
+<li>2nd singular <em>ceannaigh (ceanna)</em></li>
+<li>2nd plural <em>ceannaigí</em> or <em>ceannaí</em></li>
+<li>3rd plural <em>ceannaídís</em></li>
+<li>Autonomous as in the present</li>
+</ul>
+<h3 id="2b-oscail"><a class="header" href="#2b-oscail">2B Oscail</a></h3>
+<p>The only difference between this class and 2A is that the second syllable of the root is syncopated when the suffix is added to it. Here are some of the forms of <em>oscail</em> as demonstration of that:</p>
+<ul>
+<li><strong>láithreach:</strong> <em>osclaíonn</em></li>
+<li><strong>fáistineach:</strong> <em>osclóidh (oscló)</em></li>
+<li><strong>caite:</strong> <em>d'oscail</em> autonomous <em>hosclaíodh (hosclaíobh)</em></li>
+<li><strong>coinníollach:</strong> <em>d'osclódh (d'osclóch).</em></li>
+</ul>
+<p><em>foghlaim (fólaim), labhair</em> don't get syncopated <em>foghlaimíonn, labhairíonn.</em> (Sometimes the <em>r</em> is broadened in <em>labhair: labharaíonn.</em>) In <em>codail</em> the <em>d</em> is elided in the syncopation: <em>codlaíonn (collaíonn).</em> <em>tarraing</em> gets syncopated in this dialect normally: <em>tarraingíonn</em> is said <em>tairníonn.</em></p>
+<p>This is a small class. Here are some other verbs in it: <em>ceangail, cosain (coisin), cuimil, díbir, freagair, imir, inis, iompair, seachain, togair.</em></p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="appendix-b-aran-irish"><a class="header" href="#appendix-b-aran-irish">Appendix B: Aran Irish</a></h1>
+<h3 id="1"><a class="header" href="#1">1.</a></h3>
+<p>Broadly speaking Aran (the three islands) and Conamara have the same dialect. Anywhere there's a difference between Cois Fharraige and West Conamara, it's typical for Aran to agree with Cois Fharraige. The most noticeable case of that is the loss of /h/ between two vowels: in Aran <em>san oíche</em> is said as /sə ˈni:/, <em>ag ithe</em> as /ə ˈg´i:/, sruthán as /sra:n/, and so on, just like in Cois Fharraige. However, it can't be said that this /h/ has been completely removed; in certain words anywa it is pronounced sometimes, e.g. <em>athair</em> which is said as /ar´/ or /ahir´/.</p>
+<p>There are a few minor points of difference between Aran and Conamara and some of them will be mentioned below. In Aran itself there are local differences to note, especially between the three Islands, Inis Oírr, Inis Meáin, and Inis Mór. In Inis Mór there are small differences between the west side of the island and the east side. It's likely that it's mostly differences in frequency; that is, variant A being more common in one place, variant B being more common in another.</p>
+<h3 id="2-pronunciation"><a class="header" href="#2-pronunciation">2. Pronunciation</a></h3>
+<p>There are a few minor differences in pronunciation between Aran and Conamara. Among them are the following points.</p>
+<p>Sometimes /t´/ (in <em>te</em>), /d´/ in (<em>deas</em>) are affricate consonants in Aran, i.e. they are like the English consonants at the start of <em>cheap, jeep</em> respectively. This trait especially pertains to the two small islands and with Cill Rónáin in Inis Mór. On the west side of Inis Mór these consonants are as they are in Conamara.</p>
+<p>In Inis Oírr, /ai/ (not /a/) is used in <em>aimsir, caint</em>. (This pronunciation is also found in Cois Fharraige, but it's not common.)</p>
+<p><em>méidir</em> is often said instead of <em>b'fhéidir</em> in Aran, especially in Inis Oírr.</p>
+<h3 id="3-grammar"><a class="header" href="#3-grammar">3. Grammar</a></h3>
+<p>There are a couple of irregular verbs in Aran worth noting.</p>
+<p><em><strong>faigh,</strong></em> 3rd singular future: <em>gheobha</em> /jau/, dependent <em>ní gheobha</em> or <em>ní bhfaighe</em> /vai/.<br />
+<em><strong>tabhair,</strong></em> 2nd singular imperative: <em>tiúir</em> (<em>tóir</em> in Conamara); verbal noun <em>tiúirt.</em> (Broad <em>t</em> in Inis Oírr: <em>túir, túirt</em>.)<br />
+<em><strong>téir,</strong></em> 3rd singular future: <em>gabha</em> /gau/; 3rd singular conditional <em>ghabhadh</em> /ɣaux/.</p>
+<p>It's rare that the dependent form <em>ní dhearna</em> (3rd singular past of <em>déan</em>) is used in Aran, if it's used at all; <em>ní rinne, go rinne</em> are what's said. In Inis Oírr the regular forms <em>dhéan</em> /jin/, <em>níor dhéan</em> are used.</p>
+<p>A trait particular to Inis Mór is the use of <em>muinn</em> /miN´/ instead of <em>muid</em> (personal pronoun, 1st plural). That's a version which used to be found once in other dialects too.</p>
+<h3 id="4-vocabulary"><a class="header" href="#4-vocabulary">4. Vocabulary</a></h3>
+<p>There are some special words in Árainn relating to the geography of the region. Here are a couple of examples.</p>
+<p><em>buaile,</em> i.e. a small garden which nothing would be planted in;<br />
+<em>carcair</em>, i.e. a hill or hillock (perhaps a special meaning of the word <em>carcair</em> 'lump');<br />
+<em>croig</em> /kreg´/, i.e. 'crag', a bare strip of rock (plural <em>craga</em>);<br />
+<em>róidín,</em> i.e. 'a little road'.</p>
+<p>A word which often comes up in Aran is <em>in araíocht</em> /ə ˈnariəxd/, i.e. 'favourable, suitable' (referring to weather): <em>Má bhíonn an lá in araíocht, Níl sé in araíocht a ghoil amach.</em></p>
+<p>The adverb of movement <em>sall</em>, i.e. <em>anonn</em>, is common in Inis Mór, like in Cois Fharraige.</p>
+<p><em>go háirid</em> is used in Aran in the sense 'anyway': <em>ní thiocfaidh sí inniu go háirid</em> (compare <em>ach go háirithe</em> in Kerry). Other phrases used in that sense: <em>ar aon chaoi</em> /er´ ˈe:xi:/, <em>féibí é</em> (from <em>pé ar bith é</em>).</p>
+<h3 id="more-information"><a class="header" href="#more-information">More information</a></h3>
+<p>More notes about Aran Irish are available in an article by S. Ó Murchú in <em>Éigse</em> 25 (1991), and in an article by J. Duran in <em>Journal of Celtic Linguistics</em> 4 (1995).</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="bibliography"><a class="header" href="#bibliography">Bibliography</a></h1>
+<p>[These books were all published in Dublin.]</p>
+<ul>
+<li>de Bhaldraithe, Tomás <em>The Irish of Cois Fhairrge, Co. Galway</em> (1945).
+<ul>
+<li>An account of the sounds of the dialect (specifically the area of Cois Fharraige).</li>
+</ul>
+</li>
+<li>de Bhaldraithe, Tomás <em>Cois Fhairrge: An Deilbhíocht</em> (1953).
+<ul>
+<li>An account of the grammar of the dialect (the area of Cois Fharraige).</li>
+</ul>
+</li>
+<li>de Bhaldraithe, Tomás <em>Foirsiún Focal as Gaillimh</em> (1985).
+<ul>
+<li>Collection of words of the dialect.</li>
+</ul>
+</li>
+<li>Breathnach, Diarmuid and Máire Ní Mhurchú <em>1882-1992: Beathaisnéis a hAon</em> (1986).
+<ul>
+<li>An account found here, and in the other volumes of the series, on the writers of Conamara.</li>
+</ul>
+</li>
+<li>Ní Dhomhnaill, Cáit <em>An Cheathrú Rua</em> (1984).
+<ul>
+<li>A short acount on the history of Conamara.</li>
+</ul>
+</li>
+<li>Ó Máille, T. S. <em>Liosta Focal as Ros Muc</em> (1974).
+<ul>
+<li>Collection of words of the dialect.</li>
+</ul>
+</li>
+<li>Wagner, Heinrich <em>Linguistic Atlas and Survey of Irish Dialects</em> Vol. 1 (1958).
+<ul>
+<li>A display of the Irish dialects; points 40, 43, 44, 46 relate to this dialect.</li>
+</ul>
+</li>
+<li>Watson, Seosamh (eag.) <em>Féilscríbhinn Thomáis de Bhaldraithe</em> (1986). Among the articles there is a list of de Bhaldraithe's publications, put together by Marion Gunn.</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+        <script>
+        window.addEventListener('load', function() {
+            window.setTimeout(window.print, 100);
+        });
+        </script>
+
+
+    </div>
+    </body>
+</html>

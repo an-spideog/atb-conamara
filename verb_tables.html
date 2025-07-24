@@ -1,0 +1,378 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Appendix A: Verb tables - The Living Language - Conamara</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "";
+            const default_light_theme = "light";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">The Living Language - Conamara</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="appendix-a-verb-tables"><a class="header" href="#appendix-a-verb-tables">Appendix A: Verb Tables</a></h1>
+<p>Only the synthetic forms (1st singular, 2nd singular) used only in answers and other shortened sentences are mentioned; the 3rd singular can always be used instead of them (13.9). The relative forms are not mentioned either (13.10).</p>
+<p>The forms are given in this order:
+(a) the 3rd singular (the common form)<br />
+(b) obligatory synthetic forms, if there are any<br />
+(c) the autonomous</p>
+<p>In the case of the standard spelling not representing the dialectal form, a phonetic spelling is given in parentheses.</p>
+<h2 id="conjugation-1"><a class="header" href="#conjugation-1">Conjugation 1</a></h2>
+<p>There are two main classes in this conjugation:<br />
+1A verbs ending in consonants e.g. <em>buail</em><br />
+1B verbs ending in a verb, e.g. <em>léigh (lé).</em></p>
+<h3 id="1a-buail"><a class="header" href="#1a-buail">1A Buail</a></h3>
+<p><strong>Present:</strong> <em>buaileann</em></p>
+<ul>
+<li>1st singular <em>buailim</em></li>
+<li>autonomous <em>buailtear</em></li>
+</ul>
+<p>Note. Broad <em>t</em> after a broad consonant: <em>glantar</em>.</p>
+<p><strong>Fáistineach:</strong> <em>buailfidh (buailthe)</em></p>
+<ul>
+<li>autonomous <em>go mbuailtear</em></li>
+</ul>
+<p>Note. Regarding the pronunciation of <em>f</em> in the future, see 13.5, 13.6.</p>
+<p><strong>Present subjunctive:</strong> <em>go mbuaile</em></p>
+<ul>
+<li>autonomous <em>go mbuailtear.</em></li>
+</ul>
+<p><strong>Past:</strong> <em>bhuail</em></p>
+<ul>
+<li>3rd plural <em>bhuaileadar</em></li>
+<li>autonomous <em>buaileadh (buailiú)</em></li>
+</ul>
+<p>Notes. (a) <em>d'</em> before a vowel or <em>f: d'ól, d'fhan.</em> (b) <em>r</em> with particles: <em>níor bhuail, níor ól, níor fhan, gur bhuail,</em> etc. (c) Analytic form in the 3rd plural too: <em>bhuail siad</em>.</p>
+<p><strong>Past habitual:</strong> <em>bhuaileadh (bhuaileach)</em></p>
+<ul>
+<li>1st singular <em>bhuailinn</em></li>
+<li>3rd plural <em>bhuailidís</em></li>
+<li>autonomous <em>buailtí</em></li>
+</ul>
+<p>Notes. (a) <em>d'</em> before a vowel or <em>f: d'óladh, d'fhanadh</em> (but <em>ní óladh, ní fhanadh</em>). (b) Sometimes the autonomous is lenited.</p>
+<p><strong>Conditional:</strong> <em>bhuailfeadh (bhuailtheach)</em></p>
+<ul>
+<li>1st singular <em>bhuailfinn (bhuailthinn)</em></li>
+<li>2nd singular <em>bhuailfeá (bhuailtheá)</em></li>
+<li>3rd plural <em>bhuailfidís (bhuailthidís)</em></li>
+<li>Autonomous <em>buailfí</em></li>
+</ul>
+<p>Notes. (a) Regarding <em>f</em> in these forms see 13.7 (b) notes (a), (b) about the past habitual apply to the conditional too.</p>
+<p><strong>Ordaitheach:</strong> <em>buaileadh (buaileach)</em></p>
+<ul>
+<li>1st singular as in the present</li>
+<li>2nd singular <em>buail</em></li>
+<li>2nd plural <em>buailí</em> or <em>buailigí</em></li>
+<li>3rd plural <em>buailidís</em></li>
+<li>Autonomous as in the present.</li>
+</ul>
+<p>Note. <em>ná</em> is the negative particle: <em>ná buail, ná hól.</em></p>
+<h3 id="1b-léigh"><a class="header" href="#1b-léigh">1B Léigh</a></h3>
+<p><strong>Present:</strong> <em>léann</em></p>
+<ul>
+<li>1st singular <em>léim</em></li>
+<li>Autonomous <em>léitear</em></li>
+</ul>
+<p>Note. Always a slender <em>t</em> in the autonomous.</p>
+<p><strong>Future:</strong> <em>léifidh (léithe)</em></p>
+<ul>
+<li>Autonomous <em>léifear</em></li>
+</ul>
+<p><strong>Present subjunctive:</strong> <em>go lé</em></p>
+<ul>
+<li>autonomous <em>go léitear</em></li>
+</ul>
+<p>Note. When the /h/ in <em>léifidh</em> is elided, the distinction between the 3rd singular future and 3rd singular present subjunctive becomes unclear.</p>
+<p><strong>Past:</strong> <em>léigh (lé)</em></p>
+<ul>
+<li>3rd plural <em>léadar</em></li>
+<li>autonomous <em>léadh (léú)</em></li>
+</ul>
+<p>Note. Lenited <em>l</em>, /l´/ in <em>léigh, léadar</em>.</p>
+<p><strong>Habitual Past:</strong> <em>léadh (léach)</em></p>
+<ul>
+<li>1st singular <em>léifinn (léithinn)</em></li>
+<li>2nd singular <em>léifeá (léitheá)</em></li>
+<li>3rd plural <em>léifidís (léithidís)</em></li>
+<li>Autonomous <em>léifí</em></li>
+</ul>
+<p>Note. Because of the elision of /h/ often the conditional and past habitual are the same, except for the autonomous.</p>
+<p><strong>Imperative:</strong> <em>léadh (léach)</em></p>
+<ul>
+<li>1st singular as in present</li>
+<li>2nd singular <em>léigh (lé)</em></li>
+<li>2nd plural <em>léigí</em></li>
+<li>3rd plural <em>léidís</em></li>
+<li>Autonomous as in the present</li>
+</ul>
+<p>A few other verbs in 1B: <em>dóigh, glaoigh, leáigh, meáigh, reoigh, téigh</em> ('heat'), <em>tráigh.</em> There's a handful of verbs in this class with the short vowel /i/ in the 2nd imperative: <em>bligh, ligh, nigh, suigh.</em> They also have /i/ in the 3rd singular past  (<em>bhligh</em>) and in the adjective <em>(blite)</em>. The other forms have a long /i:/: <em>blíonn, blífigh (blíthe),</em> etc. The verb <em>luigh</em> is a little bit irregular. /o/ in the 3rd singular past, 2nd singular impeartive, adjective <em>(luite)</em>; but /ai/ in other forms, e.g. <em>luíonn, luífidh (luíthe).</em> (/ai/ in the past and in the imperative too in places.)</p>
+<h2 id="conjugation-2"><a class="header" href="#conjugation-2">Conjugation 2.</a></h2>
+<p>Two classes in this conjugation too:
+2A two syllable verbs ending in /ə/ (in this dialect), e.g. <em>ceannaigh (ceanna);</em></p>
+<p>2B two syllable verbs ending in <em>-il, -in</em> etc., e.g. <em>oscail.</em></p>
+<h3 id="2a-ceannaigh"><a class="header" href="#2a-ceannaigh">2A Ceannaigh</a></h3>
+<p><strong>Present:</strong> <em>ceannaíonn</em></p>
+<ul>
+<li>1st singular <em>ceannaím</em></li>
+<li>Autonomous <em>ceannaítear</em></li>
+</ul>
+<p><strong>Future:</strong> <em>ceannóidh (ceannó)</em></p>
+<ul>
+<li>Autonomous <em>ceannófar</em></li>
+</ul>
+<p>Note. Slender <em>f</em> in the autonomous usually: <em>ceannóifear</em>. <em>Ceannár</em> is what's said most in Cois Fharraige.</p>
+<p><strong>Present subjunctive:</strong> <em>go gceannaí</em></p>
+<ul>
+<li>Autonomous <em>go gceannaítear</em></li>
+</ul>
+<p><strong>Past:</strong> <em>cheannaíodh (cheannaíoch)</em></p>
+<ul>
+<li>1st singuar <em>cheannaínn</em></li>
+<li>3rd plural <em>cheannaídís</em></li>
+<li>Autonomous <em>ceannaíodh (ceannaíobh)</em></li>
+</ul>
+<p>Note. Analytic form also in the 3rd plural: <em>cheannaigh siad</em>.</p>
+<p><strong>Conditional:</strong> <em>cheannódh (cheannóch)</em></p>
+<ul>
+<li>1st singular  <em>cheannóinn</em></li>
+<li>2nd singular <em>cheannófá (cheanná)</em></li>
+<li>3rd plural <em>cheannóidís</em></li>
+<li>Autonomous <em>ceannófaí (ceannóifí)</em></li>
+</ul>
+<p>Note. In the autonomous, <em>ceannóithí</em> and <em>ceannaí</em> are said too. Sometimes it's lenited.</p>
+<p><strong>Imperative:</strong> <em>ceannaíodh (ceannaíoch)</em></p>
+<ul>
+<li>1st singular as in the present</li>
+<li>2nd singular <em>ceannaigh (ceanna)</em></li>
+<li>2nd plural <em>ceannaigí</em> or <em>ceannaí</em></li>
+<li>3rd plural <em>ceannaídís</em></li>
+<li>Autonomous as in the present</li>
+</ul>
+<h3 id="2b-oscail"><a class="header" href="#2b-oscail">2B Oscail</a></h3>
+<p>The only difference between this class and 2A is that the second syllable of the root is syncopated when the suffix is added to it. Here are some of the forms of <em>oscail</em> as demonstration of that:</p>
+<ul>
+<li><strong>láithreach:</strong> <em>osclaíonn</em></li>
+<li><strong>fáistineach:</strong> <em>osclóidh (oscló)</em></li>
+<li><strong>caite:</strong> <em>d'oscail</em> autonomous <em>hosclaíodh (hosclaíobh)</em></li>
+<li><strong>coinníollach:</strong> <em>d'osclódh (d'osclóch).</em></li>
+</ul>
+<p><em>foghlaim (fólaim), labhair</em> don't get syncopated <em>foghlaimíonn, labhairíonn.</em> (Sometimes the <em>r</em> is broadened in <em>labhair: labharaíonn.</em>) In <em>codail</em> the <em>d</em> is elided in the syncopation: <em>codlaíonn (collaíonn).</em> <em>tarraing</em> gets syncopated in this dialect normally: <em>tarraingíonn</em> is said <em>tairníonn.</em></p>
+<p>This is a small class. Here are some other verbs in it: <em>ceangail, cosain (coisin), cuimil, díbir, freagair, imir, inis, iompair, seachain, togair.</em></p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="mini_dictionary.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="aran_irish.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="mini_dictionary.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="aran_irish.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+
+    </div>
+    </body>
+</html>

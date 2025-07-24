@@ -1,0 +1,294 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Adjectives - The Living Language - Conamara</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "";
+            const default_light_theme = "light";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">The Living Language - Conamara</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="7-adjectives"><a class="header" href="#7-adjectives">7. Adjectives</a></h1>
+<h2 id="71-lenition-of-adjectives"><a class="header" href="#71-lenition-of-adjectives">7.1 Lenition of adjectives</a></h2>
+<p>Adjectives are lenited according to the normal rules: <em>aimsir bhreá, áit mhór dhomhain, bliain thirim, saol an bhaile mhóir, cinn bheaga.</em></p>
+<p>Sometimes the adjective is heard without lenition after a feminine noun: <em>Gaeilge maith, roinnt maith, timpiste mór</em> (examples from Carna).</p>
+<p>The emphatic adjective <em>beo</em> doesn't get lenited: <em>chuile oíchce beo, aon áit beo.</em></p>
+<h2 id="72-genitive-singular"><a class="header" href="#72-genitive-singular">7.2 Genitive singular</a></h2>
+<p>The genitive adjective is mostly in set phraes, place names and people's names:</p>
+<ul>
+<li><em>muintir na Trá Báine</em></li>
+<li><em>ar feadh scaitheamh bhig</em></li>
+<li><em>scoil an Turlaigh Bhig</em></li>
+<li><em>clann an duine bhoicht</em></li>
+<li><em>ar fud an domhain mhóir</em></li>
+<li><em>Páraic Stiofáin Mhóir</em></li>
+</ul>
+<p>Adjectives ending in <em>-ach</em> normally aren't declined: <em>aimsir an chogadh deireanach.</em></p>
+<h2 id="73-plural"><a class="header" href="#73-plural">7.3 Plural</a></h2>
+<p>Usually adjectives are put in the plural as well as the noun: <em>báid bheaga, daoine bochta, na báid seoil dehireanacha, cait fhiáine, mangaigh mhóra, daoine uaisle.</em></p>
+<p>But sometimes two syllable adjectives are left in the singular: <em>rudaí aisteach, scéalta álainn, daoine saibhir.</em></p>
+<h2 id="74-adjective-degrees"><a class="header" href="#74-adjective-degrees">7.4 Adjective Degrees</a></h2>
+<p>The adjective degrees are formed in the normal ways:</p>
+<ul>
+<li><em>bán : níos báine</em></li>
+<li><em>bréagach : níos bréagaí</em></li>
+<li><em>misniúil : níos mísniúla</em></li>
+</ul>
+<p>The vowel /a/ changes to</p>
+<ul>
+<li>/e/ in <em>deas, deise; gar, gaire; glas, glaise; laig, laige</em></li>
+<li>/i/ in <em>ceart, cirte; geal, gile; glan, glaine; sean, sine</em></li>
+<li>/e/ or /i/ in <em>fada, faide.</em></li>
+</ul>
+<p>These irregular compositions should be noticed: <em>ard, airde /aird´ə/; breá, breácha; domhain, doimhne /daivN´ə/; fliuch, fleithí; minic, minicí; moch, mothaí; saibhir, saibhre /saivr´ə/; te, teocha; tirim, trioma.</em></p>
+<h2 id="75-qualification-of-adjectives"><a class="header" href="#75-qualification-of-adjectives">7.5 Qualification of Adjectives</a></h2>
+<ul>
+<li><em>an- : an-mhaith</em></li>
+<li><em>breá : breá milis</em></li>
+<li><em>chomh (cho)</em> (unstressed) <em>: chomh hard leatsa</em></li>
+<li><em>fíor : fíorghnaíúil</em></li>
+<li><em>go leor : luath go leor</em></li>
+<li><em>réasúnta : réasúnta láidir</em></li>
+<li><em>ró- (ro)</em> (normally unstressed) <em>: ró-fhliuch</em> /rə ˈl´ox/</li>
+<li><em>roinnt : roinnt bacach</em></li>
+<li><em>sách : sách luath</em></li>
+<li><em>uafásach : uafásach láidir</em></li>
+</ul>
+<h2 id="76-compound-adjectives"><a class="header" href="#76-compound-adjectives">7.6 Compound adjectives</a></h2>
+<p>These are the most common compound adjectives:</p>
+<ul>
+<li><em>corr- : corrdhuine, corruair</em></li>
+<li><em>dea- (deá-) : dea-shampla, dea-scéal</em></li>
+<li><em>dearg- : deargphleidhce</em></li>
+<li><em>droch : drochaimsir, drochsheans</em></li>
+<li><em>sean- : seancharr, seanteach</em></li>
+</ul>
+<p>In the case of <em>corr-</em> and <em>droch-</em> the stress is on the adjective or on both the adjective and the noun. In the case of <em>dea-</em> and <em>sean-</em> the stress is only on the adjective.</p>
+<p>In the case of of <em>dearg-</em> the stress is on both the adjective and the noun. <em>dea-, dearg-</em> have very limited usage.</p>
+<h2 id="various-adectives"><a class="header" href="#various-adectives">Various Adectives</a></h2>
+<p><em>aon.</em> - <em>t</em> (or <em>n</em>) is slender before it: <em>an t-aon áit (a 't-éan áit</em>). In <em>aon duine</em> the <em>d</em> is elided: <em>éanuine.</em></p>
+<p><em>cibé, pé. - pé ar bith (péibí, féibí)</em> is what's used the most in this dialect: <em>pé ar bith fear a rinne é, pé ar bith cé a dúirt é, pé ar bith cé hé féin. cé ar bith (céibí)</em> exists too.</p>
+<p><em>éigin. - icínt</em> (or <em>icín</em>) is the version in this dialect: <em>áit icínt, caoi 'cínt.</em> the stress is always on the noun (2.18).</p>
+<p><em>gach, gachuile.</em> -  <em>chuile</em> is what is most said: <em>chuile dhuine, chuil' áit.</em> The preposition <em>i</em> is made into <em>sa</em> before it: <em>sa chuil' áit</em> (from <em>ins gach uile áit</em>). Sometimes <em>míle</em> is put after <em>chuile</em> emphasising it: <em>chuile mhíle ceann acu.</em> When it's referring to two things <em>chaon</em> /xe:n/ (from <em>gach aon</em>) is used: <em>chaon cheann acu.</em> <em>gach</em> is used by itself with the relative pronoun: <em>gach a bhfaca mise de.</em></p>
+<p><em>iomaí.</em> - <em>iomú</em> is what's most said, but <em>iomaí</em> is in speech too: <em>is iomú áit a raibh mé, is iomú bliain ó shin é.</em></p>
+<p><em>uilig.</em> - There are two versions, <em>uilig</em> and <em>uiliug</em> (stress on the second syllable in both): <em>an tír uilig, iad uilig, orthu uilig tá siad millte uilig.</em> Sometimes <em>go léir</em> is added to it: <em>iad uilig go léir.</em> (<em>uilig</em> is a shortening of <em>uile go léir</em>)</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="nouns.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="numbers.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="nouns.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="numbers.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+
+    </div>
+    </body>
+</html>

@@ -1,0 +1,257 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Appendix B: Aran Irish - The Living Language - Conamara</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "";
+            const default_light_theme = "light";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">The Living Language - Conamara</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="appendix-b-aran-irish"><a class="header" href="#appendix-b-aran-irish">Appendix B: Aran Irish</a></h1>
+<h3 id="1"><a class="header" href="#1">1.</a></h3>
+<p>Broadly speaking Aran (the three islands) and Conamara have the same dialect. Anywhere there's a difference between Cois Fharraige and West Conamara, it's typical for Aran to agree with Cois Fharraige. The most noticeable case of that is the loss of /h/ between two vowels: in Aran <em>san oíche</em> is said as /sə ˈni:/, <em>ag ithe</em> as /ə ˈg´i:/, sruthán as /sra:n/, and so on, just like in Cois Fharraige. However, it can't be said that this /h/ has been completely removed; in certain words anywa it is pronounced sometimes, e.g. <em>athair</em> which is said as /ar´/ or /ahir´/.</p>
+<p>There are a few minor points of difference between Aran and Conamara and some of them will be mentioned below. In Aran itself there are local differences to note, especially between the three Islands, Inis Oírr, Inis Meáin, and Inis Mór. In Inis Mór there are small differences between the west side of the island and the east side. It's likely that it's mostly differences in frequency; that is, variant A being more common in one place, variant B being more common in another.</p>
+<h3 id="2-pronunciation"><a class="header" href="#2-pronunciation">2. Pronunciation</a></h3>
+<p>There are a few minor differences in pronunciation between Aran and Conamara. Among them are the following points.</p>
+<p>Sometimes /t´/ (in <em>te</em>), /d´/ in (<em>deas</em>) are affricate consonants in Aran, i.e. they are like the English consonants at the start of <em>cheap, jeep</em> respectively. This trait especially pertains to the two small islands and with Cill Rónáin in Inis Mór. On the west side of Inis Mór these consonants are as they are in Conamara.</p>
+<p>In Inis Oírr, /ai/ (not /a/) is used in <em>aimsir, caint</em>. (This pronunciation is also found in Cois Fharraige, but it's not common.)</p>
+<p><em>méidir</em> is often said instead of <em>b'fhéidir</em> in Aran, especially in Inis Oírr.</p>
+<h3 id="3-grammar"><a class="header" href="#3-grammar">3. Grammar</a></h3>
+<p>There are a couple of irregular verbs in Aran worth noting.</p>
+<p><em><strong>faigh,</strong></em> 3rd singular future: <em>gheobha</em> /jau/, dependent <em>ní gheobha</em> or <em>ní bhfaighe</em> /vai/.<br />
+<em><strong>tabhair,</strong></em> 2nd singular imperative: <em>tiúir</em> (<em>tóir</em> in Conamara); verbal noun <em>tiúirt.</em> (Broad <em>t</em> in Inis Oírr: <em>túir, túirt</em>.)<br />
+<em><strong>téir,</strong></em> 3rd singular future: <em>gabha</em> /gau/; 3rd singular conditional <em>ghabhadh</em> /ɣaux/.</p>
+<p>It's rare that the dependent form <em>ní dhearna</em> (3rd singular past of <em>déan</em>) is used in Aran, if it's used at all; <em>ní rinne, go rinne</em> are what's said. In Inis Oírr the regular forms <em>dhéan</em> /jin/, <em>níor dhéan</em> are used.</p>
+<p>A trait particular to Inis Mór is the use of <em>muinn</em> /miN´/ instead of <em>muid</em> (personal pronoun, 1st plural). That's a version which used to be found once in other dialects too.</p>
+<h3 id="4-vocabulary"><a class="header" href="#4-vocabulary">4. Vocabulary</a></h3>
+<p>There are some special words in Árainn relating to the geography of the region. Here are a couple of examples.</p>
+<p><em>buaile,</em> i.e. a small garden which nothing would be planted in;<br />
+<em>carcair</em>, i.e. a hill or hillock (perhaps a special meaning of the word <em>carcair</em> 'lump');<br />
+<em>croig</em> /kreg´/, i.e. 'crag', a bare strip of rock (plural <em>craga</em>);<br />
+<em>róidín,</em> i.e. 'a little road'.</p>
+<p>A word which often comes up in Aran is <em>in araíocht</em> /ə ˈnariəxd/, i.e. 'favourable, suitable' (referring to weather): <em>Má bhíonn an lá in araíocht, Níl sé in araíocht a ghoil amach.</em></p>
+<p>The adverb of movement <em>sall</em>, i.e. <em>anonn</em>, is common in Inis Mór, like in Cois Fharraige.</p>
+<p><em>go háirid</em> is used in Aran in the sense 'anyway': <em>ní thiocfaidh sí inniu go háirid</em> (compare <em>ach go háirithe</em> in Kerry). Other phrases used in that sense: <em>ar aon chaoi</em> /er´ ˈe:xi:/, <em>féibí é</em> (from <em>pé ar bith é</em>).</p>
+<h3 id="more-information"><a class="header" href="#more-information">More information</a></h3>
+<p>More notes about Aran Irish are available in an article by S. Ó Murchú in <em>Éigse</em> 25 (1991), and in an article by J. Duran in <em>Journal of Celtic Linguistics</em> 4 (1995).</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="verb_tables.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="bibliography.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="verb_tables.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="bibliography.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+
+    </div>
+    </body>
+</html>

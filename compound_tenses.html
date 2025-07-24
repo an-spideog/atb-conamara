@@ -1,0 +1,287 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Compound Tenses - The Living Language - Conamara</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "";
+            const default_light_theme = "light";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">The Living Language - Conamara</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="16-compound-tenses"><a class="header" href="#16-compound-tenses">16. Compound Tenses</a></h1>
+<h2 id="161-types"><a class="header" href="#161-types">16.1 Types</a></h2>
+<p>There are three main types of compound tenses in the dialect:
+continuous: <em>tá sé ag imeacht;</em><br />
+perfect: <em>tá sé imithe;</em><br />
+purposive: <em>tá sé ag goil</em></p>
+<h2 id="162-continous-intransitive"><a class="header" href="#162-continous-intransitive">16.2 Continous Intransitive</a></h2>
+<p>Example: <em>tá Seán ag tíocht.</em><br />
+The particle is pronounced as follows:<br />
+/ə/ before a consonant: <em>a' tíocht</em><br />
+/ə g/ before a back vowel: <em>ag ól</em><br />
+/ə g´/ before a front vowel: <em>ag ithe.</em></p>
+<p>The vowel is elided following a vowel, so there's no trace of the particle <em>ag</em> normally in a sentence like <em>tá sé ag tíocht.</em></p>
+<h3 id="163-continous-transitive"><a class="header" href="#163-continous-transitive">16.3 Continous transitive</a></h3>
+<p>Example: <em>tá siad ag gearradh feamainne</em>. The object (<em>feamainn</em>) is in the genitive case, governed by the verbal noun. Other examples: <em>ag baint fhéir, ag casadh ceoil, ag díol móna, ag iarraidh ronnach, ago tóigeál an phota, ag inseacht na fírinne, ag baint na bhfataí.</em> But the noun is sometimes left undeclined, especially when there's an adjective with it: <em>ag déanamh teach nua, ag déanamh an-obair.</em></p>
+<h2 id="164-continuous-transitive-with-a-pronoun"><a class="header" href="#164-continuous-transitive-with-a-pronoun">16.4 Continuous transitive with a pronoun</a></h2>
+<p>When the object is a pronoun, the possessive adjective is used, and <em>do (go)</em> is used instead of <em>ag</em>.</p>
+<ul>
+<li><em>Bhí mé do mo níochán féin.</em></li>
+</ul>
+<p>In the 3rd singular and in the plural <em>do</em> and <em>a</em> combine into <em>dá (gá</em> or <em>á):</em></p>
+<ul>
+<li><em>Níl siad dá baint</em> (an mhóin).</li>
+<li><em>Bhíodh sé ag ceannach muc agus dá ndíol.</em></li>
+</ul>
+<h2 id="165-continuous-relative"><a class="header" href="#165-continuous-relative">16.5 Continuous relative</a></h2>
+<p>Examples: <em>céard tá tú a dhéanamh?; sin é an ceann atá mé a iarraidh.</em></p>
+<p>In this relative structure, <em>a</em> /ə/ replaces <em>ag</em> and the verbal noun is lenited. In the two examples above the <em>a</em> would be elided.</p>
+<h2 id="166-continuous-passive"><a class="header" href="#166-continuous-passive">16.6 Continuous Passive</a></h2>
+<p>Examples: <em>bhíodh pórtar dá dhíol ann; bhí an aimsir dá caitheamh.</em></p>
+<p>In this structure <em>dá</em> (<em>gá</em> or <em>á</em>) is before the verbal noun. The word after <em>dá</em> is lenited if the noun being talked about is masculine; it isn't lenited if it's feminine. For plurals its eclipsed: <em>bhí tithe dá dtóigeál ann.</em><br />
+The actor can be mentioned by using the preposition <em>ag: bhíodh cíos dá bhaint amach acu.</em><br />
+But usually the active structure would be used if the actor needed mentioning: <em>bhídís ag baint cíos amach.</em></p>
+<h2 id="167-continuous-passive-with-a-pronoun"><a class="header" href="#167-continuous-passive-with-a-pronoun">16.7 Continuous passive with a pronoun</a></h2>
+<p>Examples: <em>bhí mé do m'ithe; bhíodh sé dá dhíol ann.</em></p>
+<p>The first sample means that something (fleas, maybe) were eating me. The second sample is ambiguous without the context. It could be active (i.e. he used to be selling something there) or passive (i.e. something used to be sold there).</p>
+<h2 id="168-perfect-intransitive"><a class="header" href="#168-perfect-intransitive">16.8 Perfect intransitive</a></h2>
+<p>Examples: <em>tá na daoine goite soir; tá an saol athraithe; níl cuma ar bith fanta ar an áit</em> (i.e. the place is in a bad state now).</p>
+<h2 id="169--perfect-transitive"><a class="header" href="#169--perfect-transitive">16.9  Perfect transitive</a></h2>
+<p>Examples: <em>bhí an seol ligthe anuas; ní raibh mórán déanta orthu.</em></p>
+<p>This is a passive structure. An actor can be mentioned using the preposition <em>ag: ní raibh tada déanta agam; bhí na potaí curtha ag Peadar ann.</em></p>
+<p>The perfect structure <em>tar éis (théis)</em> + verbal noun isn't used much, but it is heard sometimes: <em>tá cara liom théis fear a bhualadh ar an mbóthar</em> (referring to a car accident) (Cois Fharraige).</p>
+<h2 id="1610-purposive-intransitive"><a class="header" href="#1610-purposive-intransitive">16.10 Purposive intransitive</a></h2>
+<p>Examples: <em>bhí sé ag goil ag imeacht; tá obair ag goil ag tosaí ann; níl mé ag goil ag fanacht níos faide.</em></p>
+<p>This matches the English structure 'going to...', i.e. about to do something. Note that <em>bheith, goil, tíocht</em> can't be used after <em>ag goil</em>. In cases like that the future must be used: 'We are going to be late' - <em>beidh muid mall.</em></p>
+<h2 id="1611-purposive-transitive"><a class="header" href="#1611-purposive-transitive">16.11 Purposive transitive</a></h2>
+<p>Examples: <em>tá mé ag goil ag rá an méid seo; níl aon áit eile ag goil dá shású; níl sé ag goil ag déanamh blas ar bith ort.</em></p>
+<p>Again this corresponds to the English structure 'going to...'. It's almost the same as the future tense often. Sometimes it conveys a general truth:<br />
+<em>Tá chuile Yank ag goil ag ól coffee ar maidin</em> (Carna), i.e. it's a strong tendency of every American.</p>
+<p>There's a passive structure in this compound tense too:<br />
+<em>Tá smidiríní ag goil dá dhéanamh dhe</em> (Carna) i.e. it going to be made into smithereens.</p>
+<h2 id="1612-purposive-another-structure"><a class="header" href="#1612-purposive-another-structure">16.12 Purposive: another structure</a></h2>
+<p>There's a special type of purposive structure in the following examples:<br />
+<em>ní raibh sé lé bheith agad níos faide,</em> i.e. you were not fated to have it;<br />
+<em>an bhfuil mé lé ghoil abhaile</em>: i.e. am I fated to leave?;<br />
+<em>bhí sé lé thíocht anseo aréir,</em> i.e. he had decided to come;<br />
+<em>bhí sé leis na beithí a dhíol,</em> i.e. he intended to sell them.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="the_copula.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="vocabulary.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="the_copula.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="vocabulary.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+
+    </div>
+    </body>
+</html>

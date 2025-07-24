@@ -1,0 +1,284 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Numbers - The Living Language - Conamara</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "";
+            const default_light_theme = "light";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">The Living Language - Conamara</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="8-numbers"><a class="header" href="#8-numbers">8. Numbers</a></h1>
+<h2 id="81-basic-numbers"><a class="header" href="#81-basic-numbers">8.1 Basic numbers</a></h2>
+<p>The numbers are as they are in the standard: <em>punt amháin, dhá phunt, trí phunt, ceithre (cheire) phunt, cúig phunt, sé phunt, seacht bpunt, ocht bpunt, naoi bpunt, deich bpunt, aon phunt déag, dhá phunt déag,</em> etc.</p>
+<p>With the article: <em>an dá phunt, na trí phunt,</em> etc.</p>
+<h2 id="82-singular-or-plural"><a class="header" href="#82-singular-or-plural">8.2 Singular or plural</a></h2>
+<p>The singular always follows <em>dhá: dhá lá, dhá bhliain, dhá cheann.</em> And the singular normally follows the other numbers. But plural in the case of the words <em>bliain, ceann, orlach, pingin (pínn), scór, seachtain, slat, troigh (tro), uair</em> (i.e. babhta): <em>trí bliana, trí cinn, trí horlaí, trí pingne, trí scóir, trí seachtainí, trí slata, trí troithe, trí huaire.</em> <em>bliain, pingin, scór, uair</em> have a special plural. The normal plural of those words are: <em>blianta, pingneachaí, scórtha, uaireanta.</em></p>
+<h2 id="83-choice-between-two-numbers"><a class="header" href="#83-choice-between-two-numbers">8.3 Choice between two numbers</a></h2>
+<p>When there's uncertainty about the number it's put like this: <em>bliain nó dhó, dó nó trí de bhlianta, trí nó ceathair de bhlianta,</em> and so on.</p>
+<p>In this case, <em>ceann, cuairt</em> (i.e. babhta) have a special plural: <em>dó nó trí de cheanna, dó nó trí de chuarta.</em></p>
+<h2 id="84-ceann"><a class="header" href="#84-ceann">8.4 <em>ceann</em></a></h2>
+<p><em>ceann</em> is used for counting things: <em>ceann, dhá cheann, trí cinn,</em> etc.</p>
+<p>Instead of <em>dhá cheann</em>, often <em>péire</em> is said: <em>níl fagtha ach péire, toram péir' eile.</em></p>
+<p>Sometimes <em>cinn</em> is used to mention the number of things: <em>seacht gcinn d'uibheacha</em> instead of <em>seacht n-ubh, deich gcinn fhichead de bháid</em> inistead of <em>deich mbád is fiche.</em></p>
+<h2 id="85-cúpla"><a class="header" href="#85-cúpla">8.5 <em>cúpla</em></a></h2>
+<p>There are two versions of this word: <em>cupla</em> (/u/) and <em>cúpla</em> (/u:/).</p>
+<p><em>cupla</em> is the same as a small uncertain number: <em>cupla lá ó shin,</em> i.e. two or three days. <em>cupla</em> can't be used on its own, because of that <em>ceann</em> is put with it in cases like this: <em>níl uaim ach cupla ceann, cupla ceann de na cinn mhóra.</em></p>
+<p><em>cúpla</em> is normally the same as two people, especially twins. One of them would be called <em>leathcheann cúpla</em>.</p>
+<h2 id="86-fiche"><a class="header" href="#86-fiche">8.6 <em>fiche</em></a></h2>
+<p>The singular follows <em>fiche: fiche bliain, fiche míle.</em> Here are some examples of the numbers which are based on <em>fiche:</em></p>
+<ul>
+<li>21 : <em>bliain is fiche</em></li>
+<li>30 : <em>deich mbliana fichead</em></li>
+<li>35 : <em>cúig bliana déag is fiche</em></li>
+<li>40 : <em>dhá fhichead bliain</em></li>
+<li>45 : <em>cúig bliana is dá fhichead</em></li>
+<li>50 : <em>deich mbliana is dá fhichead</em></li>
+</ul>
+<p>The new numbers <em>tríocha, daichead</em> (dathad), <em>caoga,</em> etc. are in use now too. Instead of <em>deich is dá fhichead</em> or <em>caoga</em> often <em>leathchéad</em> is said: <em>leathchéad bliain ó shin.</em></p>
+<p>There is a simple way as well to mention numbers above 20: <em>fiche cúig punt, tríocha cúig punt,</em> and so on.</p>
+<h2 id="87-scór"><a class="header" href="#87-scór">8.7 <em>scór</em></a></h2>
+<p><em>scór</em> is often used instead of <em>fiche: scór blianta, scór daoine, scór mílte.</em> Normally it's followed by the plural, or the genitive plural if the word has that form: <em>scór fear, scór punt.</em></p>
+<p>High numbers can be based on <em>scór</em> as well: <em>dhá scór, trí scóir, ceithre scóir.</em> Those are used especially when someone's age is being mentioned: <em>tá sé na ceithre scóir.</em></p>
+<h2 id="88-personal-numbers"><a class="header" href="#88-personal-numbers">8.8 Personal Numbers</a></h2>
+<p>To count people, <em>duine, beirt, triúr, ceathrar (ceathar),</em> etc. are said. Instead of <em>seachtar</em>, sometimes <em>mórsheisear</em> is said.</p>
+<p>These personal numbers are also used along with nouns: <em>triúr iascairí.</em> They're normally followed by the plural: <em>beirt bhuachaillí, triúr lads, triúr mná, seachtar cailíní.</em> The old genitive plural is used in <em>beirt bhan, beirt dhriothár.</em> In some cases it could be the genitive plural or the nominative singular: <em>beirt dheithiúr, beirt fhear, beirt inín, beirt mhac.</em></p>
+<p>Sometimes <em>dhá</em> is used instead of <em>beirt: dhá bhean, dhá chailín, dhá mhac.</em></p>
+<h2 id="89-what-time-is-it"><a class="header" href="#89-what-time-is-it">8.9 What time is it?</a></h2>
+<p>The time is told as follows:</p>
+<ul>
+<li><em>Tá sé an dó a chlog, an trí a chlog, etc.</em></li>
+<li><em>Tá sé cúig nóiméad tar éis a dó.</em></li>
+<li><em>Tá sé ceathrú tar éis a dó.</em></li>
+<li><em>Tá sé leathuair tar éis a dó.</em></li>
+<li><em>Tá sé cúig nóiméad don dó.</em></li>
+<li><em>Tá sé ceathrú don dó.</em></li>
+</ul>
+<p>Some turns of phrase relating to the time:</p>
+<ul>
+<li><em>Tá sé i bhoisceacht cupla nóiméad don dó</em> (<em>i bhfoisceacht</em> is said as <em>úiceacht;</em> it is the same as <em>i ngiorracht</em>).</li>
+<li><em>Tá sé ag goil suas chuig a dó a chlog</em> (i.e. approaching two).</li>
+<li><em>Tá sé an dó a chlog caite</em> (i.e. it's after two).</li>
+<li><em>An bhfuil sé taobh leis an am sin?</em> ('Is that all the time it is?')</li>
+<li><em>Tá an t-am caite.</em> ('The time is up.')</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="adjectives.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="pronouns.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="adjectives.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="pronouns.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+
+    </div>
+    </body>
+</html>

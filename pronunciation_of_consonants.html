@@ -1,0 +1,300 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Pronunciation of Consonants - The Living Language - Conamara</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "";
+            const default_light_theme = "light";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">The Living Language - Conamara</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="3-pronunciation-of-consonants"><a class="header" href="#3-pronunciation-of-consonants">3. Pronunciation of Consonants</a></h1>
+<h2 id="31-broad-bh"><a class="header" href="#31-broad-bh">3.1 Broad <em>bh</em></a></h2>
+<p>Broad <em>bh</em> = /v/ usually: <em>ábhar, bhuail, taobh.</em> There's very little friction except before consonants (<em>bhraith</em>) or at the end of a word (<em>sliabh</em>); outside of those two places it's almost identical to the English /w/ in <em>woe.</em></p>
+<p>/u:/ is common in place of an epenthetic vowel + /v/: <em>banbh (banú</em> nó <em>banabh)</em>, <em>garbh, marbh, tarbh.</em> <em>leanbh</em> is said as <em>leana.</em></p>
+<p><em>-bha-</em> = /u:/: <em>arbhar (arúr), colbha, gealbhan, mearbhall</em></p>
+<h2 id="32-slender-bh"><a class="header" href="#32-slender-bh">3.2 Slender <em>bh</em></a></h2>
+<p>Slender <em>bh</em> = /v´/: <em>bhí, sléibhe</em> (genitive), <em>bainbh (bainibh)</em> (plural). There's a silent <em>bh</em> in <em>scríbhneoir.</em> /b´/ usually in <em>libh, sibh</em> etc.</p>
+<h2 id="33-broad-ch"><a class="header" href="#33-broad-ch">3.3 Broad <em>ch</em></a></h2>
+<p>Broad <em>ch</em> = /x/ in every position: <em>achar, bealach, chas, locht.</em> /h/ in <em>chuig, chugam, etc.</em></p>
+<h2 id="34-slender-ch"><a class="header" href="#34-slender-ch">3.4 Slender <em>ch</em></a></h2>
+<p>Slender <em>ch</em> = /x´/ at the start of a word: <em>cheap, chreid.</em> But /h/ in <em>cheana.</em></p>
+<p>/h/ in the middle of a word usually: <em>dícheall, droichead</em> (3.20). But /x´/ sometimes in <em>fiche, oíche.</em> /f´/ in <em>cluiche, doicheall.</em> The <em>ch</em> is silent in <em>deich.</em></p>
+<h2 id="35-broad-dh"><a class="header" href="#35-broad-dh">3.5 Broad <em>dh</em></a></h2>
+<p>Broad <em>dh</em> = /y/ at the start of a word: <em>dhúin.</em></p>
+<p><em>dh</em> is silent at the end of a noun: *briseadh (brise), casadh (casa), samhradh (samhra).</p>
+<p>Regarding broad <em>-dh</em> in verbs see 13.2.</p>
+<h2 id="36-slender-dh"><a class="header" href="#36-slender-dh">3.6 Slender <em>dh</em></a></h2>
+<p>Slender <em>dh</em> = /j/ at the start of a word: <em>dhíol.</em> There's no friction except before a consonant: <em>mo dhream.</em></p>
+<p>Slender <em>dh</em> is silent at the end of a word: <em>anuraidh (anura), imeoidh (imeo), réidh (ré), ó thuaidh (ó thua).</em></p>
+<h2 id="37-broad-f"><a class="header" href="#37-broad-f">3.7 Broad <em>f</em></a></h2>
+<p>Broad <em>f</em> = /f/ usually: <em>fuar, lofa.</em> Silent or = /h/  in <em>fiafraí (fiarthaí)</em></p>
+<p><em>-fa-</em> = /u:/ in <em>méanfach (méanúch).</em></p>
+<h2 id="38-slender-f"><a class="header" href="#38-slender-f">3.8 Slender <em>f</em></a></h2>
+<p>Slender <em>f</em> = /f´/: <em>fíor, deifir, geaif.</em> /h/ in <em>féin</em> normally, but /p´/  sometimes following *m: liom féin (liom péin), táim féin (táim péin).</p>
+<p>Regarding <em>-f-</em> in verbs see 13.4-6.</p>
+<h2 id="broad-gh"><a class="header" href="#broad-gh">Broad <em>gh</em></a></h2>
+<p>Broad <em>gh</em> = /y/ at the start of a word: <em>ghoid.</em> Regarding <em>gh</em> in the middle of a word see 2.9, 2.11.</p>
+<p><em>-gha-</em> = /i:/ <em>carghas (caraíos).</em></p>
+<h2 id="slender-gh"><a class="header" href="#slender-gh">Slender <em>gh</em></a></h2>
+<p>Slender <em>gh</em> = /j/ at the start of a word: <em>ghearr.</em> There's little friction except before a consonant: <em>ghread.</em></p>
+<p>Slender <em>gh</em> is silent at the end of a word: <em>bealaigh (beala)</em> (genitive), <em>imigh (ime), uaigh (ua).</em></p>
+<p>/h/ is used at the end of <em>amuigh, istigh</em> before vowel: <em>amuigh ann (amuth ann).</em> Sometimes those two words have /x´/ (especially in Carna): <em>amuich, istich</em> are said.</p>
+<h2 id="311-broad-l"><a class="header" href="#311-broad-l">3.11 Broad <em>l</em></a></h2>
+<p>Broad <em>l</em> = dental /l/ in all positions normally: <em>balla, geall, lá, slán.</em> But alveolar /l/ sometimes in Carna in words like <em>glan, seol, talamh.</em> Usually /h/ follows the alveolar /l/ in Carna and in other places in words like <em>boladh, folamh, talamh.</em></p>
+<h2 id="312-slender-l"><a class="header" href="#312-slender-l">3.12 Slender <em>l</em></a></h2>
+<p>Slender <em>l</em> = Palatal /L´/ in the following positions usually: at the start of a word <em>(leas),</em> following <em>s (sliabh),</em> before <em>t (ceilt)</em>, where <em>ll</em> is in the spelling <em>(buille).</em> Alveolar /l´/ in other positions: <em>buile, cáil, cleas.</em> /l´/ in <em>le</em> (<em>liom,</em> etc), <em>tuilleadh (tile),</em> and in loans like <em>lad.</em></p>
+<h2 id="313-broad-mh"><a class="header" href="#313-broad-mh">3.13 Broad <em>mh</em></a></h2>
+<p>Broad <em>mh</em> = /v/: <em>mhair, fómhar, lámh.</em> There is little friction except before a consonant: <em>samhradh</em> /savrə/ (2.10).</p>
+<p>Silent <em>mh</em> in <em>clúmhach (clúch), cumha (cú), cumhachta (cúchta).</em> Also in <em>slachtmhar (slachtar).</em></p>
+<p><em>-mha-</em> = /u:/ in <em>greannmhar (greannúr).</em></p>
+<p>Silent <em>mh</em> at the end of two syllable words normally: <em>annamh (anna), gaineamh (gaine), talamh (tala).</em></p>
+<h2 id="314-slender-mh"><a class="header" href="#314-slender-mh">3.14 Slender <em>mh</em></a></h2>
+<p>Slender <em>mh</em> = /v´/: <em>mheas, deimhin, láimh.</em></p>
+<p>Silent <em>mh</em> in <em>Gaillimh (Gaille)</em> but it's preserved in the genitive <em>(Gaillimhe).</em> The <em>mh</em> is dropped in <em>Muimhneach (Muíneach),</em> and sometimes in <em>cuimhne (cuíne).</em></p>
+<h2 id="315-broad-n"><a class="header" href="#315-broad-n">3.15 Broad <em>n</em></a></h2>
+<p>Broad <em>n</em> = dental /n/ in every position normally: <em>annamh, gann, nós, snámh.</em> But alveolar /n/ someitimes (especially in Carna) in words like <em>anam, bán, scanradh, scian.</em> Also in loans like <em>nobby, nurse.</em></p>
+<p><em>n</em> = /r/ usually in words like <em>cnoc, gnaíúil, mná;</em> but /n/ in <em>gnás, gnáth.</em></p>
+<h2 id="316-slender-n"><a class="header" href="#316-slender-n">3.16 Slender <em>n</em></a></h2>
+<p>Slender <em>n</em> = Palatal /N´/ in the following positions: at the start of a word <em>(neart),</em> following <em>s (sneachta),</em> before <em>t, (caint),</em> where <em>nn</em> is in the spelling <em>(rinne).</em></p>
+<p>Alveolar /n´/ in other positions: <em>cáin, duine, léine.</em> /n´/ also in <em>anois.</em></p>
+<p><em>n</em> = /r´/ usually in words like <em>cneasta, cniteáil, imní.</em></p>
+<h2 id="317-ng"><a class="header" href="#317-ng">3.17 <em>ng</em></a></h2>
+<p>Broad <em>ng</em> = /ŋ/ at the start of a word (<em>i ngarraí</em>), /ŋg/ usually in the middle of a word (<em>ceangal</em>) and at the end of a word (<em>rang</em>).</p>
+<p>The same way with slender <em>ng</em> = /ŋ´/ at the start of a word (<em>i ngleann</em>), /ŋg´/ in the middle of a word (<em>daingean</em>) and at the end of a word (<em>moing</em>). <em>pingin</em> is said as <em>pínn.</em></p>
+<p><em>ng</em> = /N´/ in <em>fairsing, tarraing.</em></p>
+<h2 id="318-r"><a class="header" href="#318-r">3.18 <em>r</em></a></h2>
+<p><em>r</em> = Broad /r/ at the start of a word: <em>reo, rí, rith.</em> Slender /r´/ in <em>ariamh, aríst;</em> but broad /r/ in the first <em>r</em> of <em>aréir.</em> <em>r</em> is always broad before <em>d, l, n, s, t: aird, airneán, beirt, comhairle, tuirse.</em> Broad <em>r</em> also in <em>beirthe, faraoir (faríor), uirthi (orha).</em></p>
+<h2 id="319-s"><a class="header" href="#319-s">3.19 <em>s</em></a></h2>
+<p>/ʃ/ is in the group <em>sr-</em> in some places (Carna): <em>sráid, srian.</em> But /s/ in that group in other places. Always /s/ in <em>sm-, sp-: smig, speal.</em> /ʃ/ normally in <em>sc-</em> (<em>scéal, scil</em>), but /s/ sometimes in Cois Fharraige.</p>
+<h2 id="320-th"><a class="header" href="#320-th">3.20 <em>th</em></a></h2>
+<p><em>th</em> = /h/ at the start of a word: <em>theann</em> /ha:n/, <em>theastaigh, thit.</em> /x´/ before /u:/ in <em>thiúrfadh</em> (14.10).</p>
+<p>/h/ in the middle of a word too usually: <em>athair, bóthar, láthair.</em> But in Cois Fharraige the /h/ is dropped often. Sometimes the vowel is changed become of that: <em>cathaoir</em> /kair´/, <em>droichead</em> /dre:d/.</p>
+<p>In words like <em>aithne, athrú</em>, the /h/ comes after the <em>n, r: aithne (ainthe).</em> The /h/ is usually dropped in Cois Fharraige.</p>
+<p>The /h/ normally isn't audible at the end of a word: <em>(tá go) maith.</em>
+But it is usually audible if a vowel follows it: <em>is maith é.</em></p>
+<ul>
+<li><em>th</em> = /x´/ sometimes in <em>ar bith, d'ith, rith</em> (Carna).</li>
+<li><em>th</em> = /f/ in <em>sraothartach,</em> sometimes in <em>leathuair.</em></li>
+<li><em>th</em> = /f´/ in <em>tuathal (tuaifeal).</em></li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="pronunciation_of_vowels.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="pronunciation_various_words.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="pronunciation_of_vowels.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="pronunciation_various_words.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+
+    </div>
+    </body>
+</html>
